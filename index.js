@@ -21,7 +21,7 @@ function buildServiceMap() {
       var svcName = match[1], version = match[2];
       var svcIdentifier = svcName.toLowerCase();
 
-      if (!serviceMap[svcName]) { // build the base service values
+      if (!serviceMap[svcIdentifier]) { // build the base service values
         // add versions from symlinks, if any
         var versions = symlinks[svcName] || [];
         serviceMap[svcIdentifier] = { name: svcName, versions: versions };
