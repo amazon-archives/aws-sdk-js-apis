@@ -1384,7 +1384,7 @@
           "Range": {
             "location": "header",
             "name": "Range"
-          },
+          }, 
           "VersionId": {
             "location": "uri"
           }
@@ -1396,6 +1396,10 @@
           "AcceptRanges": {
             "location": "header",
             "name": "accept-ranges"
+          },
+          "Body": {
+            "type": "binary",
+            "streaming": true
           },
           "CacheControl": {
             "location": "header",
@@ -1473,7 +1477,8 @@
             "location": "header",
             "name": "x-amz-website-redirect-location"
           }
-        }
+        },
+        "payload": "Body"
       }
     },
     "listBuckets": {
