@@ -2917,6 +2917,11 @@
         "NoSuchKey"
       ],
       "successType": "output"
+    },
+    "objectNotExists": {
+      "operation": "HeadObject",
+      "successType": "error",
+      "successValue": 404
     }
   }
 }
