@@ -511,6 +511,9 @@
       "outputToken": "NextToken",
       "resultKey": "StackEvents"
     },
+    "describeStackResources": {
+      "resultKey": "StackResources"
+    },
     "describeStacks": {
       "inputToken": "NextToken",
       "outputToken": "NextToken",
