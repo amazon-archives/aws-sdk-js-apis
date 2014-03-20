@@ -441,6 +441,17 @@
                   },
                   "S3BucketPrefix": {}
                 }
+              },
+              "ConnectionDraining": {
+                "type": "structure",
+                "members": {
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "Timeout": {
+                    "type": "integer"
+                  }
+                }
               }
             }
           }
@@ -787,6 +798,18 @@
                   },
                   "S3BucketPrefix": {}
                 }
+              },
+              "ConnectionDraining": {
+                "type": "structure",
+                "members": {
+                  "Enabled": {
+                    "type": "boolean",
+                    "required": true
+                  },
+                  "Timeout": {
+                    "type": "integer"
+                  }
+                }
               }
             },
             "required": true
@@ -819,6 +842,17 @@
                     "type": "integer"
                   },
                   "S3BucketPrefix": {}
+                }
+              },
+              "ConnectionDraining": {
+                "type": "structure",
+                "members": {
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "Timeout": {
+                    "type": "integer"
+                  }
                 }
               }
             }
