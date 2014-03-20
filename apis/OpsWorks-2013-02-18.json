@@ -93,6 +93,9 @@
           "UseCustomCookbooks": {
             "type": "boolean"
           },
+          "UseOpsworksSecurityGroups": {
+            "type": "boolean"
+          },
           "CustomCookbooksSource": {
             "type": "structure",
             "members": {
@@ -250,6 +253,9 @@
           "RootDeviceType": {},
           "InstallUpdatesOnBoot": {
             "type": "boolean"
+          },
+          "EbsOptimized": {
+            "type": "boolean"
           }
         }
       },
@@ -309,6 +315,10 @@
                 "Size": {
                   "type": "integer",
                   "required": true
+                },
+                "VolumeType": {},
+                "Iops": {
+                  "type": "integer"
                 }
               }
             }
@@ -348,6 +358,9 @@
             }
           },
           "InstallUpdatesOnBoot": {
+            "type": "boolean"
+          },
+          "UseEbsOptimizedInstances": {
             "type": "boolean"
           }
         }
@@ -395,6 +408,9 @@
             }
           },
           "UseCustomCookbooks": {
+            "type": "boolean"
+          },
+          "UseOpsworksSecurityGroups": {
             "type": "boolean"
           },
           "CustomCookbooksSource": {
@@ -844,6 +860,9 @@
                 "RootDeviceVolumeId": {},
                 "InstallUpdatesOnBoot": {
                   "type": "boolean"
+                },
+                "EbsOptimized": {
+                  "type": "boolean"
                 }
               }
             }
@@ -907,6 +926,10 @@
                         "type": "integer"
                       },
                       "Size": {
+                        "type": "integer"
+                      },
+                      "VolumeType": {},
+                      "Iops": {
                         "type": "integer"
                       }
                     }
@@ -973,6 +996,9 @@
                 },
                 "CreatedAt": {},
                 "InstallUpdatesOnBoot": {
+                  "type": "boolean"
+                },
+                "UseEbsOptimizedInstances": {
                   "type": "boolean"
                 }
               }
@@ -1145,7 +1171,11 @@
                 "Device": {},
                 "MountPoint": {},
                 "AvailabilityZone": {},
-                "CreatedAt": {}
+                "CreatedAt": {},
+                "VolumeType": {},
+                "Iops": {
+                  "type": "integer"
+                }
               }
             }
           }
@@ -1203,6 +1233,7 @@
             "members": {
               "StackId": {},
               "Name": {},
+              "Arn": {},
               "LayersCount": {
                 "type": "integer"
               },
@@ -1216,6 +1247,9 @@
                     "type": "integer"
                   },
                   "ConnectionLost": {
+                    "type": "integer"
+                  },
+                  "Online": {
                     "type": "integer"
                   },
                   "Pending": {
@@ -1240,6 +1274,9 @@
                     "type": "integer"
                   },
                   "Stopped": {
+                    "type": "integer"
+                  },
+                  "Stopping": {
                     "type": "integer"
                   },
                   "Terminated": {
@@ -1276,6 +1313,7 @@
               "members": {
                 "StackId": {},
                 "Name": {},
+                "Arn": {},
                 "Region": {},
                 "VpcId": {},
                 "Attributes": {
@@ -1298,6 +1336,9 @@
                   }
                 },
                 "UseCustomCookbooks": {
+                  "type": "boolean"
+                },
+                "UseOpsworksSecurityGroups": {
                   "type": "boolean"
                 },
                 "CustomCookbooksSource": {
@@ -1453,7 +1494,11 @@
                 "Device": {},
                 "MountPoint": {},
                 "Region": {},
-                "AvailabilityZone": {}
+                "AvailabilityZone": {},
+                "VolumeType": {},
+                "Iops": {
+                  "type": "integer"
+                }
               }
             }
           }
@@ -1923,6 +1968,10 @@
                 "Size": {
                   "type": "integer",
                   "required": true
+                },
+                "VolumeType": {},
+                "Iops": {
+                  "type": "integer"
                 }
               }
             }
@@ -1962,6 +2011,9 @@
             }
           },
           "InstallUpdatesOnBoot": {
+            "type": "boolean"
+          },
+          "UseEbsOptimizedInstances": {
             "type": "boolean"
           }
         }
@@ -2027,7 +2079,10 @@
             }
           },
           "DefaultSshKeyName": {},
-          "DefaultRootDeviceType": {}
+          "DefaultRootDeviceType": {},
+          "UseOpsworksSecurityGroups": {
+            "type": "boolean"
+          }
         }
       },
       "output": {
@@ -2097,6 +2152,9 @@
     },
     "describeLoadBasedAutoScaling": {
       "resultKey": "LoadBasedAutoScalingConfigurations"
+    },
+    "describePermissions": {
+      "resultKey": "Permissions"
     },
     "describeRaidArrays": {
       "resultKey": "RaidArrays"
