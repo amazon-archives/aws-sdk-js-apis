@@ -1,12 +1,100 @@
 {
   "format": "query",
-  "apiVersion": "2013-10-15",
+  "apiVersion": "2014-02-01",
   "endpointPrefix": "ec2",
   "serviceAbbreviation": "Amazon EC2",
   "serviceFullName": "Amazon Elastic Compute Cloud",
   "signatureVersion": "v2",
   "timestampFormat": "iso8601",
   "operations": {
+    "acceptVpcPeeringConnection": {
+      "name": "AcceptVpcPeeringConnection",
+      "input": {
+        "type": "structure",
+        "members": {
+          "DryRun": {
+            "type": "boolean"
+          },
+          "VpcPeeringConnectionId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "vpcPeeringConnection": {
+            "type": "structure",
+            "members": {
+              "accepterVpcInfo": {
+                "type": "structure",
+                "members": {
+                  "cidrBlock": {
+                    "name": "CidrBlock"
+                  },
+                  "ownerId": {
+                    "name": "OwnerId"
+                  },
+                  "vpcId": {
+                    "name": "VpcId"
+                  }
+                },
+                "name": "AccepterVpcInfo"
+              },
+              "expirationTime": {
+                "type": "timestamp",
+                "name": "ExpirationTime"
+              },
+              "requesterVpcInfo": {
+                "type": "structure",
+                "members": {
+                  "cidrBlock": {
+                    "name": "CidrBlock"
+                  },
+                  "ownerId": {
+                    "name": "OwnerId"
+                  },
+                  "vpcId": {
+                    "name": "VpcId"
+                  }
+                },
+                "name": "RequesterVpcInfo"
+              },
+              "status": {
+                "type": "structure",
+                "members": {
+                  "code": {
+                    "name": "Code"
+                  },
+                  "message": {
+                    "name": "Message"
+                  }
+                },
+                "name": "Status"
+              },
+              "tagSet": {
+                "type": "list",
+                "members": {
+                  "type": "structure",
+                  "members": {
+                    "key": {
+                      "name": "Key"
+                    },
+                    "value": {
+                      "name": "Value"
+                    }
+                  },
+                  "name": "item"
+                },
+                "name": "Tags"
+              },
+              "vpcPeeringConnectionId": {
+                "name": "VpcPeeringConnectionId"
+              }
+            },
+            "name": "VpcPeeringConnection"
+          }
+        }
+      }
+    },
     "allocateAddress": {
       "name": "AllocateAddress",
       "input": {
@@ -1764,7 +1852,8 @@
           },
           "GatewayId": {},
           "InstanceId": {},
-          "NetworkInterfaceId": {}
+          "NetworkInterfaceId": {},
+          "VpcPeeringConnectionId": {}
         }
       },
       "output": {
@@ -1816,6 +1905,9 @@
                     },
                     "networkInterfaceId": {
                       "name": "NetworkInterfaceId"
+                    },
+                    "vpcPeeringConnectionId": {
+                      "name": "VpcPeeringConnectionId"
                     },
                     "state": {
                       "name": "State"
@@ -1958,22 +2050,6 @@
           },
           "ownerAlias": {
             "name": "OwnerAlias"
-          },
-          "tagSet": {
-            "type": "list",
-            "members": {
-              "type": "structure",
-              "members": {
-                "key": {
-                  "name": "Key"
-                },
-                "value": {
-                  "name": "Value"
-                }
-              },
-              "name": "item"
-            },
-            "name": "Tags"
           }
         },
         "name": "snapshot"
@@ -2295,6 +2371,96 @@
               }
             },
             "name": "Vpc"
+          }
+        }
+      }
+    },
+    "createVpcPeeringConnection": {
+      "name": "CreateVpcPeeringConnection",
+      "input": {
+        "type": "structure",
+        "members": {
+          "DryRun": {
+            "type": "boolean"
+          },
+          "VpcId": {},
+          "PeerVpcId": {},
+          "PeerOwnerId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "vpcPeeringConnection": {
+            "type": "structure",
+            "members": {
+              "accepterVpcInfo": {
+                "type": "structure",
+                "members": {
+                  "cidrBlock": {
+                    "name": "CidrBlock"
+                  },
+                  "ownerId": {
+                    "name": "OwnerId"
+                  },
+                  "vpcId": {
+                    "name": "VpcId"
+                  }
+                },
+                "name": "AccepterVpcInfo"
+              },
+              "expirationTime": {
+                "type": "timestamp",
+                "name": "ExpirationTime"
+              },
+              "requesterVpcInfo": {
+                "type": "structure",
+                "members": {
+                  "cidrBlock": {
+                    "name": "CidrBlock"
+                  },
+                  "ownerId": {
+                    "name": "OwnerId"
+                  },
+                  "vpcId": {
+                    "name": "VpcId"
+                  }
+                },
+                "name": "RequesterVpcInfo"
+              },
+              "status": {
+                "type": "structure",
+                "members": {
+                  "code": {
+                    "name": "Code"
+                  },
+                  "message": {
+                    "name": "Message"
+                  }
+                },
+                "name": "Status"
+              },
+              "tagSet": {
+                "type": "list",
+                "members": {
+                  "type": "structure",
+                  "members": {
+                    "key": {
+                      "name": "Key"
+                    },
+                    "value": {
+                      "name": "Value"
+                    }
+                  },
+                  "name": "item"
+                },
+                "name": "Tags"
+              },
+              "vpcPeeringConnectionId": {
+                "name": "VpcPeeringConnectionId"
+              }
+            },
+            "name": "VpcPeeringConnection"
           }
         }
       }
@@ -2844,6 +3010,27 @@
       "output": {
         "type": "structure",
         "members": {}
+      }
+    },
+    "deleteVpcPeeringConnection": {
+      "name": "DeleteVpcPeeringConnection",
+      "input": {
+        "type": "structure",
+        "members": {
+          "DryRun": {
+            "type": "boolean"
+          },
+          "VpcPeeringConnectionId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "return": {
+            "type": "boolean",
+            "name": "Return"
+          }
+        }
       }
     },
     "deleteVpnConnection": {
@@ -6091,6 +6278,9 @@
                       "networkInterfaceId": {
                         "name": "NetworkInterfaceId"
                       },
+                      "vpcPeeringConnectionId": {
+                        "name": "VpcPeeringConnectionId"
+                      },
                       "state": {
                         "name": "State"
                       },
@@ -7482,6 +7672,122 @@
               }
             },
             "name": "EnableDnsHostnames"
+          }
+        }
+      }
+    },
+    "describeVpcPeeringConnections": {
+      "name": "DescribeVpcPeeringConnections",
+      "input": {
+        "type": "structure",
+        "members": {
+          "DryRun": {
+            "type": "boolean"
+          },
+          "VpcPeeringConnectionIds": {
+            "type": "list",
+            "members": {
+              "name": "VpcPeeringConnectionId"
+            },
+            "flattened": true
+          },
+          "Filters": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Name": {},
+                "Values": {
+                  "type": "list",
+                  "members": {
+                    "name": "Value"
+                  },
+                  "flattened": true
+                }
+              },
+              "name": "Filter"
+            },
+            "flattened": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "vpcPeeringConnectionSet": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "accepterVpcInfo": {
+                  "type": "structure",
+                  "members": {
+                    "cidrBlock": {
+                      "name": "CidrBlock"
+                    },
+                    "ownerId": {
+                      "name": "OwnerId"
+                    },
+                    "vpcId": {
+                      "name": "VpcId"
+                    }
+                  },
+                  "name": "AccepterVpcInfo"
+                },
+                "expirationTime": {
+                  "type": "timestamp",
+                  "name": "ExpirationTime"
+                },
+                "requesterVpcInfo": {
+                  "type": "structure",
+                  "members": {
+                    "cidrBlock": {
+                      "name": "CidrBlock"
+                    },
+                    "ownerId": {
+                      "name": "OwnerId"
+                    },
+                    "vpcId": {
+                      "name": "VpcId"
+                    }
+                  },
+                  "name": "RequesterVpcInfo"
+                },
+                "status": {
+                  "type": "structure",
+                  "members": {
+                    "code": {
+                      "name": "Code"
+                    },
+                    "message": {
+                      "name": "Message"
+                    }
+                  },
+                  "name": "Status"
+                },
+                "tagSet": {
+                  "type": "list",
+                  "members": {
+                    "type": "structure",
+                    "members": {
+                      "key": {
+                        "name": "Key"
+                      },
+                      "value": {
+                        "name": "Value"
+                      }
+                    },
+                    "name": "item"
+                  },
+                  "name": "Tags"
+                },
+                "vpcPeeringConnectionId": {
+                  "name": "VpcPeeringConnectionId"
+                }
+              },
+              "name": "item"
+            },
+            "name": "VpcPeeringConnections"
           }
         }
       }
@@ -9079,6 +9385,27 @@
         }
       }
     },
+    "rejectVpcPeeringConnection": {
+      "name": "RejectVpcPeeringConnection",
+      "input": {
+        "type": "structure",
+        "members": {
+          "DryRun": {
+            "type": "boolean"
+          },
+          "VpcPeeringConnectionId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "return": {
+            "type": "boolean",
+            "name": "Return"
+          }
+        }
+      }
+    },
     "releaseAddress": {
       "name": "ReleaseAddress",
       "input": {
@@ -9195,7 +9522,8 @@
           },
           "GatewayId": {},
           "InstanceId": {},
-          "NetworkInterfaceId": {}
+          "NetworkInterfaceId": {},
+          "VpcPeeringConnectionId": {}
         }
       },
       "output": {
@@ -10775,9 +11103,6 @@
     "describeKeyPairs": {
       "resultKey": "KeyPairs"
     },
-    "describeLicenses": {
-      "resultKey": "Licenses"
-    },
     "describeNetworkAcls": {
       "resultKey": "NetworkAcls"
     },
@@ -10842,6 +11167,9 @@
     },
     "describeVolumes": {
       "resultKey": "Volumes"
+    },
+    "describeVpcPeeringConnections": {
+      "resultKey": "VpcPeeringConnections"
     },
     "describeVpcs": {
       "resultKey": "Vpcs"
