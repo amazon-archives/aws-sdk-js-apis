@@ -429,7 +429,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -938,7 +939,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -1578,7 +1580,8 @@
                     "ElasticIp": {},
                     "Status": {}
                   }
-                }
+                },
+                "ClusterRevisionNumber": {}
               },
               "name": "Cluster"
             }
@@ -2056,6 +2059,21 @@
           "ImportTablesNotStarted": {
             "type": "list",
             "members": {}
+          },
+          "AvgResizeRateInMegaBytesPerSecond": {
+            "type": "float"
+          },
+          "TotalResizeDataInMegaBytes": {
+            "type": "integer"
+          },
+          "ProgressInMegaBytes": {
+            "type": "integer"
+          },
+          "ElapsedTimeInSeconds": {
+            "type": "integer"
+          },
+          "EstimatedTimeToCompletionInSeconds": {
+            "type": "integer"
           }
         }
       }
@@ -2246,7 +2264,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -2448,7 +2467,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -2641,7 +2661,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -2960,7 +2981,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -3182,7 +3204,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -3405,7 +3428,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
@@ -3701,7 +3725,8 @@
                   "ElasticIp": {},
                   "Status": {}
                 }
-              }
+              },
+              "ClusterRevisionNumber": {}
             }
           }
         }
