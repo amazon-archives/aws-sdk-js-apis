@@ -59,15 +59,10 @@
           },
           "ReplicationGroupId": {},
           "NumCacheNodes": {
-            "type": "integer",
-            "required": true
+            "type": "integer"
           },
-          "CacheNodeType": {
-            "required": true
-          },
-          "Engine": {
-            "required": true
-          },
+          "CacheNodeType": {},
+          "Engine": {},
           "EngineVersion": {},
           "CacheParameterGroupName": {},
           "CacheSubnetGroupName": {},
@@ -605,6 +600,9 @@
         "members": {
           "ReplicationGroupId": {
             "required": true
+          },
+          "RetainPrimaryCluster": {
+            "type": "boolean"
           }
         }
       },
@@ -2025,9 +2023,9 @@
     },
     "describeEngineDefaultParameters": {
       "inputToken": "Marker",
-      "outputToken": "Marker",
+      "outputToken": "EngineDefaults.Marker",
       "limitKey": "MaxRecords",
-      "resultKey": "Parameters"
+      "resultKey": "EngineDefaults.Parameters"
     },
     "describeEvents": {
       "inputToken": "Marker",
@@ -2046,6 +2044,12 @@
       "outputToken": "Marker",
       "limitKey": "MaxRecords",
       "resultKey": "ReservedCacheNodesOfferings"
+    },
+    "describeReplicationGroups": {
+      "inputToken": "Marker",
+      "outputToken": "Marker",
+      "limitKey": "MaxRecords",
+      "resultKey": "ReplicationGroups"
     }
   }
 }
