@@ -58,11 +58,9 @@
           },
           "MultipartUpload": {
             "type": "structure",
-            "name": "CompleteMultipartUpload",
             "members": {
               "Parts": {
                 "type": "list",
-                "name": "Part",
                 "members": {
                   "type": "structure",
                   "members": {
@@ -72,9 +70,11 @@
                     }
                   }
                 },
-                "flattened": true
+                "flattened": true,
+                "name": "Part"
               }
-            }
+            },
+            "name": "CompleteMultipartUpload"
           },
           "UploadId": {
             "required": true,
@@ -85,15 +85,15 @@
       "output": {
         "type": "structure",
         "members": {
+          "Location": {},
           "Bucket": {},
-          "ETag": {},
+          "Key": {},
           "Expiration": {
             "type": "timestamp",
             "location": "header",
             "name": "x-amz-expiration"
           },
-          "Key": {},
-          "Location": {},
+          "ETag": {},
           "ServerSideEncryption": {
             "location": "header",
             "name": "x-amz-server-side-encryption"
@@ -107,7 +107,6 @@
     },
     "copyObject": {
       "name": "CopyObject",
-      "alias": "PutObjectCopy",
       "http": {
         "method": "PUT",
         "uri": "/{Bucket}/{Key}"
@@ -197,8 +196,8 @@
             "type": "map",
             "location": "header",
             "name": "x-amz-meta-",
-            "members": {},
-            "keys": {}
+            "keys": {},
+            "members": {}
           },
           "MetadataDirective": {
             "location": "header",
@@ -221,26 +220,29 @@
       "output": {
         "type": "structure",
         "members": {
+          "Expiration": {
+            "type": "timestamp",
+            "location": "header",
+            "name": "x-amz-expiration"
+          },
           "CopySourceVersionId": {
             "location": "header",
             "name": "x-amz-copy-source-version-id"
-          },
-          "Expiration": {
-            "location": "header",
-            "name": "x-amz-expiration"
           },
           "ServerSideEncryption": {
             "location": "header",
             "name": "x-amz-server-side-encryption"
           },
           "ETag": {},
-          "LastModified": {}
+          "LastModified": {
+            "type": "timestamp"
+          }
         }
-      }
+      },
+      "alias": "PutObjectCopy"
     },
     "createBucket": {
       "name": "CreateBucket",
-      "alias": "PutBucket",
       "http": {
         "method": "PUT",
         "uri": "/{Bucket}"
@@ -293,11 +295,11 @@
             "name": "Location"
           }
         }
-      }
+      },
+      "alias": "PutBucket"
     },
     "createMultipartUpload": {
       "name": "CreateMultipartUpload",
-      "alias": "InitiateMultipartUpload",
       "http": {
         "method": "POST",
         "uri": "/{Bucket}/{Key}?uploads"
@@ -362,8 +364,8 @@
             "type": "map",
             "location": "header",
             "name": "x-amz-meta-",
-            "members": {},
-            "keys": {}
+            "keys": {},
+            "members": {}
           },
           "ServerSideEncryption": {
             "location": "header",
@@ -386,13 +388,14 @@
             "name": "Bucket"
           },
           "Key": {},
+          "UploadId": {},
           "ServerSideEncryption": {
             "location": "header",
             "name": "x-amz-server-side-encryption"
-          },
-          "UploadId": {}
+          }
         }
-      }
+      },
+      "alias": "InitiateMultipartUpload"
     },
     "deleteBucket": {
       "name": "DeleteBucket",
@@ -557,7 +560,6 @@
     },
     "deleteObjects": {
       "name": "DeleteObjects",
-      "alias": "DeleteMultipleObjects",
       "http": {
         "method": "POST",
         "uri": "/{Bucket}?delete"
@@ -572,12 +574,9 @@
           },
           "Delete": {
             "type": "structure",
-            "required": true,
             "members": {
               "Objects": {
                 "type": "list",
-                "required": true,
-                "name": "Object",
                 "members": {
                   "type": "structure",
                   "members": {
@@ -587,12 +586,15 @@
                     "VersionId": {}
                   }
                 },
-                "flattened": true
+                "flattened": true,
+                "required": true,
+                "name": "Object"
               },
               "Quiet": {
                 "type": "boolean"
               }
-            }
+            },
+            "required": true
           },
           "MFA": {
             "location": "header",
@@ -608,32 +610,33 @@
             "members": {
               "type": "structure",
               "members": {
+                "Key": {},
+                "VersionId": {},
                 "DeleteMarker": {
                   "type": "boolean"
                 },
-                "DeleteMarkerVersionId": {},
-                "Key": {},
-                "VersionId": {}
+                "DeleteMarkerVersionId": {}
               }
             },
             "flattened": true
           },
           "Error": {
             "type": "list",
-            "name": "Errors",
             "members": {
               "type": "structure",
               "members": {
-                "Code": {},
                 "Key": {},
-                "Message": {},
-                "VersionId": {}
+                "VersionId": {},
+                "Code": {},
+                "Message": {}
               }
             },
-            "flattened": true
+            "flattened": true,
+            "name": "Errors"
           }
         }
-      }
+      },
+      "alias": "DeleteMultipleObjects"
     },
     "getBucketAcl": {
       "name": "GetBucketAcl",
@@ -653,40 +656,40 @@
       "output": {
         "type": "structure",
         "members": {
-          "AccessControlList": {
-            "type": "list",
-            "name": "Grants",
-            "members": {
-              "type": "structure",
-              "name": "Grant",
-              "members": {
-                "Grantee": {
-                  "type": "structure",
-                  "xmlns": {
-                    "uri": "http://www.w3.org/2001/XMLSchema-instance",
-                    "prefix": "xsi"
-                  },
-                  "members": {
-                    "DisplayName": {},
-                    "EmailAddress": {},
-                    "ID": {},
-                    "xsi:type": {
-                      "name": "Type",
-                      "attribute": true
-                    },
-                    "URI": {}
-                  }
-                },
-                "Permission": {}
-              }
-            }
-          },
           "Owner": {
             "type": "structure",
             "members": {
               "DisplayName": {},
               "ID": {}
             }
+          },
+          "AccessControlList": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Grantee": {
+                  "type": "structure",
+                  "members": {
+                    "DisplayName": {},
+                    "EmailAddress": {},
+                    "ID": {},
+                    "xsi:type": {
+                      "attribute": true,
+                      "name": "Type"
+                    },
+                    "URI": {}
+                  },
+                  "xmlns": {
+                    "prefix": "xsi",
+                    "uri": "http://www.w3.org/2001/XMLSchema-instance"
+                  }
+                },
+                "Permission": {}
+              },
+              "name": "Grant"
+            },
+            "name": "Grants"
           }
         }
       }
@@ -711,40 +714,40 @@
         "members": {
           "CORSRule": {
             "type": "list",
-            "name": "CORSRules",
             "members": {
               "type": "structure",
               "members": {
                 "AllowedHeader": {
                   "type": "list",
-                  "name": "AllowedHeaders",
                   "members": {},
-                  "flattened": true
+                  "flattened": true,
+                  "name": "AllowedHeaders"
                 },
                 "AllowedMethod": {
                   "type": "list",
-                  "name": "AllowedMethods",
                   "members": {},
-                  "flattened": true
+                  "flattened": true,
+                  "name": "AllowedMethods"
                 },
                 "AllowedOrigin": {
                   "type": "list",
-                  "name": "AllowedOrigins",
                   "members": {},
-                  "flattened": true
+                  "flattened": true,
+                  "name": "AllowedOrigins"
                 },
                 "ExposeHeader": {
                   "type": "list",
-                  "name": "ExposeHeaders",
                   "members": {},
-                  "flattened": true
+                  "flattened": true,
+                  "name": "ExposeHeaders"
                 },
                 "MaxAgeSeconds": {
                   "type": "integer"
                 }
               }
             },
-            "flattened": true
+            "flattened": true,
+            "name": "CORSRules"
           }
         }
       }
@@ -769,7 +772,6 @@
         "members": {
           "Rule": {
             "type": "list",
-            "name": "Rules",
             "members": {
               "type": "structure",
               "members": {
@@ -803,7 +805,8 @@
                 }
               }
             },
-            "flattened": true
+            "flattened": true,
+            "name": "Rules"
           }
         }
       }
@@ -856,27 +859,27 @@
                 "type": "list",
                 "members": {
                   "type": "structure",
-                  "name": "Grant",
                   "members": {
                     "Grantee": {
                       "type": "structure",
-                      "xmlns": {
-                        "uri": "http://www.w3.org/2001/XMLSchema-instance",
-                        "prefix": "xsi"
-                      },
                       "members": {
                         "DisplayName": {},
                         "EmailAddress": {},
                         "ID": {},
                         "xsi:type": {
-                          "name": "Type",
-                          "attribute": true
+                          "attribute": true,
+                          "name": "Type"
                         },
                         "URI": {}
+                      },
+                      "xmlns": {
+                        "prefix": "xsi",
+                        "uri": "http://www.w3.org/2001/XMLSchema-instance"
                       }
                     },
                     "Permission": {}
-                  }
+                  },
+                  "name": "Grant"
                 }
               },
               "TargetPrefix": {}
@@ -980,11 +983,11 @@
             "type": "list",
             "members": {
               "type": "structure",
-              "name": "Tag",
               "members": {
                 "Key": {},
                 "Value": {}
-              }
+              },
+              "name": "Tag"
             }
           }
         }
@@ -1008,8 +1011,8 @@
       "output": {
         "type": "structure",
         "members": {
-          "MFADelete": {},
-          "Status": {}
+          "Status": {},
+          "MFADelete": {}
         }
       }
     },
@@ -1031,10 +1034,11 @@
       "output": {
         "type": "structure",
         "members": {
-          "ErrorDocument": {
+          "RedirectAllRequestsTo": {
             "type": "structure",
             "members": {
-              "Key": {}
+              "HostName": {},
+              "Protocol": {}
             }
           },
           "IndexDocument": {
@@ -1043,18 +1047,16 @@
               "Suffix": {}
             }
           },
-          "RedirectAllRequestsTo": {
+          "ErrorDocument": {
             "type": "structure",
             "members": {
-              "HostName": {},
-              "Protocol": {}
+              "Key": {}
             }
           },
           "RoutingRules": {
             "type": "list",
             "members": {
               "type": "structure",
-              "name": "RoutingRule",
               "members": {
                 "Condition": {
                   "type": "structure",
@@ -1073,7 +1075,8 @@
                     "ReplaceKeyWith": {}
                   }
                 }
-              }
+              },
+              "name": "RoutingRule"
             }
           }
         }
@@ -1145,13 +1148,50 @@
       "output": {
         "type": "structure",
         "members": {
+          "Body": {
+            "type": "binary",
+            "streaming": true
+          },
+          "DeleteMarker": {
+            "type": "boolean",
+            "location": "header",
+            "name": "x-amz-delete-marker"
+          },
           "AcceptRanges": {
             "location": "header",
             "name": "accept-ranges"
           },
-          "Body": {
-            "type": "binary",
-            "streaming": true
+          "Expiration": {
+            "type": "timestamp",
+            "location": "header",
+            "name": "x-amz-expiration"
+          },
+          "Restore": {
+            "location": "header",
+            "name": "x-amz-restore"
+          },
+          "LastModified": {
+            "type": "timestamp",
+            "location": "header",
+            "name": "Last-Modified"
+          },
+          "ContentLength": {
+            "type": "integer",
+            "location": "header",
+            "name": "Content-Length"
+          },
+          "ETag": {
+            "location": "header",
+            "name": "ETag"
+          },
+          "MissingMeta": {
+            "type": "integer",
+            "location": "header",
+            "name": "x-amz-missing-meta"
+          },
+          "VersionId": {
+            "location": "header",
+            "name": "x-amz-version-id"
           },
           "CacheControl": {
             "location": "header",
@@ -1169,65 +1209,29 @@
             "location": "header",
             "name": "Content-Language"
           },
-          "ContentLength": {
-            "type": "integer",
-            "location": "header",
-            "name": "Content-Length"
-          },
           "ContentType": {
             "location": "header",
             "name": "Content-Type"
-          },
-          "DeleteMarker": {
-            "type": "boolean",
-            "location": "header",
-            "name": "x-amz-delete-marker"
-          },
-          "ETag": {
-            "location": "header",
-            "name": "ETag"
-          },
-          "Expiration": {
-            "location": "header",
-            "name": "x-amz-expiration"
           },
           "Expires": {
             "type": "timestamp",
             "location": "header",
             "name": "Expires"
           },
-          "LastModified": {
-            "type": "timestamp",
+          "WebsiteRedirectLocation": {
             "location": "header",
-            "name": "Last-Modified"
-          },
-          "Metadata": {
-            "type": "map",
-            "location": "header",
-            "name": "x-amz-meta-",
-            "members": {},
-            "keys": {}
-          },
-          "MissingMeta": {
-            "type": "integer",
-            "location": "header",
-            "name": "x-amz-missing-meta"
-          },
-          "Restore": {
-            "location": "header",
-            "name": "x-amz-restore"
+            "name": "x-amz-website-redirect-location"
           },
           "ServerSideEncryption": {
             "location": "header",
             "name": "x-amz-server-side-encryption"
           },
-          "VersionId": {
+          "Metadata": {
+            "type": "map",
             "location": "header",
-            "name": "x-amz-version-id"
-          },
-          "WebsiteRedirectLocation": {
-            "location": "header",
-            "name": "x-amz-website-redirect-location"
+            "name": "x-amz-meta-",
+            "keys": {},
+            "members": {}
           }
         },
         "payload": "Body"
@@ -1258,40 +1262,40 @@
       "output": {
         "type": "structure",
         "members": {
-          "AccessControlList": {
-            "type": "list",
-            "name": "Grants",
-            "members": {
-              "type": "structure",
-              "name": "Grant",
-              "members": {
-                "Grantee": {
-                  "type": "structure",
-                  "xmlns": {
-                    "uri": "http://www.w3.org/2001/XMLSchema-instance",
-                    "prefix": "xsi"
-                  },
-                  "members": {
-                    "DisplayName": {},
-                    "EmailAddress": {},
-                    "ID": {},
-                    "xsi:type": {
-                      "name": "Type",
-                      "attribute": true
-                    },
-                    "URI": {}
-                  }
-                },
-                "Permission": {}
-              }
-            }
-          },
           "Owner": {
             "type": "structure",
             "members": {
               "DisplayName": {},
               "ID": {}
             }
+          },
+          "AccessControlList": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Grantee": {
+                  "type": "structure",
+                  "members": {
+                    "DisplayName": {},
+                    "EmailAddress": {},
+                    "ID": {},
+                    "xsi:type": {
+                      "attribute": true,
+                      "name": "Type"
+                    },
+                    "URI": {}
+                  },
+                  "xmlns": {
+                    "prefix": "xsi",
+                    "uri": "http://www.w3.org/2001/XMLSchema-instance"
+                  }
+                },
+                "Permission": {}
+              },
+              "name": "Grant"
+            },
+            "name": "Grants"
           }
         }
       }
@@ -1393,9 +1397,46 @@
       "output": {
         "type": "structure",
         "members": {
+          "DeleteMarker": {
+            "type": "boolean",
+            "location": "header",
+            "name": "x-amz-delete-marker"
+          },
           "AcceptRanges": {
             "location": "header",
             "name": "accept-ranges"
+          },
+          "Expiration": {
+            "type": "timestamp",
+            "location": "header",
+            "name": "x-amz-expiration"
+          },
+          "Restore": {
+            "location": "header",
+            "name": "x-amz-restore"
+          },
+          "LastModified": {
+            "type": "timestamp",
+            "location": "header",
+            "name": "Last-Modified"
+          },
+          "ContentLength": {
+            "type": "integer",
+            "location": "header",
+            "name": "Content-Length"
+          },
+          "ETag": {
+            "location": "header",
+            "name": "ETag"
+          },
+          "MissingMeta": {
+            "type": "integer",
+            "location": "header",
+            "name": "x-amz-missing-meta"
+          },
+          "VersionId": {
+            "location": "header",
+            "name": "x-amz-version-id"
           },
           "CacheControl": {
             "location": "header",
@@ -1413,72 +1454,35 @@
             "location": "header",
             "name": "Content-Language"
           },
-          "ContentLength": {
-            "type": "integer",
-            "location": "header",
-            "name": "Content-Length"
-          },
           "ContentType": {
             "location": "header",
             "name": "Content-Type"
-          },
-          "DeleteMarker": {
-            "type": "boolean",
-            "location": "header",
-            "name": "x-amz-delete-marker"
-          },
-          "ETag": {
-            "location": "header",
-            "name": "ETag"
-          },
-          "Expiration": {
-            "location": "header",
-            "name": "x-amz-expiration"
           },
           "Expires": {
             "type": "timestamp",
             "location": "header",
             "name": "Expires"
           },
-          "LastModified": {
-            "type": "timestamp",
+          "WebsiteRedirectLocation": {
             "location": "header",
-            "name": "Last-Modified"
-          },
-          "Metadata": {
-            "type": "map",
-            "location": "header",
-            "name": "x-amz-meta-",
-            "members": {},
-            "keys": {}
-          },
-          "MissingMeta": {
-            "type": "integer",
-            "location": "header",
-            "name": "x-amz-missing-meta"
-          },
-          "Restore": {
-            "location": "header",
-            "name": "x-amz-restore"
+            "name": "x-amz-website-redirect-location"
           },
           "ServerSideEncryption": {
             "location": "header",
             "name": "x-amz-server-side-encryption"
           },
-          "VersionId": {
+          "Metadata": {
+            "type": "map",
             "location": "header",
-            "name": "x-amz-version-id"
-          },
-          "WebsiteRedirectLocation": {
-            "location": "header",
-            "name": "x-amz-website-redirect-location"
+            "name": "x-amz-meta-",
+            "keys": {},
+            "members": {}
           }
         }
       }
     },
     "listBuckets": {
       "name": "ListBuckets",
-      "alias": "GetService",
       "http": {
         "method": "GET",
         "uri": "/"
@@ -1494,13 +1498,13 @@
             "type": "list",
             "members": {
               "type": "structure",
-              "name": "Bucket",
               "members": {
+                "Name": {},
                 "CreationDate": {
                   "type": "timestamp"
-                },
-                "Name": {}
-              }
+                }
+              },
+              "name": "Bucket"
             }
           },
           "Owner": {
@@ -1511,7 +1515,8 @@
             }
           }
         }
-      }
+      },
+      "alias": "GetService"
     },
     "listMultipartUploads": {
       "name": "ListMultipartUploads",
@@ -1551,6 +1556,47 @@
         "type": "structure",
         "members": {
           "Bucket": {},
+          "KeyMarker": {},
+          "UploadIdMarker": {},
+          "NextKeyMarker": {},
+          "Prefix": {},
+          "NextUploadIdMarker": {},
+          "MaxUploads": {
+            "type": "integer"
+          },
+          "IsTruncated": {
+            "type": "boolean"
+          },
+          "Upload": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "UploadId": {},
+                "Key": {},
+                "Initiated": {
+                  "type": "timestamp"
+                },
+                "StorageClass": {},
+                "Owner": {
+                  "type": "structure",
+                  "members": {
+                    "DisplayName": {},
+                    "ID": {}
+                  }
+                },
+                "Initiator": {
+                  "type": "structure",
+                  "members": {
+                    "ID": {},
+                    "DisplayName": {}
+                  }
+                }
+              }
+            },
+            "flattened": true,
+            "name": "Uploads"
+          },
           "CommonPrefixes": {
             "type": "list",
             "members": {
@@ -1561,57 +1607,12 @@
             },
             "flattened": true
           },
-          "EncodingType": {
-            "location": "header",
-            "name": "Encoding-Type"
-          },
-          "IsTruncated": {
-            "type": "boolean"
-          },
-          "KeyMarker": {},
-          "MaxUploads": {
-            "type": "integer"
-          },
-          "NextKeyMarker": {},
-          "NextUploadIdMarker": {},
-          "Prefix": {},
-          "UploadIdMarker": {},
-          "Upload": {
-            "type": "list",
-            "name": "Uploads",
-            "members": {
-              "type": "structure",
-              "members": {
-                "Initiated": {
-                  "type": "timestamp"
-                },
-                "Initiator": {
-                  "type": "structure",
-                  "members": {
-                    "DisplayName": {},
-                    "ID": {}
-                  }
-                },
-                "Key": {},
-                "Owner": {
-                  "type": "structure",
-                  "members": {
-                    "DisplayName": {},
-                    "ID": {}
-                  }
-                },
-                "StorageClass": {},
-                "UploadId": {}
-              }
-            },
-            "flattened": true
-          }
+          "EncodingType": {}
         }
       }
     },
     "listObjectVersions": {
       "name": "ListObjectVersions",
-      "alias": "GetBucketObjectVersions",
       "http": {
         "method": "GET",
         "uri": "/{Bucket}?versions&delimiter={Delimiter}&key-marker={KeyMarker}&max-keys={MaxKeys}&prefix={Prefix}&version-id-marker={VersionIdMarker}&encoding-type={EncodingType}"
@@ -1647,6 +1648,73 @@
       "output": {
         "type": "structure",
         "members": {
+          "IsTruncated": {
+            "type": "boolean"
+          },
+          "KeyMarker": {},
+          "VersionIdMarker": {},
+          "NextKeyMarker": {},
+          "NextVersionIdMarker": {},
+          "Version": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "ETag": {},
+                "Size": {
+                  "type": "integer"
+                },
+                "StorageClass": {},
+                "Key": {},
+                "VersionId": {},
+                "IsLatest": {
+                  "type": "boolean"
+                },
+                "LastModified": {
+                  "type": "timestamp"
+                },
+                "Owner": {
+                  "type": "structure",
+                  "members": {
+                    "DisplayName": {},
+                    "ID": {}
+                  }
+                }
+              }
+            },
+            "flattened": true,
+            "name": "Versions"
+          },
+          "DeleteMarker": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Owner": {
+                  "type": "structure",
+                  "members": {
+                    "DisplayName": {},
+                    "ID": {}
+                  }
+                },
+                "Key": {},
+                "VersionId": {},
+                "IsLatest": {
+                  "type": "boolean"
+                },
+                "LastModified": {
+                  "type": "timestamp"
+                }
+              }
+            },
+            "flattened": true,
+            "name": "DeleteMarkers"
+          },
+          "Name": {},
+          "Prefix": {},
+          "MaxKeys": {
+            "type": "integer"
+          },
           "CommonPrefixes": {
             "type": "list",
             "members": {
@@ -1657,81 +1725,13 @@
             },
             "flattened": true
           },
-          "DeleteMarker": {
-            "type": "list",
-            "name": "DeleteMarkers",
-            "members": {
-              "type": "structure",
-              "members": {
-                "IsLatest": {
-                  "type": "boolean"
-                },
-                "Key": {},
-                "LastModified": {
-                  "type": "timestamp"
-                },
-                "Owner": {
-                  "type": "structure",
-                  "members": {
-                    "DisplayName": {},
-                    "ID": {}
-                  }
-                },
-                "VersionId": {}
-              }
-            },
-            "flattened": true
-          },
-          "EncodingType": {
-            "location": "header",
-            "name": "Encoding-Type"
-          },
-          "IsTruncated": {
-            "type": "boolean"
-          },
-          "KeyMarker": {},
-          "MaxKeys": {
-            "type": "integer"
-          },
-          "Name": {},
-          "NextKeyMarker": {},
-          "NextVersionIdMarker": {},
-          "Prefix": {},
-          "VersionIdMarker": {},
-          "Version": {
-            "type": "list",
-            "name": "Versions",
-            "members": {
-              "type": "structure",
-              "members": {
-                "ETag": {},
-                "IsLatest": {
-                  "type": "boolean"
-                },
-                "Key": {},
-                "LastModified": {
-                  "type": "timestamp"
-                },
-                "Owner": {
-                  "type": "structure",
-                  "members": {
-                    "DisplayName": {},
-                    "ID": {}
-                  }
-                },
-                "Size": {},
-                "StorageClass": {},
-                "VersionId": {}
-              }
-            },
-            "flattened": true
-          }
+          "EncodingType": {}
         }
-      }
+      },
+      "alias": "GetBucketObjectVersions"
     },
     "listObjects": {
       "name": "ListObjects",
-      "alias": "GetBucket",
       "http": {
         "method": "GET",
         "uri": "/{Bucket}?delimiter={Delimiter}&marker={Marker}&max-keys={MaxKeys}&prefix={Prefix}&encoding-type={EncodingType}"
@@ -1764,6 +1764,41 @@
       "output": {
         "type": "structure",
         "members": {
+          "IsTruncated": {
+            "type": "boolean"
+          },
+          "Marker": {},
+          "NextMarker": {},
+          "Contents": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Key": {},
+                "LastModified": {
+                  "type": "timestamp"
+                },
+                "ETag": {},
+                "Size": {
+                  "type": "integer"
+                },
+                "StorageClass": {},
+                "Owner": {
+                  "type": "structure",
+                  "members": {
+                    "DisplayName": {},
+                    "ID": {}
+                  }
+                }
+              }
+            },
+            "flattened": true
+          },
+          "Name": {},
+          "Prefix": {},
+          "MaxKeys": {
+            "type": "integer"
+          },
           "CommonPrefixes": {
             "type": "list",
             "members": {
@@ -1774,47 +1809,10 @@
             },
             "flattened": true
           },
-          "Contents": {
-            "type": "list",
-            "members": {
-              "type": "structure",
-              "members": {
-                "ETag": {},
-                "Key": {},
-                "LastModified": {
-                  "type": "timestamp"
-                },
-                "Owner": {
-                  "type": "structure",
-                  "members": {
-                    "DisplayName": {},
-                    "ID": {}
-                  }
-                },
-                "Size": {
-                  "type": "integer"
-                },
-                "StorageClass": {}
-              }
-            },
-            "flattened": true
-          },
-          "EncodingType": {
-            "location": "header",
-            "name": "Encoding-Type"
-          },
-          "IsTruncated": {
-            "type": "boolean"
-          },
-          "Marker": {},
-          "MaxKeys": {
-            "type": "integer"
-          },
-          "Name": {},
-          "NextMarker": {},
-          "Prefix": {}
+          "EncodingType": {}
         }
-      }
+      },
+      "alias": "GetBucket"
     },
     "listParts": {
       "name": "ListParts",
@@ -1851,22 +1849,46 @@
         "type": "structure",
         "members": {
           "Bucket": {},
-          "Initiator": {
-            "type": "structure",
-            "members": {
-              "DisplayName": {},
-              "ID": {}
-            }
-          },
-          "IsTruncated": {
-            "type": "boolean"
-          },
           "Key": {},
-          "MaxParts": {
+          "UploadId": {},
+          "PartNumberMarker": {
             "type": "integer"
           },
           "NextPartNumberMarker": {
             "type": "integer"
+          },
+          "MaxParts": {
+            "type": "integer"
+          },
+          "IsTruncated": {
+            "type": "boolean"
+          },
+          "Part": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "PartNumber": {
+                  "type": "integer"
+                },
+                "LastModified": {
+                  "type": "timestamp"
+                },
+                "ETag": {},
+                "Size": {
+                  "type": "integer"
+                }
+              }
+            },
+            "flattened": true,
+            "name": "Parts"
+          },
+          "Initiator": {
+            "type": "structure",
+            "members": {
+              "ID": {},
+              "DisplayName": {}
+            }
           },
           "Owner": {
             "type": "structure",
@@ -1875,31 +1897,7 @@
               "ID": {}
             }
           },
-          "PartNumberMarker": {
-            "type": "integer"
-          },
-          "Part": {
-            "type": "list",
-            "name": "Parts",
-            "members": {
-              "type": "structure",
-              "members": {
-                "ETag": {},
-                "LastModified": {
-                  "type": "timestamp"
-                },
-                "PartNumber": {
-                  "type": "integer"
-                },
-                "Size": {
-                  "type": "integer"
-                }
-              }
-            },
-            "flattened": true
-          },
-          "StorageClass": {},
-          "UploadId": {}
+          "StorageClass": {}
         }
       }
     },
@@ -1922,32 +1920,32 @@
             "members": {
               "Grants": {
                 "type": "list",
-                "name": "AccessControlList",
                 "members": {
                   "type": "structure",
-                  "name": "Grant",
                   "members": {
                     "Grantee": {
                       "type": "structure",
-                      "xmlns": {
-                        "uri": "http://www.w3.org/2001/XMLSchema-instance",
-                        "prefix": "xsi"
-                      },
                       "members": {
                         "DisplayName": {},
                         "EmailAddress": {},
                         "ID": {},
                         "Type": {
                           "required": true,
-                          "name": "xsi:type",
-                          "attribute": true
+                          "attribute": true,
+                          "name": "xsi:type"
                         },
                         "URI": {}
+                      },
+                      "xmlns": {
+                        "prefix": "xsi",
+                        "uri": "http://www.w3.org/2001/XMLSchema-instance"
                       }
                     },
                     "Permission": {}
-                  }
-                }
+                  },
+                  "name": "Grant"
+                },
+                "name": "AccessControlList"
               },
               "Owner": {
                 "type": "structure",
@@ -2012,40 +2010,40 @@
             "members": {
               "CORSRules": {
                 "type": "list",
-                "name": "CORSRule",
                 "members": {
                   "type": "structure",
                   "members": {
                     "AllowedHeaders": {
                       "type": "list",
-                      "name": "AllowedHeader",
                       "members": {},
-                      "flattened": true
+                      "flattened": true,
+                      "name": "AllowedHeader"
                     },
                     "AllowedMethods": {
                       "type": "list",
-                      "name": "AllowedMethod",
                       "members": {},
-                      "flattened": true
+                      "flattened": true,
+                      "name": "AllowedMethod"
                     },
                     "AllowedOrigins": {
                       "type": "list",
-                      "name": "AllowedOrigin",
                       "members": {},
-                      "flattened": true
+                      "flattened": true,
+                      "name": "AllowedOrigin"
                     },
                     "ExposeHeaders": {
                       "type": "list",
-                      "name": "ExposeHeader",
                       "members": {},
-                      "flattened": true
+                      "flattened": true,
+                      "name": "ExposeHeader"
                     },
                     "MaxAgeSeconds": {
                       "type": "integer"
                     }
                   }
                 },
-                "flattened": true
+                "flattened": true,
+                "name": "CORSRule"
               }
             }
           },
@@ -2083,8 +2081,6 @@
             "members": {
               "Rules": {
                 "type": "list",
-                "required": true,
-                "name": "Rule",
                 "members": {
                   "type": "structure",
                   "members": {
@@ -2122,7 +2118,9 @@
                     }
                   }
                 },
-                "flattened": true
+                "flattened": true,
+                "required": true,
+                "name": "Rule"
               }
             }
           }
@@ -2149,7 +2147,6 @@
           },
           "BucketLoggingStatus": {
             "type": "structure",
-            "required": true,
             "members": {
               "LoggingEnabled": {
                 "type": "structure",
@@ -2159,34 +2156,35 @@
                     "type": "list",
                     "members": {
                       "type": "structure",
-                      "name": "Grant",
                       "members": {
                         "Grantee": {
                           "type": "structure",
-                          "xmlns": {
-                            "uri": "http://www.w3.org/2001/XMLSchema-instance",
-                            "prefix": "xsi"
-                          },
                           "members": {
                             "DisplayName": {},
                             "EmailAddress": {},
                             "ID": {},
                             "Type": {
                               "required": true,
-                              "name": "xsi:type",
-                              "attribute": true
+                              "attribute": true,
+                              "name": "xsi:type"
                             },
                             "URI": {}
+                          },
+                          "xmlns": {
+                            "prefix": "xsi",
+                            "uri": "http://www.w3.org/2001/XMLSchema-instance"
                           }
                         },
                         "Permission": {}
-                      }
+                      },
+                      "name": "Grant"
                     }
                   },
                   "TargetPrefix": {}
                 }
               }
-            }
+            },
+            "required": true
           },
           "ContentMD5": {
             "location": "header",
@@ -2219,17 +2217,17 @@
           },
           "NotificationConfiguration": {
             "type": "structure",
-            "required": true,
             "members": {
               "TopicConfiguration": {
                 "type": "structure",
-                "required": true,
                 "members": {
                   "Event": {},
                   "Topic": {}
-                }
+                },
+                "required": true
               }
-            }
+            },
+            "required": true
           }
         }
       },
@@ -2286,12 +2284,12 @@
           },
           "RequestPaymentConfiguration": {
             "type": "structure",
-            "required": true,
             "members": {
               "Payer": {
                 "required": true
               }
-            }
+            },
+            "required": true
           }
         }
       },
@@ -2320,15 +2318,11 @@
           },
           "Tagging": {
             "type": "structure",
-            "required": true,
             "members": {
               "TagSet": {
                 "type": "list",
-                "required": true,
                 "members": {
                   "type": "structure",
-                  "required": true,
-                  "name": "Tag",
                   "members": {
                     "Key": {
                       "required": true
@@ -2336,10 +2330,13 @@
                     "Value": {
                       "required": true
                     }
-                  }
-                }
+                  },
+                  "name": "Tag"
+                },
+                "required": true
               }
-            }
+            },
+            "required": true
           }
         }
       },
@@ -2372,11 +2369,11 @@
           },
           "VersioningConfiguration": {
             "type": "structure",
-            "required": true,
             "members": {
               "MFADelete": {},
               "Status": {}
-            }
+            },
+            "required": true
           }
         }
       },
@@ -2405,7 +2402,6 @@
           },
           "WebsiteConfiguration": {
             "type": "structure",
-            "required": true,
             "members": {
               "ErrorDocument": {
                 "type": "structure",
@@ -2436,7 +2432,6 @@
                 "type": "list",
                 "members": {
                   "type": "structure",
-                  "name": "RoutingRule",
                   "members": {
                     "Condition": {
                       "type": "structure",
@@ -2447,19 +2442,21 @@
                     },
                     "Redirect": {
                       "type": "structure",
-                      "required": true,
                       "members": {
                         "HostName": {},
                         "HttpRedirectCode": {},
                         "Protocol": {},
                         "ReplaceKeyPrefixWith": {},
                         "ReplaceKeyWith": {}
-                      }
+                      },
+                      "required": true
                     }
-                  }
+                  },
+                  "name": "RoutingRule"
                 }
               }
-            }
+            },
+            "required": true
           }
         }
       },
@@ -2548,8 +2545,8 @@
             "type": "map",
             "location": "header",
             "name": "x-amz-meta-",
-            "members": {},
-            "keys": {}
+            "keys": {},
+            "members": {}
           },
           "ServerSideEncryption": {
             "location": "header",
@@ -2568,14 +2565,14 @@
       "output": {
         "type": "structure",
         "members": {
-          "ETag": {
-            "location": "header",
-            "name": "ETag"
-          },
           "Expiration": {
             "type": "timestamp",
             "location": "header",
             "name": "x-amz-expiration"
+          },
+          "ETag": {
+            "location": "header",
+            "name": "ETag"
           },
           "ServerSideEncryption": {
             "location": "header",
@@ -2607,32 +2604,32 @@
             "members": {
               "Grants": {
                 "type": "list",
-                "name": "AccessControlList",
                 "members": {
                   "type": "structure",
-                  "name": "Grant",
                   "members": {
                     "Grantee": {
                       "type": "structure",
-                      "xmlns": {
-                        "uri": "http://www.w3.org/2001/XMLSchema-instance",
-                        "prefix": "xsi"
-                      },
                       "members": {
                         "DisplayName": {},
                         "EmailAddress": {},
                         "ID": {},
                         "Type": {
                           "required": true,
-                          "name": "xsi:type",
-                          "attribute": true
+                          "attribute": true,
+                          "name": "xsi:type"
                         },
                         "URI": {}
+                      },
+                      "xmlns": {
+                        "prefix": "xsi",
+                        "uri": "http://www.w3.org/2001/XMLSchema-instance"
                       }
                     },
                     "Permission": {}
-                  }
-                }
+                  },
+                  "name": "Grant"
+                },
+                "name": "AccessControlList"
               },
               "Owner": {
                 "type": "structure",
@@ -2684,7 +2681,6 @@
     },
     "restoreObject": {
       "name": "RestoreObject",
-      "alias": "PostObjectRestore",
       "http": {
         "method": "POST",
         "uri": "/{Bucket}/{Key}?restore"
@@ -2715,7 +2711,8 @@
       "output": {
         "type": "structure",
         "members": {}
-      }
+      },
+      "alias": "PostObjectRestore"
     },
     "uploadPart": {
       "name": "UploadPart",
@@ -2762,13 +2759,13 @@
       "output": {
         "type": "structure",
         "members": {
-          "ETag": {
-            "location": "header",
-            "name": "ETag"
-          },
           "ServerSideEncryption": {
             "location": "header",
             "name": "x-amz-server-side-encryption"
+          },
+          "ETag": {
+            "location": "header",
+            "name": "ETag"
           }
         }
       }
@@ -2850,6 +2847,9 @@
     }
   },
   "pagination": {
+    "listBuckets": {
+      "resultKey": "Buckets"
+    },
     "listMultipartUploads": {
       "limitKey": "MaxUploads",
       "moreResults": "IsTruncated",

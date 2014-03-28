@@ -5311,5 +5311,85 @@
       "documentation": "Uploads a part by copying data from an existing object as data source.",
       "documentation_url": "http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPartCopy.html"
     }
+  },
+  "pagination": {
+    "ListBuckets": {
+      "result_key": "Buckets"
+    },
+    "ListMultipartUploads": {
+      "limit_key": "MaxUploads",
+      "more_results": "IsTruncated",
+      "output_token": [
+        "NextKeyMarker",
+        "NextUploadIdMarker"
+      ],
+      "input_token": [
+        "KeyMarker",
+        "UploadIdMarker"
+      ],
+      "result_key": [
+        "Uploads",
+        "CommonPrefixes"
+      ]
+    },
+    "ListObjectVersions": {
+      "more_results": "IsTruncated",
+      "limit_key": "MaxKeys",
+      "output_token": [
+        "NextKeyMarker",
+        "NextVersionIdMarker"
+      ],
+      "input_token": [
+        "KeyMarker",
+        "VersionIdMarker"
+      ],
+      "result_key": [
+        "Versions",
+        "DeleteMarkers",
+        "CommonPrefixes"
+      ]
+    },
+    "ListObjects": {
+      "more_results": "IsTruncated",
+      "limit_key": "MaxKeys",
+      "output_token": "NextMarker or Contents[-1].Key",
+      "input_token": "Marker",
+      "result_key": [
+        "Contents",
+        "CommonPrefixes"
+      ]
+    },
+    "ListParts": {
+      "more_results": "IsTruncated",
+      "limit_key": "MaxParts",
+      "output_token": "NextPartNumberMarker",
+      "input_token": "PartNumberMarker",
+      "result_key": "Parts"
+    }
+  },
+  "waiters": {
+    "__default__": {
+      "interval": 5,
+      "max_attempts": 20
+    },
+    "BucketExists": {
+      "operation": "HeadBucket",
+      "ignore_errors": [
+        "NoSuchBucket"
+      ],
+      "success_type": "output"
+    },
+    "BucketNotExists": {
+      "operation": "HeadBucket",
+      "success_type": "error",
+      "success_value": "NoSuchBucket"
+    },
+    "ObjectExists": {
+      "operation": "HeadObject",
+      "ignore_errors": [
+        "NoSuchKey"
+      ],
+      "success_type": "output"
+    }
   }
 }

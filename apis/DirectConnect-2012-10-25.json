@@ -708,8 +708,14 @@
     "describeConnections": {
       "resultKey": "connections"
     },
-    "describeOfferings": {
-      "resultKey": "offerings"
+    "describeConnectionsOnInterconnect": {
+      "resultKey": "connections"
+    },
+    "describeInterconnects": {
+      "resultKey": "interconnects"
+    },
+    "describeLocations": {
+      "resultKey": "locations"
     },
     "describeVirtualGateways": {
       "resultKey": "virtualGateways"
