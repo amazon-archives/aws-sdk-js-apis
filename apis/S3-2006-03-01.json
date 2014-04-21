@@ -148,7 +148,7 @@
             "name": "x-amz-copy-source"
           },
           "CopySourceIfMatch": {
-            "type": "timestamp",
+            "type": "string",
             "location": "header",
             "name": "x-amz-copy-source-if-match"
           },
@@ -158,7 +158,7 @@
             "name": "x-amz-copy-source-if-modified-since"
           },
           "CopySourceIfNoneMatch": {
-            "type": "timestamp",
+            "type": "string",
             "location": "header",
             "name": "x-amz-copy-source-if-none-match"
           },
