@@ -1,6 +1,6 @@
 {
   "format": "query",
-  "apiVersion": "2013-06-15",
+  "apiVersion": "2014-03-24",
   "endpointPrefix": "elasticache",
   "resultWrapped": true,
   "serviceFullName": "Amazon ElastiCache",
@@ -49,6 +49,76 @@
         }
       }
     },
+    "copySnapshot": {
+      "name": "CopySnapshot",
+      "input": {
+        "type": "structure",
+        "members": {
+          "SourceSnapshotName": {
+            "required": true
+          },
+          "TargetSnapshotName": {
+            "required": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Snapshot": {
+            "type": "structure",
+            "members": {
+              "SnapshotName": {},
+              "CacheClusterId": {},
+              "SnapshotStatus": {},
+              "SnapshotSource": {},
+              "CacheNodeType": {},
+              "Engine": {},
+              "EngineVersion": {},
+              "NumCacheNodes": {
+                "type": "integer"
+              },
+              "PreferredAvailabilityZone": {},
+              "CacheClusterCreateTime": {
+                "type": "timestamp"
+              },
+              "PreferredMaintenanceWindow": {},
+              "TopicArn": {},
+              "Port": {
+                "type": "integer"
+              },
+              "CacheParameterGroupName": {},
+              "CacheSubnetGroupName": {},
+              "VpcId": {},
+              "AutoMinorVersionUpgrade": {
+                "type": "boolean"
+              },
+              "SnapshotRetentionLimit": {
+                "type": "integer"
+              },
+              "SnapshotWindow": {},
+              "NodeSnapshots": {
+                "type": "list",
+                "members": {
+                  "type": "structure",
+                  "members": {
+                    "CacheNodeId": {},
+                    "CacheSize": {},
+                    "CacheNodeCreateTime": {
+                      "type": "timestamp"
+                    },
+                    "SnapshotCreateTime": {
+                      "type": "timestamp"
+                    }
+                  },
+                  "name": "NodeSnapshot"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "createCacheCluster": {
       "name": "CreateCacheCluster",
       "input": {
@@ -84,6 +154,7 @@
               "name": "SnapshotArn"
             }
           },
+          "SnapshotName": {},
           "PreferredAvailabilityZone": {},
           "PreferredMaintenanceWindow": {},
           "Port": {
@@ -92,7 +163,11 @@
           "NotificationTopicArn": {},
           "AutoMinorVersionUpgrade": {
             "type": "boolean"
-          }
+          },
+          "SnapshotRetentionLimit": {
+            "type": "integer"
+          },
+          "SnapshotWindow": {}
         }
       },
       "output": {
@@ -209,7 +284,11 @@
                   }
                 }
               },
-              "ReplicationGroupId": {}
+              "ReplicationGroupId": {},
+              "SnapshotRetentionLimit": {
+                "type": "integer"
+              },
+              "SnapshotWindow": {}
             }
           }
         }
@@ -412,6 +491,77 @@
                   },
                   "name": "NodeGroup"
                 }
+              },
+              "SnapshottingClusterId": {}
+            }
+          }
+        }
+      }
+    },
+    "createSnapshot": {
+      "name": "CreateSnapshot",
+      "input": {
+        "type": "structure",
+        "members": {
+          "CacheClusterId": {
+            "required": true
+          },
+          "SnapshotName": {
+            "required": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Snapshot": {
+            "type": "structure",
+            "members": {
+              "SnapshotName": {},
+              "CacheClusterId": {},
+              "SnapshotStatus": {},
+              "SnapshotSource": {},
+              "CacheNodeType": {},
+              "Engine": {},
+              "EngineVersion": {},
+              "NumCacheNodes": {
+                "type": "integer"
+              },
+              "PreferredAvailabilityZone": {},
+              "CacheClusterCreateTime": {
+                "type": "timestamp"
+              },
+              "PreferredMaintenanceWindow": {},
+              "TopicArn": {},
+              "Port": {
+                "type": "integer"
+              },
+              "CacheParameterGroupName": {},
+              "CacheSubnetGroupName": {},
+              "VpcId": {},
+              "AutoMinorVersionUpgrade": {
+                "type": "boolean"
+              },
+              "SnapshotRetentionLimit": {
+                "type": "integer"
+              },
+              "SnapshotWindow": {},
+              "NodeSnapshots": {
+                "type": "list",
+                "members": {
+                  "type": "structure",
+                  "members": {
+                    "CacheNodeId": {},
+                    "CacheSize": {},
+                    "CacheNodeCreateTime": {
+                      "type": "timestamp"
+                    },
+                    "SnapshotCreateTime": {
+                      "type": "timestamp"
+                    }
+                  },
+                  "name": "NodeSnapshot"
+                }
               }
             }
           }
@@ -425,7 +575,8 @@
         "members": {
           "CacheClusterId": {
             "required": true
-          }
+          },
+          "FinalSnapshotIdentifier": {}
         }
       },
       "output": {
@@ -542,7 +693,11 @@
                   }
                 }
               },
-              "ReplicationGroupId": {}
+              "ReplicationGroupId": {},
+              "SnapshotRetentionLimit": {
+                "type": "integer"
+              },
+              "SnapshotWindow": {}
             }
           }
         }
@@ -603,7 +758,8 @@
           },
           "RetainPrimaryCluster": {
             "type": "boolean"
-          }
+          },
+          "FinalSnapshotIdentifier": {}
         }
       },
       "output": {
@@ -667,6 +823,74 @@
                     }
                   },
                   "name": "NodeGroup"
+                }
+              },
+              "SnapshottingClusterId": {}
+            }
+          }
+        }
+      }
+    },
+    "deleteSnapshot": {
+      "name": "DeleteSnapshot",
+      "input": {
+        "type": "structure",
+        "members": {
+          "SnapshotName": {
+            "required": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Snapshot": {
+            "type": "structure",
+            "members": {
+              "SnapshotName": {},
+              "CacheClusterId": {},
+              "SnapshotStatus": {},
+              "SnapshotSource": {},
+              "CacheNodeType": {},
+              "Engine": {},
+              "EngineVersion": {},
+              "NumCacheNodes": {
+                "type": "integer"
+              },
+              "PreferredAvailabilityZone": {},
+              "CacheClusterCreateTime": {
+                "type": "timestamp"
+              },
+              "PreferredMaintenanceWindow": {},
+              "TopicArn": {},
+              "Port": {
+                "type": "integer"
+              },
+              "CacheParameterGroupName": {},
+              "CacheSubnetGroupName": {},
+              "VpcId": {},
+              "AutoMinorVersionUpgrade": {
+                "type": "boolean"
+              },
+              "SnapshotRetentionLimit": {
+                "type": "integer"
+              },
+              "SnapshotWindow": {},
+              "NodeSnapshots": {
+                "type": "list",
+                "members": {
+                  "type": "structure",
+                  "members": {
+                    "CacheNodeId": {},
+                    "CacheSize": {},
+                    "CacheNodeCreateTime": {
+                      "type": "timestamp"
+                    },
+                    "SnapshotCreateTime": {
+                      "type": "timestamp"
+                    }
+                  },
+                  "name": "NodeSnapshot"
                 }
               }
             }
@@ -806,7 +1030,11 @@
                     }
                   }
                 },
-                "ReplicationGroupId": {}
+                "ReplicationGroupId": {},
+                "SnapshotRetentionLimit": {
+                  "type": "integer"
+                },
+                "SnapshotWindow": {}
               },
               "name": "CacheCluster"
             }
@@ -1239,7 +1467,8 @@
                     },
                     "name": "NodeGroup"
                   }
-                }
+                },
+                "SnapshottingClusterId": {}
               },
               "name": "ReplicationGroup"
             }
@@ -1372,6 +1601,82 @@
         }
       }
     },
+    "describeSnapshots": {
+      "name": "DescribeSnapshots",
+      "input": {
+        "type": "structure",
+        "members": {
+          "CacheClusterId": {},
+          "SnapshotName": {},
+          "SnapshotSource": {},
+          "Marker": {},
+          "MaxRecords": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Marker": {},
+          "Snapshots": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "SnapshotName": {},
+                "CacheClusterId": {},
+                "SnapshotStatus": {},
+                "SnapshotSource": {},
+                "CacheNodeType": {},
+                "Engine": {},
+                "EngineVersion": {},
+                "NumCacheNodes": {
+                  "type": "integer"
+                },
+                "PreferredAvailabilityZone": {},
+                "CacheClusterCreateTime": {
+                  "type": "timestamp"
+                },
+                "PreferredMaintenanceWindow": {},
+                "TopicArn": {},
+                "Port": {
+                  "type": "integer"
+                },
+                "CacheParameterGroupName": {},
+                "CacheSubnetGroupName": {},
+                "VpcId": {},
+                "AutoMinorVersionUpgrade": {
+                  "type": "boolean"
+                },
+                "SnapshotRetentionLimit": {
+                  "type": "integer"
+                },
+                "SnapshotWindow": {},
+                "NodeSnapshots": {
+                  "type": "list",
+                  "members": {
+                    "type": "structure",
+                    "members": {
+                      "CacheNodeId": {},
+                      "CacheSize": {},
+                      "CacheNodeCreateTime": {
+                        "type": "timestamp"
+                      },
+                      "SnapshotCreateTime": {
+                        "type": "timestamp"
+                      }
+                    },
+                    "name": "NodeSnapshot"
+                  }
+                }
+              },
+              "name": "Snapshot"
+            }
+          }
+        }
+      }
+    },
     "modifyCacheCluster": {
       "name": "ModifyCacheCluster",
       "input": {
@@ -1411,7 +1716,11 @@
           "EngineVersion": {},
           "AutoMinorVersionUpgrade": {
             "type": "boolean"
-          }
+          },
+          "SnapshotRetentionLimit": {
+            "type": "integer"
+          },
+          "SnapshotWindow": {}
         }
       },
       "output": {
@@ -1528,7 +1837,11 @@
                   }
                 }
               },
-              "ReplicationGroupId": {}
+              "ReplicationGroupId": {},
+              "SnapshotRetentionLimit": {
+                "type": "integer"
+              },
+              "SnapshotWindow": {}
             }
           }
         }
@@ -1642,7 +1955,12 @@
           "AutoMinorVersionUpgrade": {
             "type": "boolean"
           },
-          "PrimaryClusterId": {}
+          "PrimaryClusterId": {},
+          "SnapshotRetentionLimit": {
+            "type": "integer"
+          },
+          "SnapshotWindow": {},
+          "SnapshottingClusterId": {}
         }
       },
       "output": {
@@ -1707,7 +2025,8 @@
                   },
                   "name": "NodeGroup"
                 }
-              }
+              },
+              "SnapshottingClusterId": {}
             }
           }
         }
@@ -1903,7 +2222,11 @@
                   }
                 }
               },
-              "ReplicationGroupId": {}
+              "ReplicationGroupId": {},
+              "SnapshotRetentionLimit": {
+                "type": "integer"
+              },
+              "SnapshotWindow": {}
             }
           }
         }
