@@ -90,6 +90,15 @@
               "Version": {}
             }
           },
+          "ChefConfiguration": {
+            "type": "structure",
+            "members": {
+              "ManageBerkshelf": {
+                "type": "boolean"
+              },
+              "BerkshelfVersion": {}
+            }
+          },
           "UseCustomCookbooks": {
             "type": "boolean"
           },
@@ -405,6 +414,15 @@
             "members": {
               "Name": {},
               "Version": {}
+            }
+          },
+          "ChefConfiguration": {
+            "type": "structure",
+            "members": {
+              "ManageBerkshelf": {
+                "type": "boolean"
+              },
+              "BerkshelfVersion": {}
             }
           },
           "UseCustomCookbooks": {
@@ -1335,6 +1353,15 @@
                     "Version": {}
                   }
                 },
+                "ChefConfiguration": {
+                  "type": "structure",
+                  "members": {
+                    "ManageBerkshelf": {
+                      "type": "boolean"
+                    },
+                    "BerkshelfVersion": {}
+                  }
+                },
                 "UseCustomCookbooks": {
                   "type": "boolean"
                 },
@@ -2062,6 +2089,15 @@
             "members": {
               "Name": {},
               "Version": {}
+            }
+          },
+          "ChefConfiguration": {
+            "type": "structure",
+            "members": {
+              "ManageBerkshelf": {
+                "type": "boolean"
+              },
+              "BerkshelfVersion": {}
             }
           },
           "UseCustomCookbooks": {
