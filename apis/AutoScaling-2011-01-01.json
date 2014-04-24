@@ -157,7 +157,8 @@
           },
           "AssociatePublicIpAddress": {
             "type": "boolean"
-          }
+          },
+          "PlacementTenancy": {}
         }
       },
       "output": {
@@ -596,7 +597,8 @@
                 },
                 "AssociatePublicIpAddress": {
                   "type": "boolean"
-                }
+                },
+                "PlacementTenancy": {}
               }
             }
           },
