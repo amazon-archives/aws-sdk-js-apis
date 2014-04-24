@@ -1726,7 +1726,8 @@
                   "required": true
                 }
               }
-            }
+            },
+            "required": true
           },
           "QueryFilter": {
             "type": "map",
