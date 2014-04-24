@@ -1612,6 +1612,9 @@
                   "publicIp": {
                     "name": "PublicIp"
                   },
+                  "publicDnsName": {
+                    "name": "PublicDnsName"
+                  },
                   "ipOwnerId": {
                     "name": "IpOwnerId"
                   },
@@ -1660,6 +1663,9 @@
                       "members": {
                         "publicIp": {
                           "name": "PublicIp"
+                        },
+                        "publicDnsName": {
+                          "name": "PublicDnsName"
                         },
                         "ipOwnerId": {
                           "name": "IpOwnerId"
@@ -5494,6 +5500,9 @@
                     "publicIp": {
                       "name": "PublicIp"
                     },
+                    "publicDnsName": {
+                      "name": "PublicDnsName"
+                    },
                     "ipOwnerId": {
                       "name": "IpOwnerId"
                     },
@@ -5542,6 +5551,9 @@
                         "members": {
                           "publicIp": {
                             "name": "PublicIp"
+                          },
+                          "publicDnsName": {
+                            "name": "PublicDnsName"
                           },
                           "ipOwnerId": {
                             "name": "IpOwnerId"
