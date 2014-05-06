@@ -365,6 +365,13 @@
             },
             "flattened": true
           },
+          "MessageAttributeNames": {
+            "type": "list",
+            "members": {
+              "name": "MessageAttributeName"
+            },
+            "flattened": true
+          },
           "MaxNumberOfMessages": {
             "type": "integer"
           },
@@ -398,6 +405,43 @@
                   },
                   "flattened": true,
                   "name": "Attributes"
+                },
+                "MD5OfMessageAttributes": {},
+                "MessageAttribute": {
+                  "type": "map",
+                  "keys": {
+                    "name": "Name"
+                  },
+                  "members": {
+                    "type": "structure",
+                    "members": {
+                      "StringValue": {},
+                      "BinaryValue": {
+                        "type": "base64"
+                      },
+                      "StringListValue": {
+                        "type": "list",
+                        "members": {
+                          "name": "StringListValue"
+                        },
+                        "flattened": true,
+                        "name": "StringListValues"
+                      },
+                      "BinaryListValue": {
+                        "type": "list",
+                        "members": {
+                          "type": "base64",
+                          "name": "BinaryListValue"
+                        },
+                        "flattened": true,
+                        "name": "BinaryListValues"
+                      },
+                      "DataType": {}
+                    },
+                    "name": "Value"
+                  },
+                  "flattened": true,
+                  "name": "MessageAttributes"
                 }
               },
               "name": "Message"
@@ -439,6 +483,44 @@
           },
           "DelaySeconds": {
             "type": "integer"
+          },
+          "MessageAttributes": {
+            "type": "map",
+            "keys": {
+              "name": "Name"
+            },
+            "members": {
+              "type": "structure",
+              "members": {
+                "StringValue": {},
+                "BinaryValue": {
+                  "type": "base64"
+                },
+                "StringListValues": {
+                  "type": "list",
+                  "members": {
+                    "name": "StringListValue"
+                  },
+                  "flattened": true,
+                  "name": "StringListValue"
+                },
+                "BinaryListValues": {
+                  "type": "list",
+                  "members": {
+                    "type": "base64",
+                    "name": "BinaryListValue"
+                  },
+                  "flattened": true,
+                  "name": "BinaryListValue"
+                },
+                "DataType": {
+                  "required": true
+                }
+              },
+              "name": "Value"
+            },
+            "flattened": true,
+            "name": "MessageAttribute"
           }
         }
       },
@@ -446,6 +528,7 @@
         "type": "structure",
         "members": {
           "MD5OfMessageBody": {},
+          "MD5OfMessageAttributes": {},
           "MessageId": {}
         }
       }
@@ -471,6 +554,44 @@
                 },
                 "DelaySeconds": {
                   "type": "integer"
+                },
+                "MessageAttributes": {
+                  "type": "map",
+                  "keys": {
+                    "name": "Name"
+                  },
+                  "members": {
+                    "type": "structure",
+                    "members": {
+                      "StringValue": {},
+                      "BinaryValue": {
+                        "type": "base64"
+                      },
+                      "StringListValues": {
+                        "type": "list",
+                        "members": {
+                          "name": "StringListValue"
+                        },
+                        "flattened": true,
+                        "name": "StringListValue"
+                      },
+                      "BinaryListValues": {
+                        "type": "list",
+                        "members": {
+                          "type": "base64",
+                          "name": "BinaryListValue"
+                        },
+                        "flattened": true,
+                        "name": "BinaryListValue"
+                      },
+                      "DataType": {
+                        "required": true
+                      }
+                    },
+                    "name": "Value"
+                  },
+                  "flattened": true,
+                  "name": "MessageAttribute"
                 }
               },
               "name": "SendMessageBatchRequestEntry"
@@ -490,7 +611,8 @@
               "members": {
                 "Id": {},
                 "MessageId": {},
-                "MD5OfMessageBody": {}
+                "MD5OfMessageBody": {},
+                "MD5OfMessageAttributes": {}
               },
               "name": "SendMessageBatchResultEntry"
             },
