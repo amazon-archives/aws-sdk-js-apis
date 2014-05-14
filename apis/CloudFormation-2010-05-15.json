@@ -38,7 +38,10 @@
               "type": "structure",
               "members": {
                 "ParameterKey": {},
-                "ParameterValue": {}
+                "ParameterValue": {},
+                "UsePreviousValue": {
+                  "type": "boolean"
+                }
               }
             }
           },
@@ -226,7 +229,10 @@
                     "type": "structure",
                     "members": {
                       "ParameterKey": {},
-                      "ParameterValue": {}
+                      "ParameterValue": {},
+                      "UsePreviousValue": {
+                        "type": "boolean"
+                      }
                     }
                   }
                 },
@@ -293,7 +299,10 @@
               "type": "structure",
               "members": {
                 "ParameterKey": {},
-                "ParameterValue": {}
+                "ParameterValue": {},
+                "UsePreviousValue": {
+                  "type": "boolean"
+                }
               }
             }
           }
@@ -442,6 +451,9 @@
           },
           "TemplateBody": {},
           "TemplateURL": {},
+          "UsePreviousTemplate": {
+            "type": "boolean"
+          },
           "StackPolicyDuringUpdateBody": {},
           "StackPolicyDuringUpdateURL": {},
           "Parameters": {
@@ -450,7 +462,10 @@
               "type": "structure",
               "members": {
                 "ParameterKey": {},
-                "ParameterValue": {}
+                "ParameterValue": {},
+                "UsePreviousValue": {
+                  "type": "boolean"
+                }
               }
             }
           },
@@ -459,7 +474,11 @@
             "members": {}
           },
           "StackPolicyBody": {},
-          "StackPolicyURL": {}
+          "StackPolicyURL": {},
+          "NotificationARNs": {
+            "type": "list",
+            "members": {}
+          }
         }
       },
       "output": {
