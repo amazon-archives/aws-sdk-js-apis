@@ -5390,6 +5390,11 @@
         "NoSuchKey"
       ],
       "success_type": "output"
+    },
+    "ObjectNotExists": {
+      "operation": "HeadObject",
+      "success_type": "error",
+      "success_value": "NoSuchKey"
     }
   }
 }
