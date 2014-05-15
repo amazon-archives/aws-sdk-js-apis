@@ -148,7 +148,6 @@
             "name": "x-amz-copy-source"
           },
           "CopySourceIfMatch": {
-            "type": "timestamp",
             "location": "header",
             "name": "x-amz-copy-source-if-match"
           },
@@ -158,7 +157,6 @@
             "name": "x-amz-copy-source-if-modified-since"
           },
           "CopySourceIfNoneMatch": {
-            "type": "timestamp",
             "location": "header",
             "name": "x-amz-copy-source-if-none-match"
           },
@@ -2789,7 +2787,6 @@
             "name": "x-amz-copy-source"
           },
           "CopySourceIfMatch": {
-            "type": "timestamp",
             "location": "header",
             "name": "x-amz-copy-source-if-match"
           },
@@ -2799,7 +2796,6 @@
             "name": "x-amz-copy-source-if-modified-since"
           },
           "CopySourceIfNoneMatch": {
-            "type": "timestamp",
             "location": "header",
             "name": "x-amz-copy-source-if-none-match"
           },
