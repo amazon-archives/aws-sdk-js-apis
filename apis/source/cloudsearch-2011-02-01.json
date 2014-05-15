@@ -1572,6 +1572,142 @@
       ],
       "documentation": "\n  <p>Removes a <code>RankExpression</code> from the search domain.</p>\n  "
     },
+    "DescribeAvailabilityOptions": {
+      "name": "DescribeAvailabilityOptions",
+      "input": {
+        "shape_name": "DescribeAvailabilityOptionsRequest",
+        "type": "structure",
+        "members": {
+          "DomainName": {
+            "shape_name": "DomainName",
+            "type": "string",
+            "min_length": 3,
+            "max_length": 28,
+            "pattern": "[a-z][a-z0-9\\-]+",
+            "documentation": "\n    <p>The name of the domain you want to describe.</p>\n  ",
+            "required": true
+          }
+        },
+        "documentation": "\n    <p>Container for the parameters to the <code><a>DescribeAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.</p>\n  "
+      },
+      "output": {
+        "shape_name": "DescribeAvailabilityOptionsResponse",
+        "type": "structure",
+        "members": {
+          "AvailabilityOptions": {
+            "shape_name": "AvailabilityOptionsStatus",
+            "type": "structure",
+            "members": {
+              "Options": {
+                "shape_name": "MultiAZ",
+                "type": "boolean",
+                "documentation": "\n    <p>The availability options configured for the domain.</p>\n  ",
+                "required": true
+              },
+              "Status": {
+                "shape_name": "OptionStatus",
+                "type": "structure",
+                "members": {
+                  "CreationDate": {
+                    "shape_name": "UpdateTimestamp",
+                    "type": "timestamp",
+                    "documentation": "\n  <p>A timestamp for when this option was created.</p>\n  ",
+                    "required": true
+                  },
+                  "UpdateDate": {
+                    "shape_name": "UpdateTimestamp",
+                    "type": "timestamp",
+                    "documentation": "\n  <p>A timestamp for when this option was last updated.</p>\n  ",
+                    "required": true
+                  },
+                  "UpdateVersion": {
+                    "shape_name": "UIntValue",
+                    "type": "integer",
+                    "min_length": 0,
+                    "documentation": "\n  <p>A unique integer that indicates when this option was last updated.</p>\n  "
+                  },
+                  "State": {
+                    "shape_name": "OptionState",
+                    "type": "string",
+                    "enum": [
+                      "RequiresIndexDocuments",
+                      "Processing",
+                      "Active"
+                    ],
+                    "documentation": "\n  <p>The state of processing a change to an option.  Possible values:</p>\n<ul>\n    <li>\n<code>RequiresIndexDocuments</code>: the option's latest value will not be visible in searches until  <a>IndexDocuments</a> has been called and indexing is complete.</li>\n    <li>\n<code>Processing</code>: the option's latest value is not yet visible in all searches but is in the process of being activated.  </li>\n    <li>\n<code>Active</code>: the option's latest value is completely visible. Any warnings or messages generated during processing are provided in <code>Diagnostics</code>.</li>\n  </ul>\n  ",
+                    "required": true
+                  },
+                  "PendingDeletion": {
+                    "shape_name": "Boolean",
+                    "type": "boolean",
+                    "documentation": "\n  <p>Indicates that the option will be deleted once processing is complete.</p>\n  "
+                  }
+                },
+                "documentation": "\n  <p>The status of an option, including when it was last updated and whether it is actively in use for searches.</p>\n  ",
+                "required": true
+              }
+            },
+            "documentation": "\n    <p>The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain. </p>\n  "
+          }
+        },
+        "documentation": "\n    <p>The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. </p>\n  "
+      },
+      "errors": [
+        {
+          "shape_name": "BaseException",
+          "type": "structure",
+          "members": {
+            "Code": {
+              "shape_name": "ErrorCode",
+              "type": "string",
+              "documentation": "\n  <p>A machine-parsable string error or warning code.</p>\n  "
+            },
+            "Message": {
+              "shape_name": "ErrorMessage",
+              "type": "string",
+              "documentation": "\n  <p>A human-readable string error or warning message.</p>\n  "
+            }
+          },
+          "documentation": "\n    <p>An error occurred while processing the request.</p>\n  "
+        },
+        {
+          "shape_name": "InternalException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n    <p>An internal error occurred while processing the request. If this problem persists,\n      report an issue from the <a href=\"http://status.aws.amazon.com/\">Service Health Dashboard</a>.</p>\n  "
+        },
+        {
+          "shape_name": "InvalidTypeException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because it specified an invalid type definition.</p>\n  "
+        },
+        {
+          "shape_name": "LimitExceededException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because a resource limit has already been met.</p>\n  "
+        },
+        {
+          "shape_name": "ResourceNotFoundException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>\n  "
+        },
+        {
+          "shape_name": "DisabledOperationException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because it attempted an operation which is not enabled.</p>\n  "
+        }
+      ],
+      "documentation": "\n    <p>Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see  <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>\n  "
+    },
     "DescribeDefaultSearchField": {
       "name": "DescribeDefaultSearchField",
       "input": {
@@ -2897,6 +3033,148 @@
         }
       ],
       "documentation": "\n  <p>Tells the search domain to start indexing its documents using the latest text processing options and <code>IndexFields</code>.  This operation must be invoked to make options whose <a>OptionStatus</a> has <code>OptionState</code> of <code>RequiresIndexDocuments</code> visible in search results.</p>\n  "
+    },
+    "UpdateAvailabilityOptions": {
+      "name": "UpdateAvailabilityOptions",
+      "input": {
+        "shape_name": "UpdateAvailabilityOptionsRequest",
+        "type": "structure",
+        "members": {
+          "DomainName": {
+            "shape_name": "DomainName",
+            "type": "string",
+            "min_length": 3,
+            "max_length": 28,
+            "pattern": "[a-z][a-z0-9\\-]+",
+            "documentation": "\n    <p>A string that represents the name of a domain. Domain names must be unique across the domains owned by an account within an AWS region. Domain names must start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen). Uppercase letters and underscores are not allowed.</p>\n\n  ",
+            "required": true
+          },
+          "MultiAZ": {
+            "shape_name": "Boolean",
+            "type": "boolean",
+            "documentation": "\n    <p>You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to <code>false</code>. </p>\n  ",
+            "required": true
+          }
+        },
+        "documentation": "\n    <p>Container for the parameters to the <code><a>UpdateAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to update and the Multi-AZ availability option.</p>\n  "
+      },
+      "output": {
+        "shape_name": "UpdateAvailabilityOptionsResponse",
+        "type": "structure",
+        "members": {
+          "AvailabilityOptions": {
+            "shape_name": "AvailabilityOptionsStatus",
+            "type": "structure",
+            "members": {
+              "Options": {
+                "shape_name": "MultiAZ",
+                "type": "boolean",
+                "documentation": "\n    <p>The availability options configured for the domain.</p>\n  ",
+                "required": true
+              },
+              "Status": {
+                "shape_name": "OptionStatus",
+                "type": "structure",
+                "members": {
+                  "CreationDate": {
+                    "shape_name": "UpdateTimestamp",
+                    "type": "timestamp",
+                    "documentation": "\n  <p>A timestamp for when this option was created.</p>\n  ",
+                    "required": true
+                  },
+                  "UpdateDate": {
+                    "shape_name": "UpdateTimestamp",
+                    "type": "timestamp",
+                    "documentation": "\n  <p>A timestamp for when this option was last updated.</p>\n  ",
+                    "required": true
+                  },
+                  "UpdateVersion": {
+                    "shape_name": "UIntValue",
+                    "type": "integer",
+                    "min_length": 0,
+                    "documentation": "\n  <p>A unique integer that indicates when this option was last updated.</p>\n  "
+                  },
+                  "State": {
+                    "shape_name": "OptionState",
+                    "type": "string",
+                    "enum": [
+                      "RequiresIndexDocuments",
+                      "Processing",
+                      "Active"
+                    ],
+                    "documentation": "\n  <p>The state of processing a change to an option.  Possible values:</p>\n<ul>\n    <li>\n<code>RequiresIndexDocuments</code>: the option's latest value will not be visible in searches until  <a>IndexDocuments</a> has been called and indexing is complete.</li>\n    <li>\n<code>Processing</code>: the option's latest value is not yet visible in all searches but is in the process of being activated.  </li>\n    <li>\n<code>Active</code>: the option's latest value is completely visible. Any warnings or messages generated during processing are provided in <code>Diagnostics</code>.</li>\n  </ul>\n  ",
+                    "required": true
+                  },
+                  "PendingDeletion": {
+                    "shape_name": "Boolean",
+                    "type": "boolean",
+                    "documentation": "\n  <p>Indicates that the option will be deleted once processing is complete.</p>\n  "
+                  }
+                },
+                "documentation": "\n  <p>The status of an option, including when it was last updated and whether it is actively in use for searches.</p>\n  ",
+                "required": true
+              }
+            },
+            "documentation": "\n    <p>The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain. </p>\n  "
+          }
+        },
+        "documentation": "\n    <p>The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. </p>\n  "
+      },
+      "errors": [
+        {
+          "shape_name": "BaseException",
+          "type": "structure",
+          "members": {
+            "Code": {
+              "shape_name": "ErrorCode",
+              "type": "string",
+              "documentation": "\n  <p>A machine-parsable string error or warning code.</p>\n  "
+            },
+            "Message": {
+              "shape_name": "ErrorMessage",
+              "type": "string",
+              "documentation": "\n  <p>A human-readable string error or warning message.</p>\n  "
+            }
+          },
+          "documentation": "\n    <p>An error occurred while processing the request.</p>\n  "
+        },
+        {
+          "shape_name": "InternalException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n    <p>An internal error occurred while processing the request. If this problem persists,\n      report an issue from the <a href=\"http://status.aws.amazon.com/\">Service Health Dashboard</a>.</p>\n  "
+        },
+        {
+          "shape_name": "InvalidTypeException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because it specified an invalid type definition.</p>\n  "
+        },
+        {
+          "shape_name": "LimitExceededException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because a resource limit has already been met.</p>\n  "
+        },
+        {
+          "shape_name": "ResourceNotFoundException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>\n  "
+        },
+        {
+          "shape_name": "DisabledOperationException",
+          "type": "structure",
+          "members": {
+          },
+          "documentation": "\n  <p>The request was rejected because it attempted an operation which is not enabled.</p>\n  "
+        }
+      ],
+      "documentation": "\n    <p>Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>\n  "
     },
     "UpdateDefaultSearchField": {
       "name": "UpdateDefaultSearchField",

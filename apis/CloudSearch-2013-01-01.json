@@ -1709,6 +1709,9 @@
                   "DesiredInstanceType": {},
                   "DesiredReplicationCount": {
                     "type": "integer"
+                  },
+                  "DesiredPartitionCount": {
+                    "type": "integer"
                   }
                 }
               },
@@ -1938,6 +1941,9 @@
               "DesiredInstanceType": {},
               "DesiredReplicationCount": {
                 "type": "integer"
+              },
+              "DesiredPartitionCount": {
+                "type": "integer"
               }
             },
             "required": true
@@ -1955,6 +1961,9 @@
                 "members": {
                   "DesiredInstanceType": {},
                   "DesiredReplicationCount": {
+                    "type": "integer"
+                  },
+                  "DesiredPartitionCount": {
                     "type": "integer"
                   }
                 }

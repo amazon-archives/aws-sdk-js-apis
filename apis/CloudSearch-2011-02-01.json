@@ -566,6 +566,48 @@
         }
       }
     },
+    "describeAvailabilityOptions": {
+      "name": "DescribeAvailabilityOptions",
+      "input": {
+        "type": "structure",
+        "members": {
+          "DomainName": {
+            "required": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "AvailabilityOptions": {
+            "type": "structure",
+            "members": {
+              "Options": {
+                "type": "boolean"
+              },
+              "Status": {
+                "type": "structure",
+                "members": {
+                  "CreationDate": {
+                    "type": "timestamp"
+                  },
+                  "UpdateDate": {
+                    "type": "timestamp"
+                  },
+                  "UpdateVersion": {
+                    "type": "integer"
+                  },
+                  "State": {},
+                  "PendingDeletion": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "describeDefaultSearchField": {
       "name": "DescribeDefaultSearchField",
       "input": {
@@ -1024,6 +1066,52 @@
           "FieldNames": {
             "type": "list",
             "members": {}
+          }
+        }
+      }
+    },
+    "updateAvailabilityOptions": {
+      "name": "UpdateAvailabilityOptions",
+      "input": {
+        "type": "structure",
+        "members": {
+          "DomainName": {
+            "required": true
+          },
+          "MultiAZ": {
+            "type": "boolean",
+            "required": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "AvailabilityOptions": {
+            "type": "structure",
+            "members": {
+              "Options": {
+                "type": "boolean"
+              },
+              "Status": {
+                "type": "structure",
+                "members": {
+                  "CreationDate": {
+                    "type": "timestamp"
+                  },
+                  "UpdateDate": {
+                    "type": "timestamp"
+                  },
+                  "UpdateVersion": {
+                    "type": "integer"
+                  },
+                  "State": {},
+                  "PendingDeletion": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
           }
         }
       }
