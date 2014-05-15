@@ -2373,6 +2373,12 @@
       "outputToken": "Marker",
       "limitKey": "MaxRecords",
       "resultKey": "ReplicationGroups"
+    },
+    "describeSnapshots": {
+      "inputToken": "Marker",
+      "outputToken": "Marker",
+      "limitKey": "MaxRecords",
+      "resultKey": "Snapshots"
     }
   }
 }
