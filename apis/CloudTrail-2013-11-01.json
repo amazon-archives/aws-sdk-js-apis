@@ -14,24 +14,16 @@
       "input": {
         "type": "structure",
         "members": {
-          "Name": {},
-          "S3BucketName": {},
+          "Name": {
+            "required": true
+          },
+          "S3BucketName": {
+            "required": true
+          },
           "S3KeyPrefix": {},
           "SnsTopicName": {},
           "IncludeGlobalServiceEvents": {
             "type": "boolean"
-          },
-          "trail": {
-            "type": "structure",
-            "members": {
-              "Name": {},
-              "S3BucketName": {},
-              "S3KeyPrefix": {},
-              "SnsTopicName": {},
-              "IncludeGlobalServiceEvents": {
-                "type": "boolean"
-              }
-            }
           }
         }
       },
@@ -44,18 +36,6 @@
           "SnsTopicName": {},
           "IncludeGlobalServiceEvents": {
             "type": "boolean"
-          },
-          "trail": {
-            "type": "structure",
-            "members": {
-              "Name": {},
-              "S3BucketName": {},
-              "S3KeyPrefix": {},
-              "SnsTopicName": {},
-              "IncludeGlobalServiceEvents": {
-                "type": "boolean"
-              }
-            }
           }
         }
       }
@@ -136,13 +116,7 @@
           },
           "StopLoggingTime": {
             "type": "timestamp"
-          },
-          "LatestDeliveryAttemptTime": {},
-          "LatestNotificationAttemptTime": {},
-          "LatestNotificationAttemptSucceeded": {},
-          "LatestDeliveryAttemptSucceeded": {},
-          "TimeLoggingStarted": {},
-          "TimeLoggingStopped": {}
+          }
         }
       }
     },
@@ -181,24 +155,14 @@
       "input": {
         "type": "structure",
         "members": {
-          "Name": {},
+          "Name": {
+            "required": true
+          },
           "S3BucketName": {},
           "S3KeyPrefix": {},
           "SnsTopicName": {},
           "IncludeGlobalServiceEvents": {
             "type": "boolean"
-          },
-          "trail": {
-            "type": "structure",
-            "members": {
-              "Name": {},
-              "S3BucketName": {},
-              "S3KeyPrefix": {},
-              "SnsTopicName": {},
-              "IncludeGlobalServiceEvents": {
-                "type": "boolean"
-              }
-            }
           }
         }
       },
@@ -211,21 +175,14 @@
           "SnsTopicName": {},
           "IncludeGlobalServiceEvents": {
             "type": "boolean"
-          },
-          "trail": {
-            "type": "structure",
-            "members": {
-              "Name": {},
-              "S3BucketName": {},
-              "S3KeyPrefix": {},
-              "SnsTopicName": {},
-              "IncludeGlobalServiceEvents": {
-                "type": "boolean"
-              }
-            }
           }
         }
       }
+    }
+  },
+  "pagination": {
+    "describeTrails": {
+      "resultKey": "trailList"
     }
   }
 }
