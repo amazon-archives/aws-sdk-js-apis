@@ -800,6 +800,23 @@
                     },
                     "StorageClass": {}
                   }
+                },
+                "NoncurrentVersionTransition": {
+                  "type": "structure",
+                  "members": {
+                    "NoncurrentDays": {
+                      "type": "integer"
+                    },
+                    "StorageClass": {}
+                  }
+                },
+                "NoncurrentVersionExpiration": {
+                  "type": "structure",
+                  "members": {
+                    "NoncurrentDays": {
+                      "type": "integer"
+                    }
+                  }
                 }
               }
             },
@@ -2113,6 +2130,23 @@
                         },
                         "StorageClass": {}
                       }
+                    },
+                    "NoncurrentVersionTransition": {
+                      "type": "structure",
+                      "members": {
+                        "NoncurrentDays": {
+                          "type": "integer"
+                        },
+                        "StorageClass": {}
+                      }
+                    },
+                    "NoncurrentVersionExpiration": {
+                      "type": "structure",
+                      "members": {
+                        "NoncurrentDays": {
+                          "type": "integer"
+                        }
+                      }
                     }
                   }
                 },
@@ -2681,7 +2715,7 @@
       "name": "RestoreObject",
       "http": {
         "method": "POST",
-        "uri": "/{Bucket}/{Key}?restore"
+        "uri": "/{Bucket}/{Key}?restore&versionId={VersionId}"
       },
       "input": {
         "payload": "RestoreRequest",
@@ -2693,6 +2727,9 @@
           },
           "Key": {
             "required": true,
+            "location": "uri"
+          },
+          "VersionId": {
             "location": "uri"
           },
           "RestoreRequest": {
