@@ -1027,7 +1027,9 @@
         "type": "structure",
         "members": {
           "Status": {},
-          "MFADelete": {}
+          "MfaDelete": {
+            "name": "MFADelete"
+          }
         }
       }
     },
@@ -2402,7 +2404,9 @@
           "VersioningConfiguration": {
             "type": "structure",
             "members": {
-              "MFADelete": {},
+              "MFADelete": {
+                "name": "MfaDelete"
+              },
               "Status": {}
             },
             "required": true
