@@ -147,6 +147,17 @@
             "required": true
           },
           "Description": {},
+          "DataSources": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Type": {},
+                "Arn": {},
+                "DatabaseName": {}
+              }
+            }
+          },
           "Type": {
             "required": true
           },
@@ -257,6 +268,7 @@
           "AmiId": {},
           "SshKeyName": {},
           "AvailabilityZone": {},
+          "VirtualizationType": {},
           "SubnetId": {},
           "Architecture": {},
           "RootDeviceType": {},
@@ -571,6 +583,21 @@
         "members": {}
       }
     },
+    "deregisterRdsDbInstance": {
+      "name": "DeregisterRdsDbInstance",
+      "input": {
+        "type": "structure",
+        "members": {
+          "RdsDbInstanceArn": {
+            "required": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
+      }
+    },
     "deregisterVolume": {
       "name": "DeregisterVolume",
       "input": {
@@ -611,6 +638,17 @@
                 "Shortname": {},
                 "Name": {},
                 "Description": {},
+                "DataSources": {
+                  "type": "list",
+                  "members": {
+                    "type": "structure",
+                    "members": {
+                      "Type": {},
+                      "Arn": {},
+                      "DatabaseName": {}
+                    }
+                  }
+                },
                 "Type": {},
                 "AppSource": {
                   "type": "structure",
@@ -845,6 +883,7 @@
               "members": {
                 "InstanceId": {},
                 "Ec2InstanceId": {},
+                "VirtualizationType": {},
                 "Hostname": {},
                 "StackId": {},
                 "LayerIds": {
@@ -1193,6 +1232,45 @@
                 "VolumeType": {},
                 "Iops": {
                   "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "describeRdsDbInstances": {
+      "name": "DescribeRdsDbInstances",
+      "input": {
+        "type": "structure",
+        "members": {
+          "StackId": {
+            "required": true
+          },
+          "RdsDbInstanceArns": {
+            "type": "list",
+            "members": {}
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "RdsDbInstances": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "RdsDbInstanceArn": {},
+                "DbInstanceIdentifier": {},
+                "DbUser": {},
+                "DbPassword": {},
+                "Region": {},
+                "Address": {},
+                "Engine": {},
+                "StackId": {},
+                "MissingOnRds": {
+                  "type": "boolean"
                 }
               }
             }
@@ -1618,6 +1696,30 @@
         }
       }
     },
+    "registerRdsDbInstance": {
+      "name": "RegisterRdsDbInstance",
+      "input": {
+        "type": "structure",
+        "members": {
+          "StackId": {
+            "required": true
+          },
+          "RdsDbInstanceArn": {
+            "required": true
+          },
+          "DbUser": {
+            "required": true
+          },
+          "DbPassword": {
+            "required": true
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
+      }
+    },
     "registerVolume": {
       "name": "RegisterVolume",
       "input": {
@@ -1865,6 +1967,17 @@
           },
           "Name": {},
           "Description": {},
+          "DataSources": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Type": {},
+                "Arn": {},
+                "DatabaseName": {}
+              }
+            }
+          },
           "Type": {},
           "AppSource": {
             "type": "structure",
@@ -1944,6 +2057,9 @@
           "SshKeyName": {},
           "Architecture": {},
           "InstallUpdatesOnBoot": {
+            "type": "boolean"
+          },
+          "EbsOptimized": {
             "type": "boolean"
           }
         }
@@ -2056,6 +2172,23 @@
         "type": "structure",
         "members": {
           "SshPublicKey": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
+      }
+    },
+    "updateRdsDbInstance": {
+      "name": "UpdateRdsDbInstance",
+      "input": {
+        "type": "structure",
+        "members": {
+          "RdsDbInstanceArn": {
+            "required": true
+          },
+          "DbUser": {},
+          "DbPassword": {}
         }
       },
       "output": {
