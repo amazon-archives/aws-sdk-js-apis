@@ -201,6 +201,16 @@
               "Version": {}
             }
           },
+          "Tags": {
+            "type": "list",
+            "members": {
+              "type": "structure",
+              "members": {
+                "Key": {},
+                "Value": {}
+              }
+            }
+          },
           "VersionLabel": {},
           "TemplateName": {},
           "SolutionStackName": {},
