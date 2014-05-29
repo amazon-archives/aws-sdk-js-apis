@@ -99,7 +99,12 @@
           },
           "PackedPolicySize": {
             "type": "integer"
-          }
+          },
+          "Subject": {},
+          "SubjectType": {},
+          "Issuer": {},
+          "Audience": {},
+          "NameQualifier": {}
         }
       }
     },
@@ -148,7 +153,9 @@
           },
           "PackedPolicySize": {
             "type": "integer"
-          }
+          },
+          "Provider": {},
+          "Audience": {}
         }
       }
     },
