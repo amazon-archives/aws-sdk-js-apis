@@ -15,6 +15,10 @@
   "cloudtrail": {
     "name": "CloudTrail"
   },
+  "cloudwatch": {
+    "prefix": "monitoring",
+    "name": "CloudWatch"
+  },
   "datapipeline": {
     "name": "DataPipeline"
   },
@@ -35,10 +39,12 @@
   "elasticbeanstalk": {
     "name": "ElasticBeanstalk"
   },
-  "elasticloadbalancing": {
+  "elb": {
+    "prefix": "elasticloadbalancing",
     "name": "ELB"
   },
-  "elasticmapreduce": {
+  "emr": {
+    "prefix": "elasticmapreduce",
     "name": "EMR"
   },
   "elastictranscoder": {
@@ -55,9 +61,6 @@
   },
   "kinesis": {
     "name": "Kinesis"
-  },
-  "monitoring": {
-    "name": "CloudWatch"
   },
   "opsworks": {
     "name": "OpsWorks"
