@@ -8,26 +8,24 @@ var serviceNames = [];
 function buildServiceMap() {
   if (serviceMap !== null) return;
 
-  // load symlinks file for API versions that have been removed from disk but
-  // are still referenceable in code.
-  var symlinksFile = apiRoot + '/symlinks.json';
-  var symlinks = JSON.parse(fs.readFileSync(symlinksFile).toString());
+  // load info file for API metadata
+  var infoFile = __dirname + '/metadata.json';
+  serviceMap = JSON.parse(fs.readFileSync(infoFile).toString());
 
-  // create a map of each service name to its list of versions
-  serviceMap = {};
+  var prefixMap = {};
+  Object.keys(serviceMap).forEach(function(identifier) {
+    serviceMap[identifier].prefix = serviceMap[identifier].prefix || identifier;
+    prefixMap[serviceMap[identifier].prefix] = identifier;
+  });
+
   fs.readdirSync(apiRoot).forEach(function (file) {
-    var match = file.match(/^([^-]+)-(\d+-\d+-\d+)\.json$/);
+    var match = file.match(/^([^-]+)-(\d+-\d+-\d+)\.api\.json$/);
     if (match) {
-      var svcName = match[1], version = match[2];
-      var svcIdentifier = svcName.toLowerCase();
-
-      if (!serviceMap[svcIdentifier]) { // build the base service values
-        // add versions from symlinks, if any
-        var versions = symlinks[svcName] || [];
-        serviceMap[svcIdentifier] = { name: svcName, versions: versions };
+      var id = prefixMap[match[1]], version = match[2];
+      if (serviceMap[id]) {
+        serviceMap[id].versions = serviceMap[id].versions || [];
+        serviceMap[id].versions.push(version);
       }
-
-      serviceMap[svcIdentifier].versions.push(version);
     }
   });
 
@@ -65,7 +63,50 @@ function serviceFile(svc, version) {
   svc = serviceIdentifier(svc);
   if (!serviceMap[svc]) return null;
 
-  return apiRoot + '/' + serviceMap[svc].name + '-' + version + '.json';
+  var prefix = serviceMap[svc].prefix || svc;
+  return apiRoot + '/' + prefix.toLowerCase() + '-' + version + '.api.json';
+}
+
+function paginatorsFile(svc, version) {
+  buildServiceMap();
+  svc = serviceIdentifier(svc);
+  if (!serviceMap[svc]) return null;
+
+  var prefix = serviceMap[svc].prefix || svc;
+  return apiRoot + '/' + prefix + '-' + version + '.paginators.json';  
+}
+
+function waitersFile(svc, version) {
+  buildServiceMap();
+  svc = serviceIdentifier(svc);
+  if (!serviceMap[svc]) return null;
+
+  var prefix = serviceMap[svc].prefix || svc;
+  return apiRoot + '/' + prefix + '-' + version + '.waiters.json';  
+}
+
+function load(svc, version) {
+  buildServiceMap();
+  svc = serviceIdentifier(svc);
+  if (version === 'latest') version = null;
+  version = version || serviceMap[svc].versions[serviceMap[svc].versions.length - 1];
+  if (!serviceMap[svc]) return null;
+
+  var api = JSON.parse(fs.readFileSync(serviceFile(svc, version)));
+
+  // Try to load paginators
+  if (fs.existsSync(paginatorsFile(svc, version))) {
+    var paginators = JSON.parse(fs.readFileSync(paginatorsFile(svc, version)));
+    api.paginators = paginators.pagination;    
+  }
+
+  // Try to load waiters
+  if (fs.existsSync(waitersFile(svc, version))) {
+    var waiters = JSON.parse(fs.readFileSync(waitersFile(svc, version)));
+    api.waiters = waiters.waiters;    
+  }
+
+  return api;
 }
 
 function serviceIdentifier(svc) {
@@ -76,11 +117,14 @@ module.exports = {
   serviceVersions: serviceVersions,
   serviceName: serviceName,
   serviceIdentifier: serviceIdentifier,
-  serviceFile: serviceFile
+  serviceFile: serviceFile,
+  load: load
 };
+
 Object.defineProperty(module.exports, 'services', {
   enumerable: true, get: getServices
 });
+
 Object.defineProperty(module.exports, 'serviceNames', {
   enumerable: true, get: getServiceNames
 });
