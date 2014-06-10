@@ -19,7 +19,7 @@ function buildServiceMap() {
   });
 
   fs.readdirSync(apiRoot).forEach(function (file) {
-    var match = file.match(/^([^-]+)-(\d+-\d+-\d+)\.normal\.min\.json$/);
+    var match = file.match(/^([^-]+)-(\d+-\d+-\d+)\.api\.json$/);
     if (match) {
       var id = prefixMap[match[1]], version = match[2];
       if (serviceMap[id]) {
@@ -64,7 +64,7 @@ function serviceFile(svc, version) {
   if (!serviceMap[svc]) return null;
 
   var prefix = serviceMap[svc].prefix || svc;
-  return apiRoot + '/' + prefix.toLowerCase() + '-' + version + '.normal.min.json';
+  return apiRoot + '/' + prefix.toLowerCase() + '-' + version + '.api.json';
 }
 
 function paginatorsFile(svc, version) {
