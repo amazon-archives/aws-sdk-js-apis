@@ -9,7 +9,7 @@ function buildServiceMap() {
   if (serviceMap !== null) return;
 
   // load info file for API metadata
-  var infoFile = __dirname + '/apiInfo.json';
+  var infoFile = __dirname + '/metadata.json';
   serviceMap = JSON.parse(fs.readFileSync(infoFile).toString());
 
   var prefixMap = {};
