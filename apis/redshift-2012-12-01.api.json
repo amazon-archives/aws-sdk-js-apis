@@ -1122,7 +1122,8 @@
             "type": "boolean"
           },
           "HsmClientCertificateIdentifier": {},
-          "HsmConfigurationIdentifier": {}
+          "HsmConfigurationIdentifier": {},
+          "NewClusterIdentifier": {}
         }
       },
       "output": {
@@ -1330,7 +1331,18 @@
           "OwnerAccount": {},
           "HsmClientCertificateIdentifier": {},
           "HsmConfigurationIdentifier": {},
-          "ElasticIp": {}
+          "ElasticIp": {},
+          "ClusterParameterGroupName": {},
+          "ClusterSecurityGroups": {
+            "shape": "Sm"
+          },
+          "VpcSecurityGroupIds": {
+            "shape": "Sn"
+          },
+          "PreferredMaintenanceWindow": {},
+          "AutomatedSnapshotRetentionPeriod": {
+            "type": "integer"
+          }
         }
       },
       "output": {
@@ -1595,7 +1607,8 @@
             "ClusterVersion": {},
             "AutomatedSnapshotRetentionPeriod": {
               "type": "integer"
-            }
+            },
+            "ClusterIdentifier": {}
           }
         },
         "ClusterVersion": {},
