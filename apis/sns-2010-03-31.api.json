@@ -369,7 +369,27 @@
           "TargetArn": {},
           "Message": {},
           "Subject": {},
-          "MessageStructure": {}
+          "MessageStructure": {},
+          "MessageAttributes": {
+            "type": "map",
+            "key": {
+              "locationName": "Name"
+            },
+            "value": {
+              "locationName": "Value",
+              "type": "structure",
+              "required": [
+                "DataType"
+              ],
+              "members": {
+                "DataType": {},
+                "StringValue": {},
+                "BinaryValue": {
+                  "type": "blob"
+                }
+              }
+            }
+          }
         }
       },
       "output": {
