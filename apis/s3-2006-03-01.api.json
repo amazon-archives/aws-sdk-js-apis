@@ -779,7 +779,7 @@
         "type": "structure",
         "members": {
           "LoggingEnabled": {
-            "shape": "S36"
+            "shape": "S38"
           }
         }
       }
@@ -805,7 +805,7 @@
         "type": "structure",
         "members": {
           "TopicConfiguration": {
-            "shape": "S3e"
+            "shape": "S3g"
           }
         }
       }
@@ -883,7 +883,7 @@
         ],
         "members": {
           "TagSet": {
-            "shape": "S3p"
+            "shape": "S3r"
           }
         }
       }
@@ -936,16 +936,16 @@
         "type": "structure",
         "members": {
           "RedirectAllRequestsTo": {
-            "shape": "S3y"
+            "shape": "S40"
           },
           "IndexDocument": {
-            "shape": "S41"
-          },
-          "ErrorDocument": {
             "shape": "S43"
           },
+          "ErrorDocument": {
+            "shape": "S45"
+          },
           "RoutingRules": {
-            "shape": "S44"
+            "shape": "S46"
           }
         }
       }
@@ -1436,14 +1436,14 @@
                   "shape": "S24"
                 },
                 "Initiator": {
-                  "shape": "S5j"
+                  "shape": "S5l"
                 }
               }
             },
             "flattened": true
           },
           "CommonPrefixes": {
-            "shape": "S5k"
+            "shape": "S5m"
           },
           "EncodingType": {}
         }
@@ -1554,7 +1554,7 @@
             "type": "integer"
           },
           "CommonPrefixes": {
-            "shape": "S5k"
+            "shape": "S5m"
           },
           "EncodingType": {}
         }
@@ -1634,7 +1634,7 @@
             "type": "integer"
           },
           "CommonPrefixes": {
-            "shape": "S5k"
+            "shape": "S5m"
           },
           "EncodingType": {}
         }
@@ -1717,7 +1717,7 @@
             "flattened": true
           },
           "Initiator": {
-            "shape": "S5j"
+            "shape": "S5l"
           },
           "Owner": {
             "shape": "S24"
@@ -1742,7 +1742,7 @@
             "locationName": "x-amz-acl"
           },
           "AccessControlPolicy": {
-            "shape": "S6d",
+            "shape": "S6f",
             "xmlNamespace": "http://s3.amazonaws.com/doc/2006-03-01/",
             "locationName": "AccessControlPolicy"
           },
@@ -1871,7 +1871,7 @@
             "type": "structure",
             "members": {
               "LoggingEnabled": {
-                "shape": "S36"
+                "shape": "S38"
               }
             }
           },
@@ -1912,7 +1912,7 @@
             ],
             "members": {
               "TopicConfiguration": {
-                "shape": "S3e"
+                "shape": "S3g"
               }
             }
           }
@@ -2011,7 +2011,7 @@
             ],
             "members": {
               "TagSet": {
-                "shape": "S3p"
+                "shape": "S3r"
               }
             }
           }
@@ -2084,16 +2084,16 @@
             "type": "structure",
             "members": {
               "ErrorDocument": {
-                "shape": "S43"
+                "shape": "S45"
               },
               "IndexDocument": {
-                "shape": "S41"
+                "shape": "S43"
               },
               "RedirectAllRequestsTo": {
-                "shape": "S3y"
+                "shape": "S40"
               },
               "RoutingRules": {
-                "shape": "S44"
+                "shape": "S46"
               }
             }
           }
@@ -2239,7 +2239,7 @@
             "locationName": "x-amz-acl"
           },
           "AccessControlPolicy": {
-            "shape": "S6d",
+            "shape": "S6f",
             "xmlNamespace": "http://s3.amazonaws.com/doc/2006-03-01/",
             "locationName": "AccessControlPolicy"
           },
@@ -2297,6 +2297,10 @@
           "Key": {
             "location": "uri",
             "locationName": "Key"
+          },
+          "VersionId": {
+            "location": "querystring",
+            "locationName": "versionId"
           },
           "RestoreRequest": {
             "xmlNamespace": "http://s3.amazonaws.com/doc/2006-03-01/",
@@ -2579,6 +2583,23 @@
               },
               "StorageClass": {}
             }
+          },
+          "NoncurrentVersionTransition": {
+            "type": "structure",
+            "members": {
+              "NoncurrentDays": {
+                "type": "integer"
+              },
+              "StorageClass": {}
+            }
+          },
+          "NoncurrentVersionExpiration": {
+            "type": "structure",
+            "members": {
+              "NoncurrentDays": {
+                "type": "integer"
+              }
+            }
           }
         }
       },
@@ -2588,7 +2609,7 @@
       "type": "timestamp",
       "timestampFormat": "iso8601"
     },
-    "S36": {
+    "S38": {
       "type": "structure",
       "members": {
         "TargetBucket": {},
@@ -2608,14 +2629,14 @@
         "TargetPrefix": {}
       }
     },
-    "S3e": {
+    "S3g": {
       "type": "structure",
       "members": {
         "Event": {},
         "Topic": {}
       }
     },
-    "S3p": {
+    "S3r": {
       "type": "list",
       "member": {
         "locationName": "Tag",
@@ -2630,7 +2651,7 @@
         }
       }
     },
-    "S3y": {
+    "S40": {
       "type": "structure",
       "required": [
         "HostName"
@@ -2640,7 +2661,7 @@
         "Protocol": {}
       }
     },
-    "S41": {
+    "S43": {
       "type": "structure",
       "required": [
         "Suffix"
@@ -2649,7 +2670,7 @@
         "Suffix": {}
       }
     },
-    "S43": {
+    "S45": {
       "type": "structure",
       "required": [
         "Key"
@@ -2658,7 +2679,7 @@
         "Key": {}
       }
     },
-    "S44": {
+    "S46": {
       "type": "list",
       "member": {
         "locationName": "RoutingRule",
@@ -2687,14 +2708,14 @@
         }
       }
     },
-    "S5j": {
+    "S5l": {
       "type": "structure",
       "members": {
         "ID": {},
         "DisplayName": {}
       }
     },
-    "S5k": {
+    "S5m": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -2704,7 +2725,7 @@
       },
       "flattened": true
     },
-    "S6d": {
+    "S6f": {
       "type": "structure",
       "members": {
         "Grants": {
