@@ -928,12 +928,14 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       },
       "payload":"CopyObjectResult"
@@ -1085,32 +1087,38 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
         },
         "SSECustomerKey":{
           "shape":"SSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key"
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         },
         "CopySourceSSECustomerAlgorithm":{
           "shape":"CopySourceSSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use when decrypting the source object (e.g., AES256)."
         },
         "CopySourceSSECustomerKey":{
           "shape":"CopySourceSSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-copy-source-server-side-encryption-customer-key"
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created."
         },
         "CopySourceSSECustomerKeyMD5":{
           "shape":"CopySourceSSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -1244,12 +1252,14 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -1363,17 +1373,20 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
         },
         "SSECustomerKey":{
           "shape":"SSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key"
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -2013,12 +2026,14 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       },
       "payload":"Body"
@@ -2115,17 +2130,20 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
         },
         "SSECustomerKey":{
           "shape":"SSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key"
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -2334,12 +2352,14 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -2399,17 +2419,20 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
         },
         "SSECustomerKey":{
           "shape":"SSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key"
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -3495,12 +3518,14 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -3629,17 +3654,20 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
         },
         "SSECustomerKey":{
           "shape":"SSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key"
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       },
       "payload":"Body"
@@ -3927,12 +3955,14 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       },
       "payload":"CopyPartResult"
@@ -4008,32 +4038,38 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
         },
         "SSECustomerKey":{
           "shape":"SSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key"
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         },
         "CopySourceSSECustomerAlgorithm":{
           "shape":"CopySourceSSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use when decrypting the source object (e.g., AES256)."
         },
         "CopySourceSSECustomerKey":{
           "shape":"CopySourceSSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-copy-source-server-side-encryption-customer-key"
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created."
         },
         "CopySourceSSECustomerKeyMD5":{
           "shape":"CopySourceSSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       }
     },
@@ -4055,12 +4091,14 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key."
         }
       }
     },
@@ -4113,17 +4151,20 @@
         "SSECustomerAlgorithm":{
           "shape":"SSECustomerAlgorithm",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+          "locationName":"x-amz-server-side-encryption-customer-algorithm",
+          "documentation":"Specifies the algorithm to use to when encrypting the object (e.g., AES256)."
         },
         "SSECustomerKey":{
           "shape":"SSECustomerKey",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key"
+          "locationName":"x-amz-server-side-encryption-customer-key",
+          "documentation":"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request."
         },
         "SSECustomerKeyMD5":{
           "shape":"SSECustomerKeyMD5",
           "location":"header",
-          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5",
+          "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
         }
       },
       "payload":"Body"
