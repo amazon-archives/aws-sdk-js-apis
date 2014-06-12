@@ -218,6 +218,30 @@
           "WebsiteRedirectLocation": {
             "location": "header",
             "locationName": "x-amz-website-redirect-location"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
+          },
+          "CopySourceSSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-copy-source-server-side-encryption-customer-algorithm"
+          },
+          "CopySourceSSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-copy-source-server-side-encryption-customer-key"
+          },
+          "CopySourceSSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-copy-source-server-side-encryption-customer-key-MD5"
           }
         }
       },
@@ -245,6 +269,14 @@
           "ServerSideEncryption": {
             "location": "header",
             "locationName": "x-amz-server-side-encryption"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         },
         "payload": "CopyObjectResult"
@@ -392,6 +424,18 @@
           "WebsiteRedirectLocation": {
             "location": "header",
             "locationName": "x-amz-website-redirect-location"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         }
       },
@@ -406,6 +450,14 @@
           "ServerSideEncryption": {
             "location": "header",
             "locationName": "x-amz-server-side-encryption"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         }
       },
@@ -671,10 +723,10 @@
         "type": "structure",
         "members": {
           "Owner": {
-            "shape": "S24"
+            "shape": "S2a"
           },
           "Grants": {
-            "shape": "S27",
+            "shape": "S2d",
             "locationName": "AccessControlList"
           }
         }
@@ -701,7 +753,7 @@
         "type": "structure",
         "members": {
           "CORSRules": {
-            "shape": "S2g",
+            "shape": "S2m",
             "locationName": "CORSRule"
           }
         }
@@ -728,7 +780,7 @@
         "type": "structure",
         "members": {
           "Rules": {
-            "shape": "S2t",
+            "shape": "S2z",
             "locationName": "Rule"
           }
         }
@@ -779,7 +831,7 @@
         "type": "structure",
         "members": {
           "LoggingEnabled": {
-            "shape": "S38"
+            "shape": "S3e"
           }
         }
       }
@@ -805,7 +857,7 @@
         "type": "structure",
         "members": {
           "TopicConfiguration": {
-            "shape": "S3g"
+            "shape": "S3m"
           }
         }
       }
@@ -883,7 +935,7 @@
         ],
         "members": {
           "TagSet": {
-            "shape": "S3r"
+            "shape": "S3x"
           }
         }
       }
@@ -936,16 +988,16 @@
         "type": "structure",
         "members": {
           "RedirectAllRequestsTo": {
-            "shape": "S40"
+            "shape": "S46"
           },
           "IndexDocument": {
-            "shape": "S43"
+            "shape": "S49"
           },
           "ErrorDocument": {
-            "shape": "S45"
+            "shape": "S4b"
           },
           "RoutingRules": {
-            "shape": "S46"
+            "shape": "S4c"
           }
         }
       }
@@ -1020,6 +1072,18 @@
           "VersionId": {
             "location": "querystring",
             "locationName": "versionId"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         }
       },
@@ -1108,6 +1172,14 @@
             "shape": "Sx",
             "location": "headers",
             "locationName": "x-amz-meta-"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         },
         "payload": "Body"
@@ -1143,10 +1215,10 @@
         "type": "structure",
         "members": {
           "Owner": {
-            "shape": "S24"
+            "shape": "S2a"
           },
           "Grants": {
-            "shape": "S27",
+            "shape": "S2d",
             "locationName": "AccessControlList"
           }
         }
@@ -1248,6 +1320,18 @@
           "VersionId": {
             "location": "querystring",
             "locationName": "versionId"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         }
       },
@@ -1332,6 +1416,14 @@
             "shape": "Sx",
             "location": "headers",
             "locationName": "x-amz-meta-"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         }
       }
@@ -1357,7 +1449,7 @@
             }
           },
           "Owner": {
-            "shape": "S24"
+            "shape": "S2a"
           }
         }
       },
@@ -1433,17 +1525,17 @@
                 },
                 "StorageClass": {},
                 "Owner": {
-                  "shape": "S24"
+                  "shape": "S2a"
                 },
                 "Initiator": {
-                  "shape": "S5l"
+                  "shape": "S5r"
                 }
               }
             },
             "flattened": true
           },
           "CommonPrefixes": {
-            "shape": "S5m"
+            "shape": "S5s"
           },
           "EncodingType": {}
         }
@@ -1521,7 +1613,7 @@
                   "type": "timestamp"
                 },
                 "Owner": {
-                  "shape": "S24"
+                  "shape": "S2a"
                 }
               }
             },
@@ -1534,7 +1626,7 @@
               "type": "structure",
               "members": {
                 "Owner": {
-                  "shape": "S24"
+                  "shape": "S2a"
                 },
                 "Key": {},
                 "VersionId": {},
@@ -1554,7 +1646,7 @@
             "type": "integer"
           },
           "CommonPrefixes": {
-            "shape": "S5m"
+            "shape": "S5s"
           },
           "EncodingType": {}
         }
@@ -1622,7 +1714,7 @@
                 },
                 "StorageClass": {},
                 "Owner": {
-                  "shape": "S24"
+                  "shape": "S2a"
                 }
               }
             },
@@ -1634,7 +1726,7 @@
             "type": "integer"
           },
           "CommonPrefixes": {
-            "shape": "S5m"
+            "shape": "S5s"
           },
           "EncodingType": {}
         }
@@ -1717,10 +1809,10 @@
             "flattened": true
           },
           "Initiator": {
-            "shape": "S5l"
+            "shape": "S5r"
           },
           "Owner": {
-            "shape": "S24"
+            "shape": "S2a"
           },
           "StorageClass": {}
         }
@@ -1742,7 +1834,7 @@
             "locationName": "x-amz-acl"
           },
           "AccessControlPolicy": {
-            "shape": "S6f",
+            "shape": "S6l",
             "xmlNamespace": "http://s3.amazonaws.com/doc/2006-03-01/",
             "locationName": "AccessControlPolicy"
           },
@@ -1799,7 +1891,7 @@
             "type": "structure",
             "members": {
               "CORSRules": {
-                "shape": "S2g",
+                "shape": "S2m",
                 "locationName": "CORSRule"
               }
             }
@@ -1840,7 +1932,7 @@
             ],
             "members": {
               "Rules": {
-                "shape": "S2t",
+                "shape": "S2z",
                 "locationName": "Rule"
               }
             }
@@ -1871,7 +1963,7 @@
             "type": "structure",
             "members": {
               "LoggingEnabled": {
-                "shape": "S38"
+                "shape": "S3e"
               }
             }
           },
@@ -1912,7 +2004,7 @@
             ],
             "members": {
               "TopicConfiguration": {
-                "shape": "S3g"
+                "shape": "S3m"
               }
             }
           }
@@ -2011,7 +2103,7 @@
             ],
             "members": {
               "TagSet": {
-                "shape": "S3r"
+                "shape": "S3x"
               }
             }
           }
@@ -2084,16 +2176,16 @@
             "type": "structure",
             "members": {
               "ErrorDocument": {
-                "shape": "S45"
+                "shape": "S4b"
               },
               "IndexDocument": {
-                "shape": "S43"
+                "shape": "S49"
               },
               "RedirectAllRequestsTo": {
-                "shape": "S40"
+                "shape": "S46"
               },
               "RoutingRules": {
-                "shape": "S46"
+                "shape": "S4c"
               }
             }
           }
@@ -2195,6 +2287,18 @@
           "WebsiteRedirectLocation": {
             "location": "header",
             "locationName": "x-amz-website-redirect-location"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         },
         "payload": "Body"
@@ -2218,6 +2322,14 @@
           "VersionId": {
             "location": "header",
             "locationName": "x-amz-version-id"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         }
       }
@@ -2239,7 +2351,7 @@
             "locationName": "x-amz-acl"
           },
           "AccessControlPolicy": {
-            "shape": "S6f",
+            "shape": "S6l",
             "xmlNamespace": "http://s3.amazonaws.com/doc/2006-03-01/",
             "locationName": "AccessControlPolicy"
           },
@@ -2363,6 +2475,18 @@
           "UploadId": {
             "location": "querystring",
             "locationName": "uploadId"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         },
         "payload": "Body"
@@ -2377,6 +2501,14 @@
           "ETag": {
             "location": "header",
             "locationName": "ETag"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         }
       }
@@ -2438,6 +2570,30 @@
           "UploadId": {
             "location": "querystring",
             "locationName": "uploadId"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
+          },
+          "CopySourceSSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-copy-source-server-side-encryption-customer-algorithm"
+          },
+          "CopySourceSSECustomerKey": {
+            "location": "header",
+            "locationName": "x-amz-copy-source-server-side-encryption-customer-key"
+          },
+          "CopySourceSSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-copy-source-server-side-encryption-customer-key-MD5"
           }
         }
       },
@@ -2460,6 +2616,14 @@
           "ServerSideEncryption": {
             "location": "header",
             "locationName": "x-amz-server-side-encryption"
+          },
+          "SSECustomerAlgorithm": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-algorithm"
+          },
+          "SSECustomerKeyMD5": {
+            "location": "header",
+            "locationName": "x-amz-server-side-encryption-customer-key-MD5"
           }
         },
         "payload": "CopyPartResult"
@@ -2472,27 +2636,27 @@
       "key": {},
       "value": {}
     },
-    "S24": {
+    "S2a": {
       "type": "structure",
       "members": {
         "DisplayName": {},
         "ID": {}
       }
     },
-    "S27": {
+    "S2d": {
       "type": "list",
       "member": {
         "locationName": "Grant",
         "type": "structure",
         "members": {
           "Grantee": {
-            "shape": "S29"
+            "shape": "S2f"
           },
           "Permission": {}
         }
       }
     },
-    "S29": {
+    "S2f": {
       "type": "structure",
       "required": [
         "Type"
@@ -2513,7 +2677,7 @@
         "uri": "http://www.w3.org/2001/XMLSchema-instance"
       }
     },
-    "S2g": {
+    "S2m": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -2549,7 +2713,7 @@
       },
       "flattened": true
     },
-    "S2t": {
+    "S2z": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -2562,7 +2726,7 @@
             "type": "structure",
             "members": {
               "Date": {
-                "shape": "S2w"
+                "shape": "S32"
               },
               "Days": {
                 "type": "integer"
@@ -2576,7 +2740,7 @@
             "type": "structure",
             "members": {
               "Date": {
-                "shape": "S2w"
+                "shape": "S32"
               },
               "Days": {
                 "type": "integer"
@@ -2605,11 +2769,11 @@
       },
       "flattened": true
     },
-    "S2w": {
+    "S32": {
       "type": "timestamp",
       "timestampFormat": "iso8601"
     },
-    "S38": {
+    "S3e": {
       "type": "structure",
       "members": {
         "TargetBucket": {},
@@ -2620,7 +2784,7 @@
             "type": "structure",
             "members": {
               "Grantee": {
-                "shape": "S29"
+                "shape": "S2f"
               },
               "Permission": {}
             }
@@ -2629,14 +2793,14 @@
         "TargetPrefix": {}
       }
     },
-    "S3g": {
+    "S3m": {
       "type": "structure",
       "members": {
         "Event": {},
         "Topic": {}
       }
     },
-    "S3r": {
+    "S3x": {
       "type": "list",
       "member": {
         "locationName": "Tag",
@@ -2651,7 +2815,7 @@
         }
       }
     },
-    "S40": {
+    "S46": {
       "type": "structure",
       "required": [
         "HostName"
@@ -2661,7 +2825,7 @@
         "Protocol": {}
       }
     },
-    "S43": {
+    "S49": {
       "type": "structure",
       "required": [
         "Suffix"
@@ -2670,7 +2834,7 @@
         "Suffix": {}
       }
     },
-    "S45": {
+    "S4b": {
       "type": "structure",
       "required": [
         "Key"
@@ -2679,7 +2843,7 @@
         "Key": {}
       }
     },
-    "S46": {
+    "S4c": {
       "type": "list",
       "member": {
         "locationName": "RoutingRule",
@@ -2708,14 +2872,14 @@
         }
       }
     },
-    "S5l": {
+    "S5r": {
       "type": "structure",
       "members": {
         "ID": {},
         "DisplayName": {}
       }
     },
-    "S5m": {
+    "S5s": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -2725,15 +2889,15 @@
       },
       "flattened": true
     },
-    "S6f": {
+    "S6l": {
       "type": "structure",
       "members": {
         "Grants": {
-          "shape": "S27",
+          "shape": "S2d",
           "locationName": "AccessControlList"
         },
         "Owner": {
-          "shape": "S24"
+          "shape": "S2a"
         }
       }
     }

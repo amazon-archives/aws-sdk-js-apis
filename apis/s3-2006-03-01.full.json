@@ -924,6 +924,16 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption",
           "documentation":"The Server-side encryption algorithm used when storing this object in S3."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       },
       "payload":"CopyObjectResult"
@@ -1071,6 +1081,36 @@
           "location":"header",
           "locationName":"x-amz-website-redirect-location",
           "documentation":"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+        },
+        "CopySourceSSECustomerAlgorithm":{
+          "shape":"CopySourceSSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"
+        },
+        "CopySourceSSECustomerKey":{
+          "shape":"CopySourceSSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key"
+        },
+        "CopySourceSSECustomerKeyMD5":{
+          "shape":"CopySourceSSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -1103,6 +1143,9 @@
     "CopySourceIfNoneMatch":{"type":"string"},
     "CopySourceIfUnmodifiedSince":{"type":"timestamp"},
     "CopySourceRange":{"type":"string"},
+    "CopySourceSSECustomerAlgorithm":{"type":"string"},
+    "CopySourceSSECustomerKey":{"type":"string"},
+    "CopySourceSSECustomerKeyMD5":{"type":"string"},
     "CopySourceVersionId":{"type":"string"},
     "CreateBucketConfiguration":{
       "type":"structure",
@@ -1197,6 +1240,16 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption",
           "documentation":"The Server-side encryption algorithm used when storing this object in S3."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -1306,6 +1359,21 @@
           "location":"header",
           "locationName":"x-amz-website-redirect-location",
           "documentation":"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -1941,6 +2009,16 @@
           "location":"headers",
           "documentation":"A map of metadata to store with the object in S3.",
           "locationName":"x-amz-meta-"
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       },
       "payload":"Body"
@@ -2033,6 +2111,21 @@
           "location":"querystring",
           "locationName":"versionId",
           "documentation":"VersionId used to reference a specific version of the object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -2237,6 +2330,16 @@
           "location":"headers",
           "documentation":"A map of metadata to store with the object in S3.",
           "locationName":"x-amz-meta-"
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -2292,6 +2395,21 @@
           "location":"querystring",
           "locationName":"versionId",
           "documentation":"VersionId used to reference a specific version of the object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -3373,6 +3491,16 @@
           "location":"header",
           "locationName":"x-amz-version-id",
           "documentation":"Version of the object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -3497,6 +3625,21 @@
           "location":"header",
           "locationName":"x-amz-website-redirect-location",
           "documentation":"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       },
       "payload":"Body"
@@ -3652,6 +3795,9 @@
       "member":{"shape":"Rule"},
       "flattened":true
     },
+    "SSECustomerAlgorithm":{"type":"string"},
+    "SSECustomerKey":{"type":"string"},
+    "SSECustomerKeyMD5":{"type":"string"},
     "ServerSideEncryption":{
       "type":"string",
       "enum":["AES256"]
@@ -3777,6 +3923,16 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption",
           "documentation":"The Server-side encryption algorithm used when storing this object in S3."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       },
       "payload":"CopyPartResult"
@@ -3848,6 +4004,36 @@
           "location":"querystring",
           "locationName":"uploadId",
           "documentation":"Upload ID identifying the multipart upload whose part is being copied."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
+        },
+        "CopySourceSSECustomerAlgorithm":{
+          "shape":"CopySourceSSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"
+        },
+        "CopySourceSSECustomerKey":{
+          "shape":"CopySourceSSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key"
+        },
+        "CopySourceSSECustomerKeyMD5":{
+          "shape":"CopySourceSSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -3865,6 +4051,16 @@
           "location":"header",
           "locationName":"ETag",
           "documentation":"Entity tag for the uploaded object."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       }
     },
@@ -3913,6 +4109,21 @@
           "location":"querystring",
           "locationName":"uploadId",
           "documentation":"Upload ID identifying the multipart upload whose part is being uploaded."
+        },
+        "SSECustomerAlgorithm":{
+          "shape":"SSECustomerAlgorithm",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-algorithm"
+        },
+        "SSECustomerKey":{
+          "shape":"SSECustomerKey",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key"
+        },
+        "SSECustomerKeyMD5":{
+          "shape":"SSECustomerKeyMD5",
+          "location":"header",
+          "locationName":"x-amz-server-side-encryption-customer-key-MD5"
         }
       },
       "payload":"Body"
