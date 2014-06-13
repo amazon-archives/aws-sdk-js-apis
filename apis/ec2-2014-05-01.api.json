@@ -3944,8 +3944,6 @@
               "locationName": "item",
               "required": [
                 "ConversionTaskId",
-                "ImportInstance",
-                "ImportVolume",
                 "State"
               ],
               "members": {
@@ -3960,6 +3958,9 @@
                 "ImportInstance": {
                   "type": "structure",
                   "locationName": "importInstance",
+                  "required": [
+                    "Volumes"
+                  ],
                   "members": {
                     "Volumes": {
                       "type": "list",
@@ -3970,8 +3971,6 @@
                         "required": [
                           "BytesConverted",
                           "AvailabilityZone",
-                          "Image",
-                          "Volume",
                           "Status"
                         ],
                         "members": {
@@ -3985,6 +3984,11 @@
                           },
                           "Image": {
                             "type": "structure",
+                            "required": [
+                              "Format",
+                              "Size",
+                              "ImportManifestUrl"
+                            ],
                             "locationName": "image",
                             "members": {
                               "Format": {
@@ -4007,6 +4011,9 @@
                           },
                           "Volume": {
                             "type": "structure",
+                            "required": [
+                              "Id"
+                            ],
                             "locationName": "volume",
                             "members": {
                               "Size": {
@@ -4051,6 +4058,10 @@
                 "ImportVolume": {
                   "type": "structure",
                   "locationName": "importVolume",
+                  "required": [
+                    "BytesConverted",
+                    "AvailabilityZone"
+                  ],
                   "members": {
                     "BytesConverted": {
                       "type": "long",
@@ -4066,6 +4077,11 @@
                     },
                     "Image": {
                       "type": "structure",
+                      "required": [
+                        "Format",
+                        "Size",
+                        "ImportManifestUrl"
+                      ],
                       "locationName": "image",
                       "members": {
                         "Format": {
@@ -4088,6 +4104,9 @@
                     },
                     "Volume": {
                       "type": "structure",
+                      "required": [
+                        "Id"
+                      ],
                       "locationName": "volume",
                       "members": {
                         "Size": {
@@ -4974,6 +4993,16 @@
             "members": {
               "Value": {
                 "type": "string",
+                "locationName": "value"
+              }
+            }
+          },
+          "SourceDestCheck": {
+            "type": "structure",
+            "locationName": "sourceDestCheck",
+            "members": {
+              "Value": {
+                "type": "boolean",
                 "locationName": "value"
               }
             }
@@ -9580,13 +9609,14 @@
             "member": {
               "type": "structure",
               "locationName": "DiskImage",
-              "required": [
-                "Image",
-                "Volume"
-              ],
               "members": {
                 "Image": {
                   "type": "structure",
+                  "required": [
+                    "Format",
+                    "Bytes",
+                    "ImportManifestUrl"
+                  ],
                   "members": {
                     "Format": {
                       "type": "string"
@@ -9604,6 +9634,9 @@
                 },
                 "Volume": {
                   "type": "structure",
+                  "required": [
+                    "Size"
+                  ],
                   "members": {
                     "Size": {
                       "type": "long"
@@ -9620,13 +9653,14 @@
       },
       "output": {
         "type": "structure",
-        "required": [
-          "ConversionTask"
-        ],
         "members": {
           "ConversionTask": {
             "type": "structure",
             "locationName": "conversionTask",
+            "required": [
+              "ConversionTaskId",
+              "State"
+            ],
             "members": {
               "ConversionTaskId": {
                 "type": "string",
@@ -9639,6 +9673,9 @@
               "ImportInstance": {
                 "type": "structure",
                 "locationName": "importInstance",
+                "required": [
+                  "Volumes"
+                ],
                 "members": {
                   "Volumes": {
                     "type": "list",
@@ -9649,8 +9686,6 @@
                       "required": [
                         "BytesConverted",
                         "AvailabilityZone",
-                        "Image",
-                        "Volume",
                         "Status"
                       ],
                       "members": {
@@ -9664,6 +9699,11 @@
                         },
                         "Image": {
                           "type": "structure",
+                          "required": [
+                            "Format",
+                            "Size",
+                            "ImportManifestUrl"
+                          ],
                           "locationName": "image",
                           "members": {
                             "Format": {
@@ -9686,6 +9726,9 @@
                         },
                         "Volume": {
                           "type": "structure",
+                          "required": [
+                            "Id"
+                          ],
                           "locationName": "volume",
                           "members": {
                             "Size": {
@@ -9730,6 +9773,10 @@
               "ImportVolume": {
                 "type": "structure",
                 "locationName": "importVolume",
+                "required": [
+                  "BytesConverted",
+                  "AvailabilityZone"
+                ],
                 "members": {
                   "BytesConverted": {
                     "type": "long",
@@ -9745,6 +9792,11 @@
                   },
                   "Image": {
                     "type": "structure",
+                    "required": [
+                      "Format",
+                      "Size",
+                      "ImportManifestUrl"
+                    ],
                     "locationName": "image",
                     "members": {
                       "Format": {
@@ -9767,6 +9819,9 @@
                   },
                   "Volume": {
                     "type": "structure",
+                    "required": [
+                      "Id"
+                    ],
                     "locationName": "volume",
                     "members": {
                       "Size": {
@@ -9848,10 +9903,6 @@
     "ImportVolume": {
       "input": {
         "type": "structure",
-        "required": [
-          "Image",
-          "Volume"
-        ],
         "members": {
           "DryRun": {
             "type": "boolean"
@@ -9861,6 +9912,11 @@
           },
           "Image": {
             "type": "structure",
+            "required": [
+              "Format",
+              "Bytes",
+              "ImportManifestUrl"
+            ],
             "members": {
               "Format": {
                 "type": "string"
@@ -9878,6 +9934,9 @@
           },
           "Volume": {
             "type": "structure",
+            "required": [
+              "Size"
+            ],
             "members": {
               "Size": {
                 "type": "long"
@@ -9888,13 +9947,14 @@
       },
       "output": {
         "type": "structure",
-        "required": [
-          "ConversionTask"
-        ],
         "members": {
           "ConversionTask": {
             "type": "structure",
             "locationName": "conversionTask",
+            "required": [
+              "ConversionTaskId",
+              "State"
+            ],
             "members": {
               "ConversionTaskId": {
                 "type": "string",
@@ -9907,6 +9967,9 @@
               "ImportInstance": {
                 "type": "structure",
                 "locationName": "importInstance",
+                "required": [
+                  "Volumes"
+                ],
                 "members": {
                   "Volumes": {
                     "type": "list",
@@ -9917,8 +9980,6 @@
                       "required": [
                         "BytesConverted",
                         "AvailabilityZone",
-                        "Image",
-                        "Volume",
                         "Status"
                       ],
                       "members": {
@@ -9932,6 +9993,11 @@
                         },
                         "Image": {
                           "type": "structure",
+                          "required": [
+                            "Format",
+                            "Size",
+                            "ImportManifestUrl"
+                          ],
                           "locationName": "image",
                           "members": {
                             "Format": {
@@ -9954,6 +10020,9 @@
                         },
                         "Volume": {
                           "type": "structure",
+                          "required": [
+                            "Id"
+                          ],
                           "locationName": "volume",
                           "members": {
                             "Size": {
@@ -9998,6 +10067,10 @@
               "ImportVolume": {
                 "type": "structure",
                 "locationName": "importVolume",
+                "required": [
+                  "BytesConverted",
+                  "AvailabilityZone"
+                ],
                 "members": {
                   "BytesConverted": {
                     "type": "long",
@@ -10013,6 +10086,11 @@
                   },
                   "Image": {
                     "type": "structure",
+                    "required": [
+                      "Format",
+                      "Size",
+                      "ImportManifestUrl"
+                    ],
                     "locationName": "image",
                     "members": {
                       "Format": {
@@ -10035,6 +10113,9 @@
                   },
                   "Volume": {
                     "type": "structure",
+                    "required": [
+                      "Id"
+                    ],
                     "locationName": "volume",
                     "members": {
                       "Size": {
@@ -10968,8 +11049,7 @@
       "input": {
         "type": "structure",
         "required": [
-          "SpotPrice",
-          "LaunchSpecification"
+          "SpotPrice"
         ],
         "members": {
           "DryRun": {
@@ -11075,6 +11155,9 @@
               },
               "Monitoring": {
                 "type": "structure",
+                "required": [
+                  "Enabled"
+                ],
                 "members": {
                   "Enabled": {
                     "type": "boolean"
@@ -11764,8 +11847,7 @@
         "required": [
           "ImageId",
           "MinCount",
-          "MaxCount",
-          "Monitoring"
+          "MaxCount"
         ],
         "members": {
           "DryRun": {
@@ -11869,6 +11951,9 @@
           },
           "Monitoring": {
             "type": "structure",
+            "required": [
+              "Enabled"
+            ],
             "members": {
               "Enabled": {
                 "type": "boolean"

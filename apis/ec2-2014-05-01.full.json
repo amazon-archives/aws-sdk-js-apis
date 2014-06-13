@@ -5438,8 +5438,6 @@
               "locationName": "item",
               "required": [
                 "ConversionTaskId",
-                "ImportInstance",
-                "ImportVolume",
                 "State"
               ],
               "members": {
@@ -5457,6 +5455,9 @@
                   "type": "structure",
                   "documentation": "\n    <p>If the task is for importing an instance, this contains information about the import instance task.</p>\n   ",
                   "locationName": "importInstance",
+                  "required": [
+                    "Volumes"
+                  ],
                   "members": {
                     "Volumes": {
                       "type": "list",
@@ -5469,8 +5470,6 @@
                         "required": [
                           "BytesConverted",
                           "AvailabilityZone",
-                          "Image",
-                          "Volume",
                           "Status"
                         ],
                         "members": {
@@ -5487,6 +5486,11 @@
                           "Image": {
                             "type": "structure",
                             "documentation": "\n    <p>The image.</p>\n   ",
+                            "required": [
+                              "Format",
+                              "Size",
+                              "ImportManifestUrl"
+                            ],
                             "locationName": "image",
                             "members": {
                               "Format": {
@@ -5519,6 +5523,9 @@
                           "Volume": {
                             "type": "structure",
                             "documentation": "\n    <p>The volume.</p>\n   ",
+                            "required": [
+                              "Id"
+                            ],
                             "locationName": "volume",
                             "members": {
                               "Size": {
@@ -5575,6 +5582,10 @@
                   "type": "structure",
                   "documentation": "\n    <p>If the task is for importing a volume, this contains information about the import volume task.</p>\n   ",
                   "locationName": "importVolume",
+                  "required": [
+                    "BytesConverted",
+                    "AvailabilityZone"
+                  ],
                   "members": {
                     "BytesConverted": {
                       "type": "long",
@@ -5594,6 +5605,11 @@
                     "Image": {
                       "type": "structure",
                       "documentation": "\n    <p>The image.</p>\n   ",
+                      "required": [
+                        "Format",
+                        "Size",
+                        "ImportManifestUrl"
+                      ],
                       "locationName": "image",
                       "members": {
                         "Format": {
@@ -5626,6 +5642,9 @@
                     "Volume": {
                       "type": "structure",
                       "documentation": "\n    <p>The volume.</p>\n   ",
+                      "required": [
+                        "Id"
+                      ],
                       "locationName": "volume",
                       "members": {
                         "Size": {
@@ -13463,14 +13482,15 @@
               "type": "structure",
               "documentation": "\n    <p>Describes a disk image.</p>\n   ",
               "locationName": "DiskImage",
-              "required": [
-                "Image",
-                "Volume"
-              ],
               "members": {
                 "Image": {
                   "type": "structure",
                   "documentation": "\n   ",
+                  "required": [
+                    "Format",
+                    "Bytes",
+                    "ImportManifestUrl"
+                  ],
                   "members": {
                     "Format": {
                       "type": "string",
@@ -13498,6 +13518,9 @@
                 "Volume": {
                   "type": "structure",
                   "documentation": "\n   ",
+                  "required": [
+                    "Size"
+                  ],
                   "members": {
                     "Size": {
                       "type": "long",
@@ -13520,14 +13543,15 @@
       "output": {
         "type": "structure",
         "documentation": "\n   ",
-        "required": [
-          "ConversionTask"
-        ],
         "members": {
           "ConversionTask": {
             "type": "structure",
             "documentation": "\n   ",
             "locationName": "conversionTask",
+            "required": [
+              "ConversionTaskId",
+              "State"
+            ],
             "members": {
               "ConversionTaskId": {
                 "type": "string",
@@ -13543,6 +13567,9 @@
                 "type": "structure",
                 "documentation": "\n    <p>If the task is for importing an instance, this contains information about the import instance task.</p>\n   ",
                 "locationName": "importInstance",
+                "required": [
+                  "Volumes"
+                ],
                 "members": {
                   "Volumes": {
                     "type": "list",
@@ -13555,8 +13582,6 @@
                       "required": [
                         "BytesConverted",
                         "AvailabilityZone",
-                        "Image",
-                        "Volume",
                         "Status"
                       ],
                       "members": {
@@ -13573,6 +13598,11 @@
                         "Image": {
                           "type": "structure",
                           "documentation": "\n    <p>The image.</p>\n   ",
+                          "required": [
+                            "Format",
+                            "Size",
+                            "ImportManifestUrl"
+                          ],
                           "locationName": "image",
                           "members": {
                             "Format": {
@@ -13605,6 +13635,9 @@
                         "Volume": {
                           "type": "structure",
                           "documentation": "\n    <p>The volume.</p>\n   ",
+                          "required": [
+                            "Id"
+                          ],
                           "locationName": "volume",
                           "members": {
                             "Size": {
@@ -13661,6 +13694,10 @@
                 "type": "structure",
                 "documentation": "\n    <p>If the task is for importing a volume, this contains information about the import volume task.</p>\n   ",
                 "locationName": "importVolume",
+                "required": [
+                  "BytesConverted",
+                  "AvailabilityZone"
+                ],
                 "members": {
                   "BytesConverted": {
                     "type": "long",
@@ -13680,6 +13717,11 @@
                   "Image": {
                     "type": "structure",
                     "documentation": "\n    <p>The image.</p>\n   ",
+                    "required": [
+                      "Format",
+                      "Size",
+                      "ImportManifestUrl"
+                    ],
                     "locationName": "image",
                     "members": {
                       "Format": {
@@ -13712,6 +13754,9 @@
                   "Volume": {
                     "type": "structure",
                     "documentation": "\n    <p>The volume.</p>\n   ",
+                    "required": [
+                      "Id"
+                    ],
                     "locationName": "volume",
                     "members": {
                       "Size": {
@@ -13825,10 +13870,6 @@
       "input": {
         "type": "structure",
         "documentation": "\n   ",
-        "required": [
-          "Image",
-          "Volume"
-        ],
         "members": {
           "DryRun": {
             "type": "boolean",
@@ -13841,6 +13882,11 @@
           "Image": {
             "type": "structure",
             "documentation": "\n   ",
+            "required": [
+              "Format",
+              "Bytes",
+              "ImportManifestUrl"
+            ],
             "members": {
               "Format": {
                 "type": "string",
@@ -13868,6 +13914,9 @@
           "Volume": {
             "type": "structure",
             "documentation": "\n   ",
+            "required": [
+              "Size"
+            ],
             "members": {
               "Size": {
                 "type": "long",
@@ -13880,14 +13929,15 @@
       "output": {
         "type": "structure",
         "documentation": "\n   ",
-        "required": [
-          "ConversionTask"
-        ],
         "members": {
           "ConversionTask": {
             "type": "structure",
             "documentation": "\n   ",
             "locationName": "conversionTask",
+            "required": [
+              "ConversionTaskId",
+              "State"
+            ],
             "members": {
               "ConversionTaskId": {
                 "type": "string",
@@ -13903,6 +13953,9 @@
                 "type": "structure",
                 "documentation": "\n    <p>If the task is for importing an instance, this contains information about the import instance task.</p>\n   ",
                 "locationName": "importInstance",
+                "required": [
+                  "Volumes"
+                ],
                 "members": {
                   "Volumes": {
                     "type": "list",
@@ -13915,8 +13968,6 @@
                       "required": [
                         "BytesConverted",
                         "AvailabilityZone",
-                        "Image",
-                        "Volume",
                         "Status"
                       ],
                       "members": {
@@ -13933,6 +13984,11 @@
                         "Image": {
                           "type": "structure",
                           "documentation": "\n    <p>The image.</p>\n   ",
+                          "required": [
+                            "Format",
+                            "Size",
+                            "ImportManifestUrl"
+                          ],
                           "locationName": "image",
                           "members": {
                             "Format": {
@@ -13965,6 +14021,9 @@
                         "Volume": {
                           "type": "structure",
                           "documentation": "\n    <p>The volume.</p>\n   ",
+                          "required": [
+                            "Id"
+                          ],
                           "locationName": "volume",
                           "members": {
                             "Size": {
@@ -14021,6 +14080,10 @@
                 "type": "structure",
                 "documentation": "\n    <p>If the task is for importing a volume, this contains information about the import volume task.</p>\n   ",
                 "locationName": "importVolume",
+                "required": [
+                  "BytesConverted",
+                  "AvailabilityZone"
+                ],
                 "members": {
                   "BytesConverted": {
                     "type": "long",
@@ -14040,6 +14103,11 @@
                   "Image": {
                     "type": "structure",
                     "documentation": "\n    <p>The image.</p>\n   ",
+                    "required": [
+                      "Format",
+                      "Size",
+                      "ImportManifestUrl"
+                    ],
                     "locationName": "image",
                     "members": {
                       "Format": {
@@ -14072,6 +14140,9 @@
                   "Volume": {
                     "type": "structure",
                     "documentation": "\n    <p>The volume.</p>\n   ",
+                    "required": [
+                      "Id"
+                    ],
                     "locationName": "volume",
                     "members": {
                       "Size": {
@@ -15427,8 +15498,7 @@
         "type": "structure",
         "documentation": "\n   ",
         "required": [
-          "SpotPrice",
-          "LaunchSpecification"
+          "SpotPrice"
         ],
         "members": {
           "DryRun": {
@@ -15610,6 +15680,9 @@
               },
               "Monitoring": {
                 "type": "structure",
+                "required": [
+                  "Enabled"
+                ],
                 "members": {
                   "Enabled": {
                     "type": "boolean",
@@ -16573,8 +16646,7 @@
         "required": [
           "ImageId",
           "MinCount",
-          "MaxCount",
-          "Monitoring"
+          "MaxCount"
         ],
         "members": {
           "DryRun": {
@@ -16753,6 +16825,9 @@
           "Monitoring": {
             "type": "structure",
             "documentation": "\n    <p>The monitoring for the instance.</p>\n   ",
+            "required": [
+              "Enabled"
+            ],
             "members": {
               "Enabled": {
                 "type": "boolean",
