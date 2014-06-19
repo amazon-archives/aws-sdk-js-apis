@@ -15,15 +15,15 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           }
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
@@ -37,6 +37,10 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "PipelineId",
+          "Input"
+        ],
         "members": {
           "PipelineId": {},
           "Input": {
@@ -60,7 +64,7 @@
                 "Name": {},
                 "Format": {},
                 "OutputKeys": {
-                  "shape": "S11"
+                  "shape": "S1b"
                 }
               }
             }
@@ -71,7 +75,7 @@
         "type": "structure",
         "members": {
           "Job": {
-            "shape": "S13"
+            "shape": "S1d"
           }
         }
       }
@@ -83,19 +87,24 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Name",
+          "InputBucket",
+          "Role"
+        ],
         "members": {
           "Name": {},
           "InputBucket": {},
           "OutputBucket": {},
           "Role": {},
           "Notifications": {
-            "shape": "S1h"
+            "shape": "S1q"
           },
           "ContentConfig": {
-            "shape": "S1j"
+            "shape": "S1s"
           },
           "ThumbnailConfig": {
-            "shape": "S1j"
+            "shape": "S1s"
           }
         }
       },
@@ -103,7 +112,7 @@
         "type": "structure",
         "members": {
           "Pipeline": {
-            "shape": "S1s"
+            "shape": "S21"
           }
         }
       }
@@ -115,18 +124,22 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Name",
+          "Container"
+        ],
         "members": {
           "Name": {},
           "Description": {},
           "Container": {},
           "Video": {
-            "shape": "S1w"
+            "shape": "S25"
           },
           "Audio": {
-            "shape": "S2c"
+            "shape": "S2l"
           },
           "Thumbnails": {
-            "shape": "S2j"
+            "shape": "S2s"
           }
         }
       },
@@ -134,7 +147,7 @@
         "type": "structure",
         "members": {
           "Preset": {
-            "shape": "S2n"
+            "shape": "S2w"
           },
           "Warning": {}
         }
@@ -148,15 +161,15 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           }
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
@@ -171,15 +184,15 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           }
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
@@ -193,6 +206,9 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "PipelineId"
+        ],
         "members": {
           "PipelineId": {
             "location": "uri",
@@ -206,16 +222,13 @@
             "location": "querystring",
             "locationName": "PageToken"
           }
-        },
-        "required": [
-          "PipelineId"
-        ]
+        }
       },
       "output": {
         "type": "structure",
         "members": {
           "Jobs": {
-            "shape": "S2w"
+            "shape": "S35"
           },
           "NextPageToken": {}
         }
@@ -228,6 +241,9 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Status"
+        ],
         "members": {
           "Status": {
             "location": "uri",
@@ -241,16 +257,13 @@
             "location": "querystring",
             "locationName": "PageToken"
           }
-        },
-        "required": [
-          "Status"
-        ]
+        }
       },
       "output": {
         "type": "structure",
         "members": {
           "Jobs": {
-            "shape": "S2w"
+            "shape": "S35"
           },
           "NextPageToken": {}
         }
@@ -280,7 +293,7 @@
           "Pipelines": {
             "type": "list",
             "member": {
-              "shape": "S1s"
+              "shape": "S21"
             }
           },
           "NextPageToken": {}
@@ -311,7 +324,7 @@
           "Presets": {
             "type": "list",
             "member": {
-              "shape": "S2n"
+              "shape": "S2w"
             }
           },
           "NextPageToken": {}
@@ -325,21 +338,21 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           }
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
         "members": {
           "Job": {
-            "shape": "S13"
+            "shape": "S1d"
           }
         }
       }
@@ -351,21 +364,21 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           }
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
         "members": {
           "Pipeline": {
-            "shape": "S1s"
+            "shape": "S21"
           }
         }
       }
@@ -377,21 +390,21 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           }
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
         "members": {
           "Preset": {
-            "shape": "S2n"
+            "shape": "S2w"
           }
         }
       }
@@ -403,6 +416,12 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Role",
+          "InputBucket",
+          "OutputBucket",
+          "Topics"
+        ],
         "members": {
           "Role": {},
           "InputBucket": {},
@@ -444,13 +463,13 @@
           "InputBucket": {},
           "Role": {},
           "Notifications": {
-            "shape": "S1h"
+            "shape": "S1q"
           },
           "ContentConfig": {
-            "shape": "S1j"
+            "shape": "S1s"
           },
           "ThumbnailConfig": {
-            "shape": "S1j"
+            "shape": "S1s"
           }
         }
       },
@@ -461,7 +480,7 @@
         ],
         "members": {
           "Pipeline": {
-            "shape": "S1s"
+            "shape": "S21"
           }
         }
       }
@@ -472,24 +491,25 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id",
+          "Notifications"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           },
           "Notifications": {
-            "shape": "S1h"
+            "shape": "S1q"
           }
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
         "members": {
           "Pipeline": {
-            "shape": "S1s"
+            "shape": "S21"
           }
         }
       }
@@ -500,22 +520,23 @@
       },
       "input": {
         "type": "structure",
+        "required": [
+          "Id",
+          "Status"
+        ],
         "members": {
           "Id": {
             "location": "uri",
             "locationName": "Id"
           },
           "Status": {}
-        },
-        "required": [
-          "Id"
-        ]
+        }
       },
       "output": {
         "type": "structure",
         "members": {
           "Pipeline": {
-            "shape": "S1s"
+            "shape": "S21"
           }
         }
       }
@@ -549,6 +570,9 @@
         },
         "Composition": {
           "shape": "Ss"
+        },
+        "Captions": {
+          "shape": "Sw"
         }
       }
     },
@@ -597,11 +621,39 @@
         }
       }
     },
-    "S11": {
+    "Sw": {
+      "type": "structure",
+      "members": {
+        "MergePolicy": {},
+        "CaptionSources": {
+          "type": "list",
+          "member": {
+            "type": "structure",
+            "members": {
+              "Key": {},
+              "Language": {},
+              "TimeOffset": {},
+              "Label": {}
+            }
+          }
+        },
+        "CaptionFormats": {
+          "type": "list",
+          "member": {
+            "type": "structure",
+            "members": {
+              "Format": {},
+              "Pattern": {}
+            }
+          }
+        }
+      }
+    },
+    "S1b": {
       "type": "list",
       "member": {}
     },
-    "S13": {
+    "S1d": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -611,12 +663,12 @@
           "shape": "S5"
         },
         "Output": {
-          "shape": "S15"
+          "shape": "S1f"
         },
         "Outputs": {
           "type": "list",
           "member": {
-            "shape": "S15"
+            "shape": "S1f"
           }
         },
         "OutputKeyPrefix": {},
@@ -628,7 +680,7 @@
               "Name": {},
               "Format": {},
               "OutputKeys": {
-                "shape": "S11"
+                "shape": "S1b"
               },
               "Status": {},
               "StatusDetail": {}
@@ -638,7 +690,7 @@
         "Status": {}
       }
     },
-    "S15": {
+    "S1f": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -666,10 +718,13 @@
         },
         "Composition": {
           "shape": "Ss"
+        },
+        "Captions": {
+          "shape": "Sw"
         }
       }
     },
-    "S1h": {
+    "S1q": {
       "type": "structure",
       "members": {
         "Progressing": {},
@@ -678,7 +733,7 @@
         "Error": {}
       }
     },
-    "S1j": {
+    "S1s": {
       "type": "structure",
       "members": {
         "Bucket": {},
@@ -699,7 +754,7 @@
         }
       }
     },
-    "S1s": {
+    "S21": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -710,17 +765,17 @@
         "OutputBucket": {},
         "Role": {},
         "Notifications": {
-          "shape": "S1h"
+          "shape": "S1q"
         },
         "ContentConfig": {
-          "shape": "S1j"
+          "shape": "S1s"
         },
         "ThumbnailConfig": {
-          "shape": "S1j"
+          "shape": "S1s"
         }
       }
     },
-    "S1w": {
+    "S25": {
       "type": "structure",
       "members": {
         "Codec": {},
@@ -761,7 +816,7 @@
         }
       }
     },
-    "S2c": {
+    "S2l": {
       "type": "structure",
       "members": {
         "Codec": {},
@@ -776,7 +831,7 @@
         }
       }
     },
-    "S2j": {
+    "S2s": {
       "type": "structure",
       "members": {
         "Format": {},
@@ -789,7 +844,7 @@
         "PaddingPolicy": {}
       }
     },
-    "S2n": {
+    "S2w": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -798,21 +853,21 @@
         "Description": {},
         "Container": {},
         "Audio": {
-          "shape": "S2c"
+          "shape": "S2l"
         },
         "Video": {
-          "shape": "S1w"
+          "shape": "S25"
         },
         "Thumbnails": {
-          "shape": "S2j"
+          "shape": "S2s"
         },
         "Type": {}
       }
     },
-    "S2w": {
+    "S35": {
       "type": "list",
       "member": {
-        "shape": "S13"
+        "shape": "S1d"
       }
     }
   }
