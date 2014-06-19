@@ -63,6 +63,10 @@
     "AddTags": {
       "input": {
         "type": "structure",
+        "required": [
+          "ResourceId",
+          "Tags"
+        ],
         "members": {
           "ResourceId": {},
           "Tags": {
@@ -78,6 +82,9 @@
     "DescribeCluster": {
       "input": {
         "type": "structure",
+        "required": [
+          "ClusterId"
+        ],
         "members": {
           "ClusterId": {}
         }
@@ -132,7 +139,8 @@
               },
               "Tags": {
                 "shape": "So"
-              }
+              },
+              "ServiceRole": {}
             }
           }
         }
@@ -325,7 +333,8 @@
                 "VisibleToAllUsers": {
                   "type": "boolean"
                 },
-                "JobFlowRole": {}
+                "JobFlowRole": {},
+                "ServiceRole": {}
               }
             }
           }
@@ -336,6 +345,10 @@
     "DescribeStep": {
       "input": {
         "type": "structure",
+        "required": [
+          "ClusterId",
+          "StepId"
+        ],
         "members": {
           "ClusterId": {},
           "StepId": {}
@@ -374,6 +387,9 @@
     "ListBootstrapActions": {
       "input": {
         "type": "structure",
+        "required": [
+          "ClusterId"
+        ],
         "members": {
           "ClusterId": {},
           "Marker": {}
@@ -439,6 +455,9 @@
     "ListInstanceGroups": {
       "input": {
         "type": "structure",
+        "required": [
+          "ClusterId"
+        ],
         "members": {
           "ClusterId": {},
           "Marker": {}
@@ -501,6 +520,9 @@
     "ListInstances": {
       "input": {
         "type": "structure",
+        "required": [
+          "ClusterId"
+        ],
         "members": {
           "ClusterId": {},
           "InstanceGroupId": {},
@@ -562,6 +584,9 @@
     "ListSteps": {
       "input": {
         "type": "structure",
+        "required": [
+          "ClusterId"
+        ],
         "members": {
           "ClusterId": {},
           "StepStates": {
@@ -620,6 +645,10 @@
     "RemoveTags": {
       "input": {
         "type": "structure",
+        "required": [
+          "ResourceId",
+          "TagKeys"
+        ],
         "members": {
           "ResourceId": {},
           "TagKeys": {
@@ -697,6 +726,7 @@
             "type": "boolean"
           },
           "JobFlowRole": {},
+          "ServiceRole": {},
           "Tags": {
             "shape": "So"
           }
