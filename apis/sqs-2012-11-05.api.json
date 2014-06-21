@@ -470,7 +470,7 @@
         "type": "structure",
         "required": [
           "QueueUrl",
-          "attributes"
+          "Attributes"
         ],
         "members": {
           "QueueUrl": {},
