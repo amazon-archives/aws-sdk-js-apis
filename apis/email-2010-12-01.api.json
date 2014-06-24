@@ -106,11 +106,13 @@
               "required": [
                 "BounceTopic",
                 "ComplaintTopic",
+                "DeliveryTopic",
                 "ForwardingEnabled"
               ],
               "members": {
                 "BounceTopic": {},
                 "ComplaintTopic": {},
+                "DeliveryTopic": {},
                 "ForwardingEnabled": {
                   "type": "boolean"
                 }
