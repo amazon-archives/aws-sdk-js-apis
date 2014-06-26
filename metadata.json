@@ -12,6 +12,9 @@
   "cloudsearch": {
     "name": "CloudSearch"
   },
+  "cloudsearchdomain": {
+    "name": "CloudSearchDomain"
+  },
   "cloudtrail": {
     "name": "CloudTrail"
   },
