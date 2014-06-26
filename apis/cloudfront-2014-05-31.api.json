@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "apiVersion": "2014-01-31",
+    "apiVersion": "2014-05-31",
     "endpointPrefix": "cloudfront",
     "globalEndpoint": "cloudfront.amazonaws.com",
     "serviceAbbreviation": "CloudFront",
@@ -11,7 +11,7 @@
   "operations": {
     "CreateCloudFrontOriginAccessIdentity": {
       "http": {
-        "requestUri": "/2014-01-31/origin-access-identity/cloudfront",
+        "requestUri": "/2014-05-31/origin-access-identity/cloudfront",
         "responseCode": 201
       },
       "input": {
@@ -22,7 +22,7 @@
         "members": {
           "CloudFrontOriginAccessIdentityConfig": {
             "shape": "S2",
-            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-01-31/",
+            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
             "locationName": "CloudFrontOriginAccessIdentityConfig"
           }
         },
@@ -48,7 +48,7 @@
     },
     "CreateDistribution": {
       "http": {
-        "requestUri": "/2014-01-31/distribution",
+        "requestUri": "/2014-05-31/distribution",
         "responseCode": 201
       },
       "input": {
@@ -59,7 +59,7 @@
         "members": {
           "DistributionConfig": {
             "shape": "S7",
-            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-01-31/",
+            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
             "locationName": "DistributionConfig"
           }
         },
@@ -69,7 +69,7 @@
         "type": "structure",
         "members": {
           "Distribution": {
-            "shape": "S1a"
+            "shape": "S1c"
           },
           "Location": {
             "location": "header",
@@ -85,7 +85,7 @@
     },
     "CreateInvalidation": {
       "http": {
-        "requestUri": "/2014-01-31/distribution/{DistributionId}/invalidation",
+        "requestUri": "/2014-05-31/distribution/{DistributionId}/invalidation",
         "responseCode": 201
       },
       "input": {
@@ -100,8 +100,8 @@
             "locationName": "DistributionId"
           },
           "InvalidationBatch": {
-            "shape": "S1i",
-            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-01-31/",
+            "shape": "S1k",
+            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
             "locationName": "InvalidationBatch"
           }
         },
@@ -115,7 +115,7 @@
             "locationName": "Location"
           },
           "Invalidation": {
-            "shape": "S1m"
+            "shape": "S1o"
           }
         },
         "payload": "Invalidation"
@@ -123,7 +123,7 @@
     },
     "CreateStreamingDistribution": {
       "http": {
-        "requestUri": "/2014-01-31/streaming-distribution",
+        "requestUri": "/2014-05-31/streaming-distribution",
         "responseCode": 201
       },
       "input": {
@@ -133,8 +133,8 @@
         ],
         "members": {
           "StreamingDistributionConfig": {
-            "shape": "S1o",
-            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-01-31/",
+            "shape": "S1q",
+            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
             "locationName": "StreamingDistributionConfig"
           }
         },
@@ -144,7 +144,7 @@
         "type": "structure",
         "members": {
           "StreamingDistribution": {
-            "shape": "S1s"
+            "shape": "S1u"
           },
           "Location": {
             "location": "header",
@@ -161,7 +161,7 @@
     "DeleteCloudFrontOriginAccessIdentity": {
       "http": {
         "method": "DELETE",
-        "requestUri": "/2014-01-31/origin-access-identity/cloudfront/{Id}",
+        "requestUri": "/2014-05-31/origin-access-identity/cloudfront/{Id}",
         "responseCode": 204
       },
       "input": {
@@ -184,7 +184,7 @@
     "DeleteDistribution": {
       "http": {
         "method": "DELETE",
-        "requestUri": "/2014-01-31/distribution/{Id}",
+        "requestUri": "/2014-05-31/distribution/{Id}",
         "responseCode": 204
       },
       "input": {
@@ -207,7 +207,7 @@
     "DeleteStreamingDistribution": {
       "http": {
         "method": "DELETE",
-        "requestUri": "/2014-01-31/streaming-distribution/{Id}",
+        "requestUri": "/2014-05-31/streaming-distribution/{Id}",
         "responseCode": 204
       },
       "input": {
@@ -230,7 +230,7 @@
     "GetCloudFrontOriginAccessIdentity": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/origin-access-identity/cloudfront/{Id}"
+        "requestUri": "/2014-05-31/origin-access-identity/cloudfront/{Id}"
       },
       "input": {
         "type": "structure",
@@ -261,7 +261,7 @@
     "GetCloudFrontOriginAccessIdentityConfig": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/origin-access-identity/cloudfront/{Id}/config"
+        "requestUri": "/2014-05-31/origin-access-identity/cloudfront/{Id}/config"
       },
       "input": {
         "type": "structure",
@@ -292,7 +292,7 @@
     "GetDistribution": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/distribution/{Id}"
+        "requestUri": "/2014-05-31/distribution/{Id}"
       },
       "input": {
         "type": "structure",
@@ -310,7 +310,7 @@
         "type": "structure",
         "members": {
           "Distribution": {
-            "shape": "S1a"
+            "shape": "S1c"
           },
           "ETag": {
             "location": "header",
@@ -323,7 +323,7 @@
     "GetDistributionConfig": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/distribution/{Id}/config"
+        "requestUri": "/2014-05-31/distribution/{Id}/config"
       },
       "input": {
         "type": "structure",
@@ -354,7 +354,7 @@
     "GetInvalidation": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/distribution/{DistributionId}/invalidation/{Id}"
+        "requestUri": "/2014-05-31/distribution/{DistributionId}/invalidation/{Id}"
       },
       "input": {
         "type": "structure",
@@ -377,7 +377,7 @@
         "type": "structure",
         "members": {
           "Invalidation": {
-            "shape": "S1m"
+            "shape": "S1o"
           }
         },
         "payload": "Invalidation"
@@ -386,7 +386,7 @@
     "GetStreamingDistribution": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/streaming-distribution/{Id}"
+        "requestUri": "/2014-05-31/streaming-distribution/{Id}"
       },
       "input": {
         "type": "structure",
@@ -404,7 +404,7 @@
         "type": "structure",
         "members": {
           "StreamingDistribution": {
-            "shape": "S1s"
+            "shape": "S1u"
           },
           "ETag": {
             "location": "header",
@@ -417,7 +417,7 @@
     "GetStreamingDistributionConfig": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/streaming-distribution/{Id}/config"
+        "requestUri": "/2014-05-31/streaming-distribution/{Id}/config"
       },
       "input": {
         "type": "structure",
@@ -435,7 +435,7 @@
         "type": "structure",
         "members": {
           "StreamingDistributionConfig": {
-            "shape": "S1o"
+            "shape": "S1q"
           },
           "ETag": {
             "location": "header",
@@ -448,7 +448,7 @@
     "ListCloudFrontOriginAccessIdentities": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/origin-access-identity/cloudfront"
+        "requestUri": "/2014-05-31/origin-access-identity/cloudfront"
       },
       "input": {
         "type": "structure",
@@ -512,7 +512,7 @@
     "ListDistributions": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/distribution"
+        "requestUri": "/2014-05-31/distribution"
       },
       "input": {
         "type": "structure",
@@ -588,10 +588,10 @@
                       "shape": "Sh"
                     },
                     "CacheBehaviors": {
-                      "shape": "Sv"
+                      "shape": "Sx"
                     },
                     "CustomErrorResponses": {
-                      "shape": "Sy"
+                      "shape": "S10"
                     },
                     "Comment": {},
                     "PriceClass": {},
@@ -599,10 +599,10 @@
                       "type": "boolean"
                     },
                     "ViewerCertificate": {
-                      "shape": "S13"
+                      "shape": "S15"
                     },
                     "Restrictions": {
-                      "shape": "S15"
+                      "shape": "S17"
                     }
                   }
                 }
@@ -616,7 +616,7 @@
     "ListInvalidations": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/distribution/{DistributionId}/invalidation"
+        "requestUri": "/2014-05-31/distribution/{DistributionId}/invalidation"
       },
       "input": {
         "type": "structure",
@@ -689,7 +689,7 @@
     "ListStreamingDistributions": {
       "http": {
         "method": "GET",
-        "requestUri": "/2014-01-31/streaming-distribution"
+        "requestUri": "/2014-05-31/streaming-distribution"
       },
       "input": {
         "type": "structure",
@@ -752,13 +752,13 @@
                     },
                     "DomainName": {},
                     "S3Origin": {
-                      "shape": "S1p"
+                      "shape": "S1r"
                     },
                     "Aliases": {
                       "shape": "S8"
                     },
                     "TrustedSigners": {
-                      "shape": "So"
+                      "shape": "Sq"
                     },
                     "Comment": {},
                     "PriceClass": {},
@@ -777,7 +777,7 @@
     "UpdateCloudFrontOriginAccessIdentity": {
       "http": {
         "method": "PUT",
-        "requestUri": "/2014-01-31/origin-access-identity/cloudfront/{Id}/config"
+        "requestUri": "/2014-05-31/origin-access-identity/cloudfront/{Id}/config"
       },
       "input": {
         "type": "structure",
@@ -788,7 +788,7 @@
         "members": {
           "CloudFrontOriginAccessIdentityConfig": {
             "shape": "S2",
-            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-01-31/",
+            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
             "locationName": "CloudFrontOriginAccessIdentityConfig"
           },
           "Id": {
@@ -819,7 +819,7 @@
     "UpdateDistribution": {
       "http": {
         "method": "PUT",
-        "requestUri": "/2014-01-31/distribution/{Id}/config"
+        "requestUri": "/2014-05-31/distribution/{Id}/config"
       },
       "input": {
         "type": "structure",
@@ -830,7 +830,7 @@
         "members": {
           "DistributionConfig": {
             "shape": "S7",
-            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-01-31/",
+            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
             "locationName": "DistributionConfig"
           },
           "Id": {
@@ -848,7 +848,7 @@
         "type": "structure",
         "members": {
           "Distribution": {
-            "shape": "S1a"
+            "shape": "S1c"
           },
           "ETag": {
             "location": "header",
@@ -861,7 +861,7 @@
     "UpdateStreamingDistribution": {
       "http": {
         "method": "PUT",
-        "requestUri": "/2014-01-31/streaming-distribution/{Id}/config"
+        "requestUri": "/2014-05-31/streaming-distribution/{Id}/config"
       },
       "input": {
         "type": "structure",
@@ -871,8 +871,8 @@
         ],
         "members": {
           "StreamingDistributionConfig": {
-            "shape": "S1o",
-            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-01-31/",
+            "shape": "S1q",
+            "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
             "locationName": "StreamingDistributionConfig"
           },
           "Id": {
@@ -890,7 +890,7 @@
         "type": "structure",
         "members": {
           "StreamingDistribution": {
-            "shape": "S1s"
+            "shape": "S1u"
           },
           "ETag": {
             "location": "header",
@@ -954,10 +954,10 @@
           "shape": "Sh"
         },
         "CacheBehaviors": {
-          "shape": "Sv"
+          "shape": "Sx"
         },
         "CustomErrorResponses": {
-          "shape": "Sy"
+          "shape": "S10"
         },
         "Comment": {},
         "Logging": {
@@ -984,10 +984,10 @@
           "type": "boolean"
         },
         "ViewerCertificate": {
-          "shape": "S13"
+          "shape": "S15"
         },
         "Restrictions": {
-          "shape": "S15"
+          "shape": "S17"
         }
       }
     },
@@ -1075,14 +1075,14 @@
           "shape": "Si"
         },
         "TrustedSigners": {
-          "shape": "So"
+          "shape": "Sq"
         },
         "ViewerProtocolPolicy": {},
         "MinTTL": {
           "type": "long"
         },
         "AllowedMethods": {
-          "shape": "Ss"
+          "shape": "Su"
         },
         "SmoothStreaming": {
           "type": "boolean"
@@ -1124,10 +1124,27 @@
               }
             }
           }
+        },
+        "Headers": {
+          "type": "structure",
+          "required": [
+            "Quantity"
+          ],
+          "members": {
+            "Quantity": {
+              "type": "integer"
+            },
+            "Items": {
+              "type": "list",
+              "member": {
+                "locationName": "Name"
+              }
+            }
+          }
         }
       }
     },
-    "So": {
+    "Sq": {
       "type": "structure",
       "required": [
         "Enabled",
@@ -1148,7 +1165,7 @@
         }
       }
     },
-    "Ss": {
+    "Su": {
       "type": "structure",
       "required": [
         "Quantity"
@@ -1165,7 +1182,7 @@
         }
       }
     },
-    "Sv": {
+    "Sx": {
       "type": "structure",
       "required": [
         "Quantity"
@@ -1194,14 +1211,14 @@
                 "shape": "Si"
               },
               "TrustedSigners": {
-                "shape": "So"
+                "shape": "Sq"
               },
               "ViewerProtocolPolicy": {},
               "MinTTL": {
                 "type": "long"
               },
               "AllowedMethods": {
-                "shape": "Ss"
+                "shape": "Su"
               },
               "SmoothStreaming": {
                 "type": "boolean"
@@ -1211,7 +1228,7 @@
         }
       }
     },
-    "Sy": {
+    "S10": {
       "type": "structure",
       "required": [
         "Quantity"
@@ -1242,7 +1259,7 @@
         }
       }
     },
-    "S13": {
+    "S15": {
       "type": "structure",
       "members": {
         "IAMCertificateId": {},
@@ -1252,7 +1269,7 @@
         "SSLSupportMethod": {}
       }
     },
-    "S15": {
+    "S17": {
       "type": "structure",
       "required": [
         "GeoRestriction"
@@ -1279,7 +1296,7 @@
         }
       }
     },
-    "S1a": {
+    "S1c": {
       "type": "structure",
       "required": [
         "Id",
@@ -1301,14 +1318,14 @@
         },
         "DomainName": {},
         "ActiveTrustedSigners": {
-          "shape": "S1c"
+          "shape": "S1e"
         },
         "DistributionConfig": {
           "shape": "S7"
         }
       }
     },
-    "S1c": {
+    "S1e": {
       "type": "structure",
       "required": [
         "Enabled",
@@ -1350,7 +1367,7 @@
         }
       }
     },
-    "S1i": {
+    "S1k": {
       "type": "structure",
       "required": [
         "Paths",
@@ -1377,7 +1394,7 @@
         "CallerReference": {}
       }
     },
-    "S1m": {
+    "S1o": {
       "type": "structure",
       "required": [
         "Id",
@@ -1392,11 +1409,11 @@
           "type": "timestamp"
         },
         "InvalidationBatch": {
-          "shape": "S1i"
+          "shape": "S1k"
         }
       }
     },
-    "S1o": {
+    "S1q": {
       "type": "structure",
       "required": [
         "CallerReference",
@@ -1411,7 +1428,7 @@
       "members": {
         "CallerReference": {},
         "S3Origin": {
-          "shape": "S1p"
+          "shape": "S1r"
         },
         "Aliases": {
           "shape": "S8"
@@ -1433,7 +1450,7 @@
           }
         },
         "TrustedSigners": {
-          "shape": "So"
+          "shape": "Sq"
         },
         "PriceClass": {},
         "Enabled": {
@@ -1441,7 +1458,7 @@
         }
       }
     },
-    "S1p": {
+    "S1r": {
       "type": "structure",
       "required": [
         "DomainName",
@@ -1452,7 +1469,7 @@
         "OriginAccessIdentity": {}
       }
     },
-    "S1s": {
+    "S1u": {
       "type": "structure",
       "required": [
         "Id",
@@ -1469,10 +1486,10 @@
         },
         "DomainName": {},
         "ActiveTrustedSigners": {
-          "shape": "S1c"
+          "shape": "S1e"
         },
         "StreamingDistributionConfig": {
-          "shape": "S1o"
+          "shape": "S1q"
         }
       }
     }
