@@ -682,7 +682,7 @@
         },
         "ServiceRole":{
           "shape":"String",
-          "documentation":"<p>The IAM role that was specified when the job flow was launched. Amazon ElasticMapReduce will assume this role to work with AWS resources on your behalf.</p>"
+          "documentation":"<p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.</p>"
         }
       },
       "documentation":"<p>The detailed description of the cluster.</p>"
@@ -1460,7 +1460,7 @@
         },
         "ServiceRole":{
           "shape":"XmlString",
-          "documentation":"<p>The IAM role that was specified when the job flow was launched. Amazon ElasticMapReduce will assume this role to work with AWS resources on your behalf.</p>"
+          "documentation":"<p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.</p>"
         }
       },
       "documentation":"<p> A description of a job flow.</p>"
@@ -1923,7 +1923,7 @@
         },
         "ServiceRole":{
           "shape":"XmlString",
-          "documentation":"<p>IAM role that Amazon ElasticMapReduce will assume to work with AWS resources on your behalf. You may set this parameter to the name of an existing IAM role.</p>"
+          "documentation":"<p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.</p>"
         },
         "Tags":{
           "shape":"TagList",
