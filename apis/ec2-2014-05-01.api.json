@@ -10580,7 +10580,12 @@
             "type": "string"
           },
           "AutoEnableIO": {
-            "type": "boolean"
+            "type": "structure",
+            "members": {
+              "Value": {
+                "type": "boolean"
+              }
+            }
           }
         }
       },
