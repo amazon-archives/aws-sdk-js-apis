@@ -22,6 +22,10 @@
     "prefix": "monitoring",
     "name": "CloudWatch"
   },
+  "cloudwatchlogs": {
+    "prefix": "logs",
+    "name": "CloudWatchLogs"
+  },
   "datapipeline": {
     "name": "DataPipeline"
   },
