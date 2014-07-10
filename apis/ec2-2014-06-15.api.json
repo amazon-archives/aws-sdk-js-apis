@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "apiVersion": "2014-05-01",
+    "apiVersion": "2014-06-15",
     "protocol": "query",
     "resultWrapped": false,
     "signatureVersion": "v2",
     "serviceFullName": "Amazon Elastic Compute Cloud",
     "serviceAbbreviation": "Amazon EC2",
     "endpointPrefix": "ec2",
-    "xmlNamespace": "http://ec2.amazonaws.com/doc/2014-05-01"
+    "xmlNamespace": "http://ec2.amazonaws.com/doc/2014-06-15"
   },
   "operations": {
     "AcceptVpcPeeringConnection": {
@@ -10559,6 +10559,28 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      "output": null
+    },
+    "ModifySubnetAttribute": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "SubnetId"
+        ],
+        "members": {
+          "SubnetId": {
+            "type": "string"
+          },
+          "MapPublicIpOnLaunch": {
+            "type": "structure",
+            "members": {
+              "Value": {
+                "type": "boolean"
               }
             }
           }
