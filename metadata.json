@@ -26,6 +26,14 @@
     "prefix": "logs",
     "name": "CloudWatchLogs"
   },
+  "cognitoidentity": {
+    "prefix": "cognito-identity",
+    "name": "CognitoIdentity"
+  },
+  "cognitosync": {
+    "prefix": "cognito-sync",
+    "name": "CognitoSync"
+  },
   "datapipeline": {
     "name": "DataPipeline"
   },

@@ -19,7 +19,7 @@ function buildServiceMap() {
   });
 
   fs.readdirSync(apiRoot).forEach(function (file) {
-    var match = file.match(/^([^-]+)-(\d+-\d+-\d+)\.api\.json$/);
+    var match = file.match(/^(.+?)-(\d+-\d+-\d+)\.api\.json$/);
     if (match) {
       var id = prefixMap[match[1]], version = match[2];
       if (serviceMap[id]) {
