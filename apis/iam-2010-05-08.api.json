@@ -161,6 +161,9 @@
           "UserName": {},
           "Password": {
             "shape": "S8"
+          },
+          "PasswordResetRequired": {
+            "type": "boolean"
           }
         }
       },
@@ -172,7 +175,7 @@
         ],
         "members": {
           "LoginProfile": {
-            "shape": "Sx"
+            "shape": "Sy"
           }
         }
       }
@@ -239,7 +242,7 @@
         "type": "structure",
         "members": {
           "User": {
-            "shape": "S16"
+            "shape": "S17"
           }
         }
       }
@@ -263,7 +266,7 @@
         ],
         "members": {
           "VirtualMFADevice": {
-            "shape": "S1a"
+            "shape": "S1b"
           }
         }
       }
@@ -461,6 +464,16 @@
         }
       }
     },
+    "GenerateCredentialReport": {
+      "output": {
+        "resultWrapper": "GenerateCredentialReportResult",
+        "type": "structure",
+        "members": {
+          "State": {},
+          "Description": {}
+        }
+      }
+    },
     "GetAccountPasswordPolicy": {
       "output": {
         "resultWrapper": "GetAccountPasswordPolicyResult",
@@ -495,6 +508,12 @@
               },
               "MaxPasswordAge": {
                 "type": "integer"
+              },
+              "PasswordReusePrevention": {
+                "type": "integer"
+              },
+              "HardExpiry": {
+                "type": "boolean"
               }
             }
           }
@@ -512,6 +531,21 @@
             "value": {
               "type": "integer"
             }
+          }
+        }
+      }
+    },
+    "GetCredentialReport": {
+      "output": {
+        "resultWrapper": "GetCredentialReportResult",
+        "type": "structure",
+        "members": {
+          "Content": {
+            "type": "blob"
+          },
+          "ReportFormat": {},
+          "GeneratedTime": {
+            "type": "timestamp"
           }
         }
       }
@@ -542,7 +576,7 @@
             "shape": "Sm"
           },
           "Users": {
-            "shape": "S2a"
+            "shape": "S2i"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -619,7 +653,7 @@
         ],
         "members": {
           "LoginProfile": {
-            "shape": "Sx"
+            "shape": "Sy"
           }
         }
       }
@@ -723,7 +757,7 @@
             ],
             "members": {
               "ServerCertificateMetadata": {
-                "shape": "S2q"
+                "shape": "S2y"
               },
               "CertificateBody": {},
               "CertificateChain": {}
@@ -747,7 +781,7 @@
         ],
         "members": {
           "User": {
-            "shape": "S16"
+            "shape": "S17"
           }
         }
       }
@@ -868,7 +902,7 @@
         ],
         "members": {
           "PolicyNames": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -896,7 +930,7 @@
         ],
         "members": {
           "Groups": {
-            "shape": "S3a"
+            "shape": "S3i"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -927,7 +961,7 @@
         ],
         "members": {
           "Groups": {
-            "shape": "S3a"
+            "shape": "S3i"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -955,7 +989,7 @@
         ],
         "members": {
           "InstanceProfiles": {
-            "shape": "S3f"
+            "shape": "S3n"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -986,7 +1020,7 @@
         ],
         "members": {
           "InstanceProfiles": {
-            "shape": "S3f"
+            "shape": "S3n"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -1060,7 +1094,7 @@
         ],
         "members": {
           "PolicyNames": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -1145,7 +1179,7 @@
           "ServerCertificateMetadataList": {
             "type": "list",
             "member": {
-              "shape": "S2q"
+              "shape": "S2y"
             }
           },
           "IsTruncated": {
@@ -1176,7 +1210,7 @@
           "Certificates": {
             "type": "list",
             "member": {
-              "shape": "S40"
+              "shape": "S48"
             }
           },
           "IsTruncated": {
@@ -1208,7 +1242,7 @@
         ],
         "members": {
           "PolicyNames": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -1236,7 +1270,7 @@
         ],
         "members": {
           "Users": {
-            "shape": "S2a"
+            "shape": "S2i"
           },
           "IsTruncated": {
             "type": "boolean"
@@ -1266,7 +1300,7 @@
           "VirtualMFADevices": {
             "type": "list",
             "member": {
-              "shape": "S1a"
+              "shape": "S1b"
             }
           },
           "IsTruncated": {
@@ -1399,6 +1433,15 @@
           },
           "AllowUsersToChangePassword": {
             "type": "boolean"
+          },
+          "MaxPasswordAge": {
+            "type": "integer"
+          },
+          "PasswordReusePrevention": {
+            "type": "integer"
+          },
+          "HardExpiry": {
+            "type": "boolean"
           }
         }
       }
@@ -1433,13 +1476,15 @@
       "input": {
         "type": "structure",
         "required": [
-          "UserName",
-          "Password"
+          "UserName"
         ],
         "members": {
           "UserName": {},
           "Password": {
             "shape": "S8"
+          },
+          "PasswordResetRequired": {
+            "type": "boolean"
           }
         }
       }
@@ -1528,7 +1573,7 @@
         "type": "structure",
         "members": {
           "ServerCertificateMetadata": {
-            "shape": "S2q"
+            "shape": "S2y"
           }
         }
       }
@@ -1552,7 +1597,7 @@
         ],
         "members": {
           "Certificate": {
-            "shape": "S40"
+            "shape": "S48"
           }
         }
       }
@@ -1631,7 +1676,7 @@
         "AssumeRolePolicyDocument": {}
       }
     },
-    "Sx": {
+    "Sy": {
       "type": "structure",
       "required": [
         "UserName",
@@ -1641,10 +1686,13 @@
         "UserName": {},
         "CreateDate": {
           "type": "timestamp"
+        },
+        "PasswordResetRequired": {
+          "type": "boolean"
         }
       }
     },
-    "S16": {
+    "S17": {
       "type": "structure",
       "required": [
         "Path",
@@ -1663,7 +1711,7 @@
         }
       }
     },
-    "S1a": {
+    "S1b": {
       "type": "structure",
       "required": [
         "SerialNumber"
@@ -1671,30 +1719,30 @@
       "members": {
         "SerialNumber": {},
         "Base32StringSeed": {
-          "shape": "S1c"
+          "shape": "S1d"
         },
         "QRCodePNG": {
-          "shape": "S1c"
+          "shape": "S1d"
         },
         "User": {
-          "shape": "S16"
+          "shape": "S17"
         },
         "EnableDate": {
           "type": "timestamp"
         }
       }
     },
-    "S1c": {
+    "S1d": {
       "type": "blob",
       "sensitive": true
     },
-    "S2a": {
+    "S2i": {
       "type": "list",
       "member": {
-        "shape": "S16"
+        "shape": "S17"
       }
     },
-    "S2q": {
+    "S2y": {
       "type": "structure",
       "required": [
         "Path",
@@ -1709,26 +1757,29 @@
         "Arn": {},
         "UploadDate": {
           "type": "timestamp"
+        },
+        "Expiration": {
+          "type": "timestamp"
         }
       }
     },
-    "S36": {
+    "S3e": {
       "type": "list",
       "member": {}
     },
-    "S3a": {
+    "S3i": {
       "type": "list",
       "member": {
         "shape": "Sm"
       }
     },
-    "S3f": {
+    "S3n": {
       "type": "list",
       "member": {
         "shape": "Sr"
       }
     },
-    "S40": {
+    "S48": {
       "type": "structure",
       "required": [
         "UserName",
