@@ -14,6 +14,10 @@
         "requestUri": "/2013-04-01/hostedzone/{Id}/rrset/"
       },
       "input": {
+        "xmlOrder": [
+          "HostedZoneId",
+          "ChangeBatch"
+        ],
         "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName": "ChangeResourceRecordSetsRequest",
         "type": "structure",
@@ -47,14 +51,25 @@
                     "ResourceRecordSet": {
                       "shape": "S8"
                     }
-                  }
+                  },
+                  "xmlOrder": [
+                    "Action",
+                    "ResourceRecordSet"
+                  ]
                 }
               }
-            }
+            },
+            "xmlOrder": [
+              "Comment",
+              "Changes"
+            ]
           }
         }
       },
       "output": {
+        "xmlOrder": [
+          "ChangeInfo"
+        ],
         "type": "structure",
         "required": [
           "ChangeInfo"
@@ -71,6 +86,12 @@
         "requestUri": "/2013-04-01/tags/{ResourceType}/{ResourceId}"
       },
       "input": {
+        "xmlOrder": [
+          "ResourceType",
+          "ResourceId",
+          "AddTags",
+          "RemoveTagKeys"
+        ],
         "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName": "ChangeTagsForResourceRequest",
         "type": "structure",
@@ -109,6 +130,10 @@
         "responseCode": 201
       },
       "input": {
+        "xmlOrder": [
+          "CallerReference",
+          "HealthCheckConfig"
+        ],
         "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName": "CreateHealthCheckRequest",
         "type": "structure",
@@ -124,6 +149,10 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "HealthCheck",
+          "Location"
+        ],
         "type": "structure",
         "required": [
           "HealthCheck",
@@ -146,6 +175,11 @@
         "responseCode": 201
       },
       "input": {
+        "xmlOrder": [
+          "Name",
+          "CallerReference",
+          "HostedZoneConfig"
+        ],
         "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName": "CreateHostedZoneRequest",
         "type": "structure",
@@ -162,6 +196,12 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "HostedZone",
+          "ChangeInfo",
+          "DelegationSet",
+          "Location"
+        ],
         "type": "structure",
         "required": [
           "HostedZone",
@@ -192,6 +232,9 @@
         "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}"
       },
       "input": {
+        "xmlOrder": [
+          "HealthCheckId"
+        ],
         "type": "structure",
         "required": [
           "HealthCheckId"
@@ -214,6 +257,9 @@
         "requestUri": "/2013-04-01/hostedzone/{Id}"
       },
       "input": {
+        "xmlOrder": [
+          "Id"
+        ],
         "type": "structure",
         "required": [
           "Id"
@@ -226,6 +272,9 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "ChangeInfo"
+        ],
         "type": "structure",
         "required": [
           "ChangeInfo"
@@ -243,6 +292,9 @@
         "requestUri": "/2013-04-01/change/{Id}"
       },
       "input": {
+        "xmlOrder": [
+          "Id"
+        ],
         "type": "structure",
         "required": [
           "Id"
@@ -255,6 +307,9 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "ChangeInfo"
+        ],
         "type": "structure",
         "required": [
           "ChangeInfo"
@@ -294,6 +349,9 @@
         "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}"
       },
       "input": {
+        "xmlOrder": [
+          "HealthCheckId"
+        ],
         "type": "structure",
         "required": [
           "HealthCheckId"
@@ -306,6 +364,9 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "HealthCheck"
+        ],
         "type": "structure",
         "required": [
           "HealthCheck"
@@ -344,6 +405,9 @@
         "requestUri": "/2013-04-01/hostedzone/{Id}"
       },
       "input": {
+        "xmlOrder": [
+          "Id"
+        ],
         "type": "structure",
         "required": [
           "Id"
@@ -356,6 +420,10 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "HostedZone",
+          "DelegationSet"
+        ],
         "type": "structure",
         "required": [
           "HostedZone",
@@ -377,6 +445,10 @@
         "requestUri": "/2013-04-01/healthcheck"
       },
       "input": {
+        "xmlOrder": [
+          "Marker",
+          "MaxItems"
+        ],
         "type": "structure",
         "members": {
           "Marker": {
@@ -390,6 +462,13 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "HealthChecks",
+          "Marker",
+          "IsTruncated",
+          "NextMarker",
+          "MaxItems"
+        ],
         "type": "structure",
         "required": [
           "HealthChecks",
@@ -420,6 +499,10 @@
         "requestUri": "/2013-04-01/hostedzone"
       },
       "input": {
+        "xmlOrder": [
+          "Marker",
+          "MaxItems"
+        ],
         "type": "structure",
         "members": {
           "Marker": {
@@ -433,6 +516,13 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "HostedZones",
+          "Marker",
+          "IsTruncated",
+          "NextMarker",
+          "MaxItems"
+        ],
         "type": "structure",
         "required": [
           "HostedZones",
@@ -463,6 +553,13 @@
         "requestUri": "/2013-04-01/hostedzone/{Id}/rrset"
       },
       "input": {
+        "xmlOrder": [
+          "HostedZoneId",
+          "StartRecordName",
+          "StartRecordType",
+          "StartRecordIdentifier",
+          "MaxItems"
+        ],
         "type": "structure",
         "required": [
           "HostedZoneId"
@@ -491,6 +588,14 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "ResourceRecordSets",
+          "IsTruncated",
+          "NextRecordName",
+          "NextRecordType",
+          "NextRecordIdentifier",
+          "MaxItems"
+        ],
         "type": "structure",
         "required": [
           "ResourceRecordSets",
@@ -521,6 +626,10 @@
         "requestUri": "/2013-04-01/tags/{ResourceType}/{ResourceId}"
       },
       "input": {
+        "xmlOrder": [
+          "ResourceType",
+          "ResourceId"
+        ],
         "type": "structure",
         "required": [
           "ResourceType",
@@ -538,6 +647,9 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "ResourceTagSet"
+        ],
         "type": "structure",
         "required": [
           "ResourceTagSet"
@@ -554,6 +666,10 @@
         "requestUri": "/2013-04-01/tags/{ResourceType}"
       },
       "input": {
+        "xmlOrder": [
+          "ResourceType",
+          "ResourceIds"
+        ],
         "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName": "ListTagsForResourcesRequest",
         "type": "structure",
@@ -575,6 +691,9 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "ResourceTagSets"
+        ],
         "type": "structure",
         "required": [
           "ResourceTagSets"
@@ -595,6 +714,16 @@
         "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}"
       },
       "input": {
+        "xmlOrder": [
+          "HealthCheckId",
+          "HealthCheckVersion",
+          "IPAddress",
+          "Port",
+          "ResourcePath",
+          "FullyQualifiedDomainName",
+          "SearchString",
+          "FailureThreshold"
+        ],
         "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName": "UpdateHealthCheckRequest",
         "type": "structure",
@@ -622,6 +751,9 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "HealthCheck"
+        ],
         "type": "structure",
         "required": [
           "HealthCheck"
@@ -663,7 +795,10 @@
             ],
             "members": {
               "Value": {}
-            }
+            },
+            "xmlOrder": [
+              "Value"
+            ]
           }
         },
         "AliasTarget": {
@@ -679,10 +814,27 @@
             "EvaluateTargetHealth": {
               "type": "boolean"
             }
-          }
+          },
+          "xmlOrder": [
+            "HostedZoneId",
+            "DNSName",
+            "EvaluateTargetHealth"
+          ]
         },
         "HealthCheckId": {}
-      }
+      },
+      "xmlOrder": [
+        "Name",
+        "Type",
+        "SetIdentifier",
+        "Weight",
+        "Region",
+        "Failover",
+        "TTL",
+        "ResourceRecords",
+        "AliasTarget",
+        "HealthCheckId"
+      ]
     },
     "Sn": {
       "type": "structure",
@@ -698,7 +850,13 @@
           "type": "timestamp"
         },
         "Comment": {}
-      }
+      },
+      "xmlOrder": [
+        "Id",
+        "Status",
+        "SubmittedAt",
+        "Comment"
+      ]
     },
     "St": {
       "type": "list",
@@ -731,7 +889,17 @@
         "FailureThreshold": {
           "type": "integer"
         }
-      }
+      },
+      "xmlOrder": [
+        "IPAddress",
+        "Port",
+        "Type",
+        "ResourcePath",
+        "FullyQualifiedDomainName",
+        "SearchString",
+        "RequestInterval",
+        "FailureThreshold"
+      ]
     },
     "S1b": {
       "type": "structure",
@@ -750,13 +918,22 @@
         "HealthCheckVersion": {
           "type": "long"
         }
-      }
+      },
+      "xmlOrder": [
+        "Id",
+        "CallerReference",
+        "HealthCheckConfig",
+        "HealthCheckVersion"
+      ]
     },
     "S1g": {
       "type": "structure",
       "members": {
         "Comment": {}
-      }
+      },
+      "xmlOrder": [
+        "Comment"
+      ]
     },
     "S1i": {
       "type": "structure",
@@ -775,7 +952,14 @@
         "ResourceRecordSetCount": {
           "type": "long"
         }
-      }
+      },
+      "xmlOrder": [
+        "Id",
+        "Name",
+        "CallerReference",
+        "Config",
+        "ResourceRecordSetCount"
+      ]
     },
     "S1k": {
       "type": "structure",
@@ -789,7 +973,10 @@
             "locationName": "NameServer"
           }
         }
-      }
+      },
+      "xmlOrder": [
+        "NameServers"
+      ]
     },
     "S2h": {
       "type": "structure",

@@ -18,12 +18,17 @@
       "input":{
         "shape":"ChangeResourceRecordSetsRequest",
         "documentation":"<p>A complex type that contains a change batch.</p>",
+        "xmlOrder":[
+          "HostedZoneId",
+          "ChangeBatch"
+        ],
         "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName":"ChangeResourceRecordSetsRequest"
       },
       "output":{
         "shape":"ChangeResourceRecordSetsResponse",
-        "documentation":"<p>A complex type containing the response for the request.</p>"
+        "documentation":"<p>A complex type containing the response for the request.</p>",
+        "xmlOrder":["ChangeInfo"]
       },
       "errors":[
         {
@@ -66,6 +71,12 @@
       "input":{
         "shape":"ChangeTagsForResourceRequest",
         "documentation":"<p>A complex type containing information about a request to add, change, or delete the tags that are associated with a resource.</p>",
+        "xmlOrder":[
+          "ResourceType",
+          "ResourceId",
+          "AddTags",
+          "RemoveTagKeys"
+        ],
         "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName":"ChangeTagsForResourceRequest"
       },
@@ -109,12 +120,20 @@
       "input":{
         "shape":"CreateHealthCheckRequest",
         "documentation":"<p>&gt;A complex type that contains information about the request to create a health check.</p>",
+        "xmlOrder":[
+          "CallerReference",
+          "HealthCheckConfig"
+        ],
         "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName":"CreateHealthCheckRequest"
       },
       "output":{
         "shape":"CreateHealthCheckResponse",
-        "documentation":"<p>A complex type containing the response information for the new health check.</p>"
+        "documentation":"<p>A complex type containing the response information for the new health check.</p>",
+        "xmlOrder":[
+          "HealthCheck",
+          "Location"
+        ]
       },
       "errors":[
         {
@@ -146,12 +165,23 @@
       "input":{
         "shape":"CreateHostedZoneRequest",
         "documentation":"<p>A complex type that contains information about the request to create a hosted zone.</p>",
+        "xmlOrder":[
+          "Name",
+          "CallerReference",
+          "HostedZoneConfig"
+        ],
         "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName":"CreateHostedZoneRequest"
       },
       "output":{
         "shape":"CreateHostedZoneResponse",
-        "documentation":"<p>A complex type containing the response information for the new hosted zone.</p>"
+        "documentation":"<p>A complex type containing the response information for the new hosted zone.</p>",
+        "xmlOrder":[
+          "HostedZone",
+          "ChangeInfo",
+          "DelegationSet",
+          "Location"
+        ]
       },
       "errors":[
         {
@@ -194,7 +224,8 @@
       },
       "input":{
         "shape":"DeleteHealthCheckRequest",
-        "documentation":"<p>A complex type containing the request information for delete health check.</p>"
+        "documentation":"<p>A complex type containing the request information for delete health check.</p>",
+        "xmlOrder":["HealthCheckId"]
       },
       "output":{
         "shape":"DeleteHealthCheckResponse",
@@ -230,11 +261,13 @@
       },
       "input":{
         "shape":"DeleteHostedZoneRequest",
-        "documentation":"<p>A complex type containing the response information for the delete request.</p>"
+        "documentation":"<p>A complex type containing the response information for the delete request.</p>",
+        "xmlOrder":["Id"]
       },
       "output":{
         "shape":"DeleteHostedZoneResponse",
-        "documentation":"<p>A complex type containing the response information for the request.</p>"
+        "documentation":"<p>A complex type containing the response information for the request.</p>",
+        "xmlOrder":["ChangeInfo"]
       },
       "errors":[
         {
@@ -271,11 +304,13 @@
       },
       "input":{
         "shape":"GetChangeRequest",
-        "documentation":"<p>The input for a GetChange request.</p>"
+        "documentation":"<p>The input for a GetChange request.</p>",
+        "xmlOrder":["Id"]
       },
       "output":{
         "shape":"GetChangeResponse",
-        "documentation":"<p>A complex type that contains the <code>ChangeInfo</code> element.</p>"
+        "documentation":"<p>A complex type that contains the <code>ChangeInfo</code> element.</p>",
+        "xmlOrder":["ChangeInfo"]
       },
       "errors":[
         {
@@ -316,11 +351,13 @@
       },
       "input":{
         "shape":"GetHealthCheckRequest",
-        "documentation":"<p>A complex type that contains information about the request to get a health check.</p>"
+        "documentation":"<p>A complex type that contains information about the request to get a health check.</p>",
+        "xmlOrder":["HealthCheckId"]
       },
       "output":{
         "shape":"GetHealthCheckResponse",
-        "documentation":"<p>A complex type containing information about the specified health check.</p>"
+        "documentation":"<p>A complex type containing information about the specified health check.</p>",
+        "xmlOrder":["HealthCheck"]
       },
       "errors":[
         {
@@ -368,11 +405,16 @@
       },
       "input":{
         "shape":"GetHostedZoneRequest",
-        "documentation":"<p> The input for a GetHostedZone request.</p>"
+        "documentation":"<p> The input for a GetHostedZone request.</p>",
+        "xmlOrder":["Id"]
       },
       "output":{
         "shape":"GetHostedZoneResponse",
-        "documentation":"<p>A complex type containing information about the specified hosted zone.</p>"
+        "documentation":"<p>A complex type containing information about the specified hosted zone.</p>",
+        "xmlOrder":[
+          "HostedZone",
+          "DelegationSet"
+        ]
       },
       "errors":[
         {
@@ -397,11 +439,22 @@
       },
       "input":{
         "shape":"ListHealthChecksRequest",
-        "documentation":"<p> To retrieve a list of your health checks, send a <code>GET</code> request to the <code>2013-04-01/healthcheck</code> resource. The response to this request includes a <code>HealthChecks</code> element with zero or more <code>HealthCheck</code> child elements. By default, the list of health checks is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the health check that the list begins with.</p>"
+        "documentation":"<p> To retrieve a list of your health checks, send a <code>GET</code> request to the <code>2013-04-01/healthcheck</code> resource. The response to this request includes a <code>HealthChecks</code> element with zero or more <code>HealthCheck</code> child elements. By default, the list of health checks is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the health check that the list begins with.</p>",
+        "xmlOrder":[
+          "Marker",
+          "MaxItems"
+        ]
       },
       "output":{
         "shape":"ListHealthChecksResponse",
-        "documentation":"<p> A complex type that contains the response for the request.</p>"
+        "documentation":"<p> A complex type that contains the response for the request.</p>",
+        "xmlOrder":[
+          "HealthChecks",
+          "Marker",
+          "IsTruncated",
+          "NextMarker",
+          "MaxItems"
+        ]
       },
       "errors":[
         {
@@ -427,11 +480,22 @@
       },
       "input":{
         "shape":"ListHostedZonesRequest",
-        "documentation":"<p> To retrieve a list of your hosted zones, send a <code>GET</code> request to the <code>2013-04-01/hostedzone</code> resource. The response to this request includes a <code>HostedZones</code> element with zero or more <code>HostedZone</code> child elements. By default, the list of hosted zones is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the hosted zone that the list begins with. For more information about listing hosted zones, see <a href=\"http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html\">Listing the Hosted Zones for an AWS Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>"
+        "documentation":"<p> To retrieve a list of your hosted zones, send a <code>GET</code> request to the <code>2013-04-01/hostedzone</code> resource. The response to this request includes a <code>HostedZones</code> element with zero or more <code>HostedZone</code> child elements. By default, the list of hosted zones is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the hosted zone that the list begins with. For more information about listing hosted zones, see <a href=\"http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html\">Listing the Hosted Zones for an AWS Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>",
+        "xmlOrder":[
+          "Marker",
+          "MaxItems"
+        ]
       },
       "output":{
         "shape":"ListHostedZonesResponse",
-        "documentation":"<p> A complex type that contains the response for the request.</p>"
+        "documentation":"<p> A complex type that contains the response for the request.</p>",
+        "xmlOrder":[
+          "HostedZones",
+          "Marker",
+          "IsTruncated",
+          "NextMarker",
+          "MaxItems"
+        ]
       },
       "errors":[
         {
@@ -451,11 +515,26 @@
       },
       "input":{
         "shape":"ListResourceRecordSetsRequest",
-        "documentation":"<p> The input for a ListResourceRecordSets request.</p>"
+        "documentation":"<p> The input for a ListResourceRecordSets request.</p>",
+        "xmlOrder":[
+          "HostedZoneId",
+          "StartRecordName",
+          "StartRecordType",
+          "StartRecordIdentifier",
+          "MaxItems"
+        ]
       },
       "output":{
         "shape":"ListResourceRecordSetsResponse",
-        "documentation":"<p>A complex type that contains information about the resource record sets that are returned by the request and information about the response.</p>"
+        "documentation":"<p>A complex type that contains information about the resource record sets that are returned by the request and information about the response.</p>",
+        "xmlOrder":[
+          "ResourceRecordSets",
+          "IsTruncated",
+          "NextRecordName",
+          "NextRecordType",
+          "NextRecordIdentifier",
+          "MaxItems"
+        ]
       },
       "errors":[
         {
@@ -480,11 +559,16 @@
       },
       "input":{
         "shape":"ListTagsForResourceRequest",
-        "documentation":"<p>A complex type containing information about a request for a list of the tags that are associated with an individual resource.</p>"
+        "documentation":"<p>A complex type containing information about a request for a list of the tags that are associated with an individual resource.</p>",
+        "xmlOrder":[
+          "ResourceType",
+          "ResourceId"
+        ]
       },
       "output":{
         "shape":"ListTagsForResourceResponse",
-        "documentation":"<p>A complex type containing tags for the specified resource.</p>"
+        "documentation":"<p>A complex type containing tags for the specified resource.</p>",
+        "xmlOrder":["ResourceTagSet"]
       },
       "errors":[
         {
@@ -521,12 +605,17 @@
       "input":{
         "shape":"ListTagsForResourcesRequest",
         "documentation":"<p>A complex type containing information about a request for a list of the tags that are associated with up to 10 specified resources.</p>",
+        "xmlOrder":[
+          "ResourceType",
+          "ResourceIds"
+        ],
         "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName":"ListTagsForResourcesRequest"
       },
       "output":{
         "shape":"ListTagsForResourcesResponse",
-        "documentation":"<p>A complex type containing tags for the specified resources.</p>"
+        "documentation":"<p>A complex type containing tags for the specified resources.</p>",
+        "xmlOrder":["ResourceTagSets"]
       },
       "errors":[
         {
@@ -563,10 +652,23 @@
       "input":{
         "shape":"UpdateHealthCheckRequest",
         "documentation":"<p>&gt;A complex type that contains information about the request to update a health check.</p>",
+        "xmlOrder":[
+          "HealthCheckId",
+          "HealthCheckVersion",
+          "IPAddress",
+          "Port",
+          "ResourcePath",
+          "FullyQualifiedDomainName",
+          "SearchString",
+          "FailureThreshold"
+        ],
         "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
         "locationName":"UpdateHealthCheckRequest"
       },
-      "output":{"shape":"UpdateHealthCheckResponse"},
+      "output":{
+        "shape":"UpdateHealthCheckResponse",
+        "xmlOrder":["HealthCheck"]
+      },
       "errors":[
         {
           "shape":"NoSuchHealthCheck",
@@ -612,7 +714,12 @@
           "documentation":"<p><i>Alias resource record sets only:</i> A boolean value that indicates whether this Resource Record Set should respect the health status of any health checks associated with the ALIAS target record which it is linked to.</p> <p>For more information and an example, see <a href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html\">Creating Alias Resource Record Sets</a> in the <i>Amazon Route 53 Developer Guide</i></p>."
         }
       },
-      "documentation":"<p><i>Alias resource record sets only:</i> Information about the domain to which you are redirecting traffic.</p> <p>For more information and an example, see <a href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html\">Creating Alias Resource Record Sets</a> in the <i>Amazon Route 53 Developer Guide</i></p>."
+      "documentation":"<p><i>Alias resource record sets only:</i> Information about the domain to which you are redirecting traffic.</p> <p>For more information and an example, see <a href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html\">Creating Alias Resource Record Sets</a> in the <i>Amazon Route 53 Developer Guide</i></p>.",
+      "xmlOrder":[
+        "HostedZoneId",
+        "DNSName",
+        "EvaluateTargetHealth"
+      ]
     },
     "Change":{
       "type":"structure",
@@ -630,7 +737,11 @@
           "documentation":"<p>Information about the resource record set to create or delete.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains the information for each change in a change batch request.</p>"
+      "documentation":"<p>A complex type that contains the information for each change in a change batch request.</p>",
+      "xmlOrder":[
+        "Action",
+        "ResourceRecordSet"
+      ]
     },
     "ChangeAction":{
       "type":"string",
@@ -653,7 +764,11 @@
           "documentation":"<p>A complex type that contains one <code>Change</code> element for each resource record set that you want to create or delete.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains an optional comment and the changes that you want to make with a change batch request.</p>"
+      "documentation":"<p>A complex type that contains an optional comment and the changes that you want to make with a change batch request.</p>",
+      "xmlOrder":[
+        "Comment",
+        "Changes"
+      ]
     },
     "ChangeInfo":{
       "type":"structure",
@@ -680,7 +795,13 @@
           "documentation":"<p>A complex type that describes change information about changes made to your hosted zone.</p> <p>This element contains an ID that you use when performing a <a>GetChange</a> action to get detailed information about the change.</p>"
         }
       },
-      "documentation":"<p>A complex type that describes change information about changes made to your hosted zone.</p> <p>This element contains an ID that you use when performing a <a>GetChange</a> action to get detailed information about the change.</p>"
+      "documentation":"<p>A complex type that describes change information about changes made to your hosted zone.</p> <p>This element contains an ID that you use when performing a <a>GetChange</a> action to get detailed information about the change.</p>",
+      "xmlOrder":[
+        "Id",
+        "Status",
+        "SubmittedAt",
+        "Comment"
+      ]
     },
     "ChangeResourceRecordSetsRequest":{
       "type":"structure",
@@ -700,7 +821,11 @@
           "documentation":"<p>A complex type that contains an optional comment and the <code>Changes</code> element.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains a change batch.</p>"
+      "documentation":"<p>A complex type that contains a change batch.</p>",
+      "xmlOrder":[
+        "HostedZoneId",
+        "ChangeBatch"
+      ]
     },
     "ChangeResourceRecordSetsResponse":{
       "type":"structure",
@@ -711,7 +836,8 @@
           "documentation":"<p>A complex type that contains information about changes made to your hosted zone.</p> <p>This element contains an ID that you use when performing a <a>GetChange</a> action to get detailed information about the change.</p>"
         }
       },
-      "documentation":"<p>A complex type containing the response for the request.</p>"
+      "documentation":"<p>A complex type containing the response for the request.</p>",
+      "xmlOrder":["ChangeInfo"]
     },
     "ChangeStatus":{
       "type":"string",
@@ -748,7 +874,13 @@
           "documentation":"<p>A list of <code>Tag</code> keys that you want to remove from the specified resource.</p>"
         }
       },
-      "documentation":"<p>A complex type containing information about a request to add, change, or delete the tags that are associated with a resource.</p>"
+      "documentation":"<p>A complex type containing information about a request to add, change, or delete the tags that are associated with a resource.</p>",
+      "xmlOrder":[
+        "ResourceType",
+        "ResourceId",
+        "AddTags",
+        "RemoveTagKeys"
+      ]
     },
     "ChangeTagsForResourceResponse":{
       "type":"structure",
@@ -784,7 +916,11 @@
           "documentation":"<p>A complex type that contains health check configuration.</p>"
         }
       },
-      "documentation":"<p>&gt;A complex type that contains information about the request to create a health check.</p>"
+      "documentation":"<p>&gt;A complex type that contains information about the request to create a health check.</p>",
+      "xmlOrder":[
+        "CallerReference",
+        "HealthCheckConfig"
+      ]
     },
     "CreateHealthCheckResponse":{
       "type":"structure",
@@ -804,7 +940,11 @@
           "documentation":"<p>The unique URL representing the new health check.</p>"
         }
       },
-      "documentation":"<p>A complex type containing the response information for the new health check.</p>"
+      "documentation":"<p>A complex type containing the response information for the new health check.</p>",
+      "xmlOrder":[
+        "HealthCheck",
+        "Location"
+      ]
     },
     "CreateHostedZoneRequest":{
       "type":"structure",
@@ -826,7 +966,12 @@
           "documentation":"<p>A complex type that contains an optional comment about your hosted zone.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains information about the request to create a hosted zone.</p>"
+      "documentation":"<p>A complex type that contains information about the request to create a hosted zone.</p>",
+      "xmlOrder":[
+        "Name",
+        "CallerReference",
+        "HostedZoneConfig"
+      ]
     },
     "CreateHostedZoneResponse":{
       "type":"structure",
@@ -856,7 +1001,13 @@
           "documentation":"<p>The unique URL representing the new hosted zone.</p>"
         }
       },
-      "documentation":"<p>A complex type containing the response information for the new hosted zone.</p>"
+      "documentation":"<p>A complex type containing the response information for the new hosted zone.</p>",
+      "xmlOrder":[
+        "HostedZone",
+        "ChangeInfo",
+        "DelegationSet",
+        "Location"
+      ]
     },
     "DNSName":{
       "type":"string",
@@ -871,7 +1022,8 @@
           "documentation":"<p>A complex type that contains the authoritative name servers for the hosted zone. Use the method provided by your domain registrar to add an NS record to your domain for each <code>NameServer</code> that is assigned to your hosted zone.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains name server information.</p>"
+      "documentation":"<p>A complex type that contains name server information.</p>",
+      "xmlOrder":["NameServers"]
     },
     "DelegationSetNameServers":{
       "type":"list",
@@ -903,7 +1055,8 @@
           "documentation":"<p>The ID of the health check to delete.</p>"
         }
       },
-      "documentation":"<p>A complex type containing the request information for delete health check.</p>"
+      "documentation":"<p>A complex type containing the request information for delete health check.</p>",
+      "xmlOrder":["HealthCheckId"]
     },
     "DeleteHealthCheckResponse":{
       "type":"structure",
@@ -922,7 +1075,8 @@
           "documentation":"<p> The ID of the request. Include this ID in a call to <a>GetChange</a> to track when the change has propagated to all Route 53 DNS servers.</p>"
         }
       },
-      "documentation":"<p>A complex type containing the response information for the delete request.</p>"
+      "documentation":"<p>A complex type containing the response information for the delete request.</p>",
+      "xmlOrder":["Id"]
     },
     "DeleteHostedZoneResponse":{
       "type":"structure",
@@ -933,7 +1087,8 @@
           "documentation":"<p>A complex type that contains the ID, the status, and the date and time of your delete request.</p>"
         }
       },
-      "documentation":"<p>A complex type containing the response information for the request.</p>"
+      "documentation":"<p>A complex type containing the response information for the request.</p>",
+      "xmlOrder":["ChangeInfo"]
     },
     "ErrorMessage":{"type":"string"},
     "ErrorMessages":{
@@ -963,7 +1118,8 @@
           "documentation":"<p> The ID of the change batch request. The value that you specify here is the value that <code>ChangeResourceRecordSets</code> returned in the Id element when you submitted the request.</p>"
         }
       },
-      "documentation":"<p>The input for a GetChange request.</p>"
+      "documentation":"<p>The input for a GetChange request.</p>",
+      "xmlOrder":["Id"]
     },
     "GetChangeResponse":{
       "type":"structure",
@@ -974,7 +1130,8 @@
           "documentation":"<p>A complex type that contains information about the specified change batch, including the change batch ID, the status of the change, and the date and time of the request.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains the <code>ChangeInfo</code> element.</p>"
+      "documentation":"<p>A complex type that contains the <code>ChangeInfo</code> element.</p>",
+      "xmlOrder":["ChangeInfo"]
     },
     "GetCheckerIpRangesRequest":{
       "type":"structure",
@@ -1021,7 +1178,8 @@
           "documentation":"<p>The ID of the health check to retrieve.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains information about the request to get a health check.</p>"
+      "documentation":"<p>A complex type that contains information about the request to get a health check.</p>",
+      "xmlOrder":["HealthCheckId"]
     },
     "GetHealthCheckResponse":{
       "type":"structure",
@@ -1032,7 +1190,8 @@
           "documentation":"<p>A complex type that contains the information about the specified health check.</p>"
         }
       },
-      "documentation":"<p>A complex type containing information about the specified health check.</p>"
+      "documentation":"<p>A complex type containing information about the specified health check.</p>",
+      "xmlOrder":["HealthCheck"]
     },
     "GetHostedZoneRequest":{
       "type":"structure",
@@ -1045,7 +1204,8 @@
           "documentation":"<p>The ID of the hosted zone for which you want to get a list of the name servers in the delegation set.</p>"
         }
       },
-      "documentation":"<p> The input for a GetHostedZone request.</p>"
+      "documentation":"<p> The input for a GetHostedZone request.</p>",
+      "xmlOrder":["Id"]
     },
     "GetHostedZoneResponse":{
       "type":"structure",
@@ -1063,7 +1223,11 @@
           "documentation":"<p>A complex type that contains information about the name servers for the specified hosted zone.</p>"
         }
       },
-      "documentation":"<p>A complex type containing information about the specified hosted zone.</p>"
+      "documentation":"<p>A complex type containing information about the specified hosted zone.</p>",
+      "xmlOrder":[
+        "HostedZone",
+        "DelegationSet"
+      ]
     },
     "HealthCheck":{
       "type":"structure",
@@ -1091,7 +1255,13 @@
           "documentation":"<p>The version of the health check. You can optionally pass this value in a call to <code>UpdateHealthCheck</code> to prevent overwriting another change to the health check.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains identifying information about the health check.</p>"
+      "documentation":"<p>A complex type that contains identifying information about the health check.</p>",
+      "xmlOrder":[
+        "Id",
+        "CallerReference",
+        "HealthCheckConfig",
+        "HealthCheckVersion"
+      ]
     },
     "HealthCheckAlreadyExists":{
       "type":"structure",
@@ -1142,7 +1312,17 @@
           "documentation":"<p>The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.</p> <p>Valid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains the health check configuration.</p>"
+      "documentation":"<p>A complex type that contains the health check configuration.</p>",
+      "xmlOrder":[
+        "IPAddress",
+        "Port",
+        "Type",
+        "ResourcePath",
+        "FullyQualifiedDomainName",
+        "SearchString",
+        "RequestInterval",
+        "FailureThreshold"
+      ]
     },
     "HealthCheckCount":{"type":"long"},
     "HealthCheckId":{
@@ -1224,7 +1404,14 @@
           "documentation":"<p>Total number of resource record sets in the hosted zone.</p>"
         }
       },
-      "documentation":"<p>A complex type that contain information about the specified hosted zone.</p>"
+      "documentation":"<p>A complex type that contain information about the specified hosted zone.</p>",
+      "xmlOrder":[
+        "Id",
+        "Name",
+        "CallerReference",
+        "Config",
+        "ResourceRecordSetCount"
+      ]
     },
     "HostedZoneAlreadyExists":{
       "type":"structure",
@@ -1246,7 +1433,8 @@
           "documentation":"<p>An optional comment about your hosted zone. If you don't want to specify a comment, you can omit the <code>HostedZoneConfig</code> and <code>Comment</code> elements from the XML document.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, you can omit the <code>HostedZoneConfig</code> and <code>Comment</code> elements from the XML document.</p>"
+      "documentation":"<p>A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, you can omit the <code>HostedZoneConfig</code> and <code>Comment</code> elements from the XML document.</p>",
+      "xmlOrder":["Comment"]
     },
     "HostedZoneNotEmpty":{
       "type":"structure",
@@ -1334,7 +1522,11 @@
           "documentation":"<p>Specify the maximum number of health checks to return per page of results.</p>"
         }
       },
-      "documentation":"<p> To retrieve a list of your health checks, send a <code>GET</code> request to the <code>2013-04-01/healthcheck</code> resource. The response to this request includes a <code>HealthChecks</code> element with zero or more <code>HealthCheck</code> child elements. By default, the list of health checks is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the health check that the list begins with.</p>"
+      "documentation":"<p> To retrieve a list of your health checks, send a <code>GET</code> request to the <code>2013-04-01/healthcheck</code> resource. The response to this request includes a <code>HealthChecks</code> element with zero or more <code>HealthCheck</code> child elements. By default, the list of health checks is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the health check that the list begins with.</p>",
+      "xmlOrder":[
+        "Marker",
+        "MaxItems"
+      ]
     },
     "ListHealthChecksResponse":{
       "type":"structure",
@@ -1366,7 +1558,14 @@
           "documentation":"<p>The maximum number of health checks to be included in the response body. If the number of health checks associated with this AWS account exceeds <code>MaxItems</code>, the value of <a>ListHealthChecksResponse$IsTruncated</a> in the response is <code>true</code>. Call <code>ListHealthChecks</code> again and specify the value of <a>ListHealthChecksResponse$NextMarker</a> in the <a>ListHostedZonesRequest$Marker</a> element to get the next page of results.</p>"
         }
       },
-      "documentation":"<p> A complex type that contains the response for the request.</p>"
+      "documentation":"<p> A complex type that contains the response for the request.</p>",
+      "xmlOrder":[
+        "HealthChecks",
+        "Marker",
+        "IsTruncated",
+        "NextMarker",
+        "MaxItems"
+      ]
     },
     "ListHostedZonesRequest":{
       "type":"structure",
@@ -1384,7 +1583,11 @@
           "documentation":"<p>Specify the maximum number of hosted zones to return per page of results.</p>"
         }
       },
-      "documentation":"<p> To retrieve a list of your hosted zones, send a <code>GET</code> request to the <code>2013-04-01/hostedzone</code> resource. The response to this request includes a <code>HostedZones</code> element with zero or more <code>HostedZone</code> child elements. By default, the list of hosted zones is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the hosted zone that the list begins with. For more information about listing hosted zones, see <a href=\"http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html\">Listing the Hosted Zones for an AWS Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>"
+      "documentation":"<p> To retrieve a list of your hosted zones, send a <code>GET</code> request to the <code>2013-04-01/hostedzone</code> resource. The response to this request includes a <code>HostedZones</code> element with zero or more <code>HostedZone</code> child elements. By default, the list of hosted zones is displayed on a single page. You can control the length of the page that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code> parameter to control the hosted zone that the list begins with. For more information about listing hosted zones, see <a href=\"http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html\">Listing the Hosted Zones for an AWS Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>",
+      "xmlOrder":[
+        "Marker",
+        "MaxItems"
+      ]
     },
     "ListHostedZonesResponse":{
       "type":"structure",
@@ -1416,7 +1619,14 @@
           "documentation":"<p>The maximum number of hosted zones to be included in the response body. If the number of hosted zones associated with this AWS account exceeds <code>MaxItems</code>, the value of <a>ListHostedZonesResponse$IsTruncated</a> in the response is <code>true</code>. Call <code>ListHostedZones</code> again and specify the value of <a>ListHostedZonesResponse$NextMarker</a> in the <a>ListHostedZonesRequest$Marker</a> element to get the next page of results.</p>"
         }
       },
-      "documentation":"<p> A complex type that contains the response for the request.</p>"
+      "documentation":"<p> A complex type that contains the response for the request.</p>",
+      "xmlOrder":[
+        "HostedZones",
+        "Marker",
+        "IsTruncated",
+        "NextMarker",
+        "MaxItems"
+      ]
     },
     "ListResourceRecordSetsRequest":{
       "type":"structure",
@@ -1453,7 +1663,14 @@
           "documentation":"<p>The maximum number of records you want in the response body.</p>"
         }
       },
-      "documentation":"<p> The input for a ListResourceRecordSets request.</p>"
+      "documentation":"<p> The input for a ListResourceRecordSets request.</p>",
+      "xmlOrder":[
+        "HostedZoneId",
+        "StartRecordName",
+        "StartRecordType",
+        "StartRecordIdentifier",
+        "MaxItems"
+      ]
     },
     "ListResourceRecordSetsResponse":{
       "type":"structure",
@@ -1488,7 +1705,15 @@
           "documentation":"<p>The maximum number of records you requested. The maximum value of <code>MaxItems</code> is 100.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains information about the resource record sets that are returned by the request and information about the response.</p>"
+      "documentation":"<p>A complex type that contains information about the resource record sets that are returned by the request and information about the response.</p>",
+      "xmlOrder":[
+        "ResourceRecordSets",
+        "IsTruncated",
+        "NextRecordName",
+        "NextRecordType",
+        "NextRecordIdentifier",
+        "MaxItems"
+      ]
     },
     "ListTagsForResourceRequest":{
       "type":"structure",
@@ -1510,7 +1735,11 @@
           "documentation":"<p>The ID of the resource for which you want to retrieve tags.</p>"
         }
       },
-      "documentation":"<p>A complex type containing information about a request for a list of the tags that are associated with an individual resource.</p>"
+      "documentation":"<p>A complex type containing information about a request for a list of the tags that are associated with an individual resource.</p>",
+      "xmlOrder":[
+        "ResourceType",
+        "ResourceId"
+      ]
     },
     "ListTagsForResourceResponse":{
       "type":"structure",
@@ -1521,7 +1750,8 @@
           "documentation":"<p>A <code>ResourceTagSet</code> containing tags associated with the specified resource.</p>"
         }
       },
-      "documentation":"<p>A complex type containing tags for the specified resource.</p>"
+      "documentation":"<p>A complex type containing tags for the specified resource.</p>",
+      "xmlOrder":["ResourceTagSet"]
     },
     "ListTagsForResourcesRequest":{
       "type":"structure",
@@ -1541,7 +1771,11 @@
           "documentation":"<p>A complex type that contains the ResourceId element for each resource for which you want to get a list of tags.</p>"
         }
       },
-      "documentation":"<p>A complex type containing information about a request for a list of the tags that are associated with up to 10 specified resources.</p>"
+      "documentation":"<p>A complex type containing information about a request for a list of the tags that are associated with up to 10 specified resources.</p>",
+      "xmlOrder":[
+        "ResourceType",
+        "ResourceIds"
+      ]
     },
     "ListTagsForResourcesResponse":{
       "type":"structure",
@@ -1552,7 +1786,8 @@
           "documentation":"<p>A list of <code>ResourceTagSet</code>s containing tags associated with the specified resources.</p>"
         }
       },
-      "documentation":"<p>A complex type containing tags for the specified resources.</p>"
+      "documentation":"<p>A complex type containing tags for the specified resources.</p>",
+      "xmlOrder":["ResourceTagSets"]
     },
     "NoSuchChange":{
       "type":"structure",
@@ -1652,7 +1887,8 @@
           "documentation":"<p>The value of the <code>Value</code> element for the current resource record set.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains the value of the <code>Value</code> element for the current resource record set.</p>"
+      "documentation":"<p>A complex type that contains the value of the <code>Value</code> element for the current resource record set.</p>",
+      "xmlOrder":["Value"]
     },
     "ResourceRecordSet":{
       "type":"structure",
@@ -1702,7 +1938,19 @@
           "documentation":"<p><i>Health Check resource record sets only, not required for alias resource record sets:</i> An identifier that is used to identify health check associated with the resource record set.</p>"
         }
       },
-      "documentation":"<p>A complex type that contains information about the current resource record set.</p>"
+      "documentation":"<p>A complex type that contains information about the current resource record set.</p>",
+      "xmlOrder":[
+        "Name",
+        "Type",
+        "SetIdentifier",
+        "Weight",
+        "Region",
+        "Failover",
+        "TTL",
+        "ResourceRecords",
+        "AliasTarget",
+        "HealthCheckId"
+      ]
     },
     "ResourceRecordSetFailover":{
       "type":"string",
@@ -1914,14 +2162,25 @@
           "documentation":"<p>The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.</p> <p>Valid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.</p> <p>Specify this value only if you want to change it.</p>"
         }
       },
-      "documentation":"<p>&gt;A complex type that contains information about the request to update a health check.</p>"
+      "documentation":"<p>&gt;A complex type that contains information about the request to update a health check.</p>",
+      "xmlOrder":[
+        "HealthCheckId",
+        "HealthCheckVersion",
+        "IPAddress",
+        "Port",
+        "ResourcePath",
+        "FullyQualifiedDomainName",
+        "SearchString",
+        "FailureThreshold"
+      ]
     },
     "UpdateHealthCheckResponse":{
       "type":"structure",
       "required":["HealthCheck"],
       "members":{
         "HealthCheck":{"shape":"HealthCheck"}
-      }
+      },
+      "xmlOrder":["HealthCheck"]
     }
   }
 }
