@@ -22,6 +22,28 @@
         }
       }
     },
+    "CompleteLifecycleAction": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "LifecycleHookName",
+          "AutoScalingGroupName",
+          "LifecycleActionToken",
+          "LifecycleActionResult"
+        ],
+        "members": {
+          "LifecycleHookName": {},
+          "AutoScalingGroupName": {},
+          "LifecycleActionToken": {},
+          "LifecycleActionResult": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "CompleteLifecycleActionResult",
+        "type": "structure",
+        "members": {}
+      }
+    },
     "CreateAutoScalingGroup": {
       "input": {
         "type": "structure",
@@ -47,10 +69,10 @@
             "type": "integer"
           },
           "AvailabilityZones": {
-            "shape": "Sb"
+            "shape": "Sg"
           },
           "LoadBalancerNames": {
-            "shape": "Sc"
+            "shape": "Sh"
           },
           "HealthCheckType": {},
           "HealthCheckGracePeriod": {
@@ -59,10 +81,10 @@
           "PlacementGroup": {},
           "VPCZoneIdentifier": {},
           "TerminationPolicies": {
-            "shape": "Sf"
+            "shape": "Sk"
           },
           "Tags": {
-            "shape": "Sh"
+            "shape": "Sm"
           }
         }
       }
@@ -78,7 +100,7 @@
           "ImageId": {},
           "KeyName": {},
           "SecurityGroups": {
-            "shape": "So"
+            "shape": "St"
           },
           "UserData": {},
           "InstanceId": {},
@@ -86,10 +108,10 @@
           "KernelId": {},
           "RamdiskId": {},
           "BlockDeviceMappings": {
-            "shape": "Sq"
+            "shape": "Sv"
           },
           "InstanceMonitoring": {
-            "shape": "Sy"
+            "shape": "S13"
           },
           "SpotPrice": {},
           "IamInstanceProfile": {},
@@ -111,7 +133,7 @@
         ],
         "members": {
           "Tags": {
-            "shape": "Sh"
+            "shape": "Sm"
           }
         }
       }
@@ -139,6 +161,24 @@
         "members": {
           "LaunchConfigurationName": {}
         }
+      }
+    },
+    "DeleteLifecycleHook": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "LifecycleHookName",
+          "AutoScalingGroupName"
+        ],
+        "members": {
+          "LifecycleHookName": {},
+          "AutoScalingGroupName": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "DeleteLifecycleHookResult",
+        "type": "structure",
+        "members": {}
       }
     },
     "DeleteNotificationConfiguration": {
@@ -186,7 +226,7 @@
         ],
         "members": {
           "Tags": {
-            "shape": "Sh"
+            "shape": "Sm"
           }
         }
       }
@@ -227,7 +267,7 @@
         "type": "structure",
         "members": {
           "AutoScalingGroupNames": {
-            "shape": "S1j"
+            "shape": "S1q"
           },
           "NextToken": {},
           "MaxRecords": {
@@ -274,10 +314,10 @@
                   "type": "integer"
                 },
                 "AvailabilityZones": {
-                  "shape": "Sb"
+                  "shape": "Sg"
                 },
                 "LoadBalancerNames": {
-                  "shape": "Sc"
+                  "shape": "Sh"
                 },
                 "HealthCheckType": {},
                 "HealthCheckGracePeriod": {
@@ -330,10 +370,10 @@
                 },
                 "Status": {},
                 "Tags": {
-                  "shape": "S1w"
+                  "shape": "S23"
                 },
                 "TerminationPolicies": {
-                  "shape": "Sf"
+                  "shape": "Sk"
                 }
               }
             }
@@ -391,7 +431,7 @@
         "type": "structure",
         "members": {
           "AutoScalingNotificationTypes": {
-            "shape": "S23"
+            "shape": "S2a"
           }
         }
       }
@@ -433,17 +473,17 @@
                 "ImageId": {},
                 "KeyName": {},
                 "SecurityGroups": {
-                  "shape": "So"
+                  "shape": "St"
                 },
                 "UserData": {},
                 "InstanceType": {},
                 "KernelId": {},
                 "RamdiskId": {},
                 "BlockDeviceMappings": {
-                  "shape": "Sq"
+                  "shape": "Sv"
                 },
                 "InstanceMonitoring": {
-                  "shape": "Sy"
+                  "shape": "S13"
                 },
                 "SpotPrice": {},
                 "IamInstanceProfile": {},
@@ -461,6 +501,59 @@
             }
           },
           "NextToken": {}
+        }
+      }
+    },
+    "DescribeLifecycleHookTypes": {
+      "output": {
+        "resultWrapper": "DescribeLifecycleHookTypesResult",
+        "type": "structure",
+        "members": {
+          "LifecycleHookTypes": {
+            "shape": "S2a"
+          }
+        }
+      }
+    },
+    "DescribeLifecycleHooks": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "AutoScalingGroupName"
+        ],
+        "members": {
+          "AutoScalingGroupName": {},
+          "LifecycleHookNames": {
+            "type": "list",
+            "member": {}
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "DescribeLifecycleHooksResult",
+        "type": "structure",
+        "members": {
+          "LifecycleHooks": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "LifecycleHookName": {},
+                "AutoScalingGroupName": {},
+                "LifecycleTransition": {},
+                "NotificationTargetARN": {},
+                "RoleARN": {},
+                "NotificationMetadata": {},
+                "HeartbeatTimeout": {
+                  "type": "integer"
+                },
+                "GlobalTimeout": {
+                  "type": "integer"
+                },
+                "DefaultResult": {}
+              }
+            }
+          }
         }
       }
     },
@@ -495,7 +588,7 @@
         "type": "structure",
         "members": {
           "AutoScalingGroupNames": {
-            "shape": "S1j"
+            "shape": "S1q"
           },
           "NextToken": {},
           "MaxRecords": {
@@ -602,10 +695,7 @@
         ],
         "members": {
           "Activities": {
-            "type": "list",
-            "member": {
-              "shape": "S2v"
-            }
+            "shape": "S3b"
           },
           "NextToken": {}
         }
@@ -718,7 +808,7 @@
         "type": "structure",
         "members": {
           "Tags": {
-            "shape": "S1w"
+            "shape": "S23"
           },
           "NextToken": {}
         }
@@ -730,7 +820,34 @@
         "type": "structure",
         "members": {
           "TerminationPolicyTypes": {
-            "shape": "Sf"
+            "shape": "Sk"
+          }
+        }
+      }
+    },
+    "DetachInstances": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "AutoScalingGroupName",
+          "ShouldDecrementDesiredCapacity"
+        ],
+        "members": {
+          "InstanceIds": {
+            "shape": "S2"
+          },
+          "AutoScalingGroupName": {},
+          "ShouldDecrementDesiredCapacity": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "DetachInstancesResult",
+        "type": "structure",
+        "members": {
+          "Activities": {
+            "shape": "S3b"
           }
         }
       }
@@ -744,7 +861,7 @@
         "members": {
           "AutoScalingGroupName": {},
           "Metrics": {
-            "shape": "S3e"
+            "shape": "S3x"
           }
         }
       }
@@ -759,9 +876,36 @@
         "members": {
           "AutoScalingGroupName": {},
           "Metrics": {
-            "shape": "S3e"
+            "shape": "S3x"
           },
           "Granularity": {}
+        }
+      }
+    },
+    "EnterStandby": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "AutoScalingGroupName",
+          "ShouldDecrementDesiredCapacity"
+        ],
+        "members": {
+          "InstanceIds": {
+            "shape": "S2"
+          },
+          "AutoScalingGroupName": {},
+          "ShouldDecrementDesiredCapacity": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "EnterStandbyResult",
+        "type": "structure",
+        "members": {
+          "Activities": {
+            "shape": "S3b"
+          }
         }
       }
     },
@@ -780,6 +924,55 @@
         }
       }
     },
+    "ExitStandby": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "AutoScalingGroupName"
+        ],
+        "members": {
+          "InstanceIds": {
+            "shape": "S2"
+          },
+          "AutoScalingGroupName": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "ExitStandbyResult",
+        "type": "structure",
+        "members": {
+          "Activities": {
+            "shape": "S3b"
+          }
+        }
+      }
+    },
+    "PutLifecycleHook": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "LifecycleHookName",
+          "AutoScalingGroupName"
+        ],
+        "members": {
+          "LifecycleHookName": {},
+          "AutoScalingGroupName": {},
+          "LifecycleTransition": {},
+          "RoleARN": {},
+          "NotificationTargetARN": {},
+          "NotificationMetadata": {},
+          "HeartbeatTimeout": {
+            "type": "integer"
+          },
+          "DefaultResult": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "PutLifecycleHookResult",
+        "type": "structure",
+        "members": {}
+      }
+    },
     "PutNotificationConfiguration": {
       "input": {
         "type": "structure",
@@ -792,7 +985,7 @@
           "AutoScalingGroupName": {},
           "TopicARN": {},
           "NotificationTypes": {
-            "shape": "S23"
+            "shape": "S2a"
           }
         }
       }
@@ -861,9 +1054,29 @@
         }
       }
     },
+    "RecordLifecycleActionHeartbeat": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "LifecycleHookName",
+          "AutoScalingGroupName",
+          "LifecycleActionToken"
+        ],
+        "members": {
+          "LifecycleHookName": {},
+          "AutoScalingGroupName": {},
+          "LifecycleActionToken": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "RecordLifecycleActionHeartbeatResult",
+        "type": "structure",
+        "members": {}
+      }
+    },
     "ResumeProcesses": {
       "input": {
-        "shape": "S3m"
+        "shape": "S4d"
       }
     },
     "SetDesiredCapacity": {
@@ -902,7 +1115,7 @@
     },
     "SuspendProcesses": {
       "input": {
-        "shape": "S3m"
+        "shape": "S4d"
       }
     },
     "TerminateInstanceInAutoScalingGroup": {
@@ -924,7 +1137,7 @@
         "type": "structure",
         "members": {
           "Activity": {
-            "shape": "S2v"
+            "shape": "S3c"
           }
         }
       }
@@ -951,7 +1164,7 @@
             "type": "integer"
           },
           "AvailabilityZones": {
-            "shape": "Sb"
+            "shape": "Sg"
           },
           "HealthCheckType": {},
           "HealthCheckGracePeriod": {
@@ -960,7 +1173,7 @@
           "PlacementGroup": {},
           "VPCZoneIdentifier": {},
           "TerminationPolicies": {
-            "shape": "Sf"
+            "shape": "Sk"
           }
         }
       }
@@ -971,19 +1184,19 @@
       "type": "list",
       "member": {}
     },
-    "Sb": {
-      "type": "list",
-      "member": {}
-    },
-    "Sc": {
-      "type": "list",
-      "member": {}
-    },
-    "Sf": {
+    "Sg": {
       "type": "list",
       "member": {}
     },
     "Sh": {
+      "type": "list",
+      "member": {}
+    },
+    "Sk": {
+      "type": "list",
+      "member": {}
+    },
+    "Sm": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -1001,11 +1214,11 @@
         }
       }
     },
-    "So": {
+    "St": {
       "type": "list",
       "member": {}
     },
-    "Sq": {
+    "Sv": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -1037,7 +1250,7 @@
         }
       }
     },
-    "Sy": {
+    "S13": {
       "type": "structure",
       "members": {
         "Enabled": {
@@ -1045,11 +1258,11 @@
         }
       }
     },
-    "S1j": {
+    "S1q": {
       "type": "list",
       "member": {}
     },
-    "S1w": {
+    "S23": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -1064,11 +1277,17 @@
         }
       }
     },
-    "S23": {
+    "S2a": {
       "type": "list",
       "member": {}
     },
-    "S2v": {
+    "S3b": {
+      "type": "list",
+      "member": {
+        "shape": "S3c"
+      }
+    },
+    "S3c": {
       "type": "structure",
       "required": [
         "ActivityId",
@@ -1096,11 +1315,11 @@
         "Details": {}
       }
     },
-    "S3e": {
+    "S3x": {
       "type": "list",
       "member": {}
     },
-    "S3m": {
+    "S4d": {
       "type": "structure",
       "required": [
         "AutoScalingGroupName"
