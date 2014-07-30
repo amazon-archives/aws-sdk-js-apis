@@ -3460,6 +3460,9 @@
     "DeleteVpcPeeringConnection": {
       "input": {
         "type": "structure",
+        "required": [
+          "VpcPeeringConnectionId"
+        ],
         "members": {
           "DryRun": {
             "type": "boolean"
@@ -6042,17 +6045,7 @@
           "NetworkInterfaceId": {
             "type": "string"
           },
-          "Description": {
-            "type": "string"
-          },
-          "SourceDestCheck": {
-            "type": "string"
-          },
-          "Groups": {
-            "type": "string",
-            "locationName": "GroupSet"
-          },
-          "Attachment": {
+          "Attribute": {
             "type": "string"
           }
         }
@@ -9903,6 +9896,9 @@
     "ImportVolume": {
       "input": {
         "type": "structure",
+        "required": [
+          "AvailabilityZone"
+        ],
         "members": {
           "DryRun": {
             "type": "boolean"
@@ -10758,6 +10754,9 @@
     "RegisterImage": {
       "input": {
         "type": "structure",
+        "required": [
+          "Name"
+        ],
         "members": {
           "DryRun": {
             "type": "boolean"
@@ -10846,6 +10845,9 @@
     "RejectVpcPeeringConnection": {
       "input": {
         "type": "structure",
+        "required": [
+          "VpcPeeringConnectionId"
+        ],
         "members": {
           "DryRun": {
             "type": "boolean"
@@ -11036,6 +11038,11 @@
     "ReportInstanceStatus": {
       "input": {
         "type": "structure",
+        "required": [
+          "Instances",
+          "Status",
+          "ReasonCodes"
+        ],
         "members": {
           "DryRun": {
             "type": "boolean"
