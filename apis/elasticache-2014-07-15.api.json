@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "apiVersion": "2014-03-24",
+    "apiVersion": "2014-07-15",
     "endpointPrefix": "elasticache",
     "serviceFullName": "Amazon ElastiCache",
     "signatureVersion": "v4",
-    "xmlNamespace": "http://elasticache.amazonaws.com/doc/2014-03-24/",
+    "xmlNamespace": "http://elasticache.amazonaws.com/doc/2014-07-15/",
     "protocol": "query"
   },
   "operations": {
@@ -86,7 +86,11 @@
             }
           },
           "SnapshotName": {},
+          "AZMode": {},
           "PreferredAvailabilityZone": {},
+          "PreferredAvailabilityZones": {
+            "shape": "Sj"
+          },
           "PreferredMaintenanceWindow": {},
           "Port": {
             "type": "integer"
@@ -107,7 +111,7 @@
         "type": "structure",
         "members": {
           "CacheCluster": {
-            "shape": "Sl"
+            "shape": "Sm"
           }
         }
       }
@@ -132,7 +136,7 @@
         "type": "structure",
         "members": {
           "CacheParameterGroup": {
-            "shape": "S10"
+            "shape": "S11"
           }
         }
       }
@@ -172,7 +176,7 @@
           "CacheSubnetGroupName": {},
           "CacheSubnetGroupDescription": {},
           "SubnetIds": {
-            "shape": "S14"
+            "shape": "S15"
           }
         }
       },
@@ -182,7 +186,7 @@
         "type": "structure",
         "members": {
           "CacheSubnetGroup": {
-            "shape": "S16"
+            "shape": "S17"
           }
         }
       }
@@ -207,7 +211,7 @@
         "type": "structure",
         "members": {
           "ReplicationGroup": {
-            "shape": "S1c"
+            "shape": "S1d"
           }
         }
       }
@@ -252,7 +256,7 @@
         "type": "structure",
         "members": {
           "CacheCluster": {
-            "shape": "Sl"
+            "shape": "Sm"
           }
         }
       }
@@ -310,7 +314,7 @@
         "type": "structure",
         "members": {
           "ReplicationGroup": {
-            "shape": "S1c"
+            "shape": "S1d"
           }
         }
       }
@@ -358,7 +362,7 @@
           "CacheClusters": {
             "type": "list",
             "member": {
-              "shape": "Sl",
+              "shape": "Sm",
               "locationName": "CacheCluster"
             }
           }
@@ -422,7 +426,7 @@
           "CacheParameterGroups": {
             "type": "list",
             "member": {
-              "shape": "S10",
+              "shape": "S11",
               "locationName": "CacheParameterGroup"
             }
           }
@@ -450,10 +454,10 @@
         "members": {
           "Marker": {},
           "Parameters": {
-            "shape": "S26"
+            "shape": "S27"
           },
           "CacheNodeTypeSpecificParameters": {
-            "shape": "S28"
+            "shape": "S29"
           }
         }
       }
@@ -503,7 +507,7 @@
           "CacheSubnetGroups": {
             "type": "list",
             "member": {
-              "shape": "S16",
+              "shape": "S17",
               "locationName": "CacheSubnetGroup"
             }
           }
@@ -535,10 +539,10 @@
               "CacheParameterGroupFamily": {},
               "Marker": {},
               "Parameters": {
-                "shape": "S26"
+                "shape": "S27"
               },
               "CacheNodeTypeSpecificParameters": {
-                "shape": "S28"
+                "shape": "S29"
               }
             },
             "wrapper": true
@@ -609,7 +613,7 @@
           "ReplicationGroups": {
             "type": "list",
             "member": {
-              "shape": "S1c",
+              "shape": "S1d",
               "locationName": "ReplicationGroup"
             }
           }
@@ -640,7 +644,7 @@
           "ReservedCacheNodes": {
             "type": "list",
             "member": {
-              "shape": "S2w",
+              "shape": "S2x",
               "locationName": "ReservedCacheNode"
             }
           }
@@ -687,7 +691,7 @@
                 "ProductDescription": {},
                 "OfferingType": {},
                 "RecurringCharges": {
-                  "shape": "S2y"
+                  "shape": "S2z"
                 }
               },
               "wrapper": true
@@ -736,7 +740,7 @@
             "type": "integer"
           },
           "CacheNodeIdsToRemove": {
-            "shape": "Sp"
+            "shape": "Sq"
           },
           "CacheSecurityGroupNames": {
             "shape": "Sg"
@@ -758,7 +762,11 @@
           "SnapshotRetentionLimit": {
             "type": "integer"
           },
-          "SnapshotWindow": {}
+          "SnapshotWindow": {},
+          "AZMode": {},
+          "NewAvailabilityZones": {
+            "shape": "Sj"
+          }
         }
       },
       "output": {
@@ -767,7 +775,7 @@
         "type": "structure",
         "members": {
           "CacheCluster": {
-            "shape": "Sl"
+            "shape": "Sm"
           }
         }
       }
@@ -782,12 +790,12 @@
         "members": {
           "CacheParameterGroupName": {},
           "ParameterNameValues": {
-            "shape": "S3a"
+            "shape": "S3b"
           }
         }
       },
       "output": {
-        "shape": "S3c",
+        "shape": "S3d",
         "resultWrapper": "ModifyCacheParameterGroupResult"
       }
     },
@@ -801,7 +809,7 @@
           "CacheSubnetGroupName": {},
           "CacheSubnetGroupDescription": {},
           "SubnetIds": {
-            "shape": "S14"
+            "shape": "S15"
           }
         }
       },
@@ -811,7 +819,7 @@
         "type": "structure",
         "members": {
           "CacheSubnetGroup": {
-            "shape": "S16"
+            "shape": "S17"
           }
         }
       }
@@ -856,7 +864,7 @@
         "type": "structure",
         "members": {
           "ReplicationGroup": {
-            "shape": "S1c"
+            "shape": "S1d"
           }
         }
       }
@@ -881,7 +889,7 @@
         "type": "structure",
         "members": {
           "ReservedCacheNode": {
-            "shape": "S2w"
+            "shape": "S2x"
           }
         }
       }
@@ -896,7 +904,7 @@
         "members": {
           "CacheClusterId": {},
           "CacheNodeIdsToReboot": {
-            "shape": "Sp"
+            "shape": "Sq"
           }
         }
       },
@@ -906,7 +914,7 @@
         "type": "structure",
         "members": {
           "CacheCluster": {
-            "shape": "Sl"
+            "shape": "Sm"
           }
         }
       }
@@ -924,12 +932,12 @@
             "type": "boolean"
           },
           "ParameterNameValues": {
-            "shape": "S3a"
+            "shape": "S3b"
           }
         }
       },
       "output": {
-        "shape": "S3c",
+        "shape": "S3d",
         "resultWrapper": "ResetCacheParameterGroupResult"
       }
     },
@@ -1046,12 +1054,18 @@
         "locationName": "SecurityGroupId"
       }
     },
-    "Sl": {
+    "Sj": {
+      "type": "list",
+      "member": {
+        "locationName": "PreferredAvailabilityZone"
+      }
+    },
+    "Sm": {
       "type": "structure",
       "members": {
         "CacheClusterId": {},
         "ConfigurationEndpoint": {
-          "shape": "Sm"
+          "shape": "Sn"
         },
         "ClientDownloadLandingPage": {},
         "CacheNodeType": {},
@@ -1073,7 +1087,7 @@
               "type": "integer"
             },
             "CacheNodeIdsToRemove": {
-              "shape": "Sp"
+              "shape": "Sq"
             },
             "EngineVersion": {}
           }
@@ -1102,7 +1116,7 @@
             "CacheParameterGroupName": {},
             "ParameterApplyStatus": {},
             "CacheNodeIdsToReboot": {
-              "shape": "Sp"
+              "shape": "Sq"
             }
           }
         },
@@ -1119,10 +1133,11 @@
                 "type": "timestamp"
               },
               "Endpoint": {
-                "shape": "Sm"
+                "shape": "Sn"
               },
               "ParameterGroupStatus": {},
-              "SourceCacheNodeId": {}
+              "SourceCacheNodeId": {},
+              "CustomerAvailabilityZone": {}
             }
           }
         },
@@ -1147,7 +1162,7 @@
       },
       "wrapper": true
     },
-    "Sm": {
+    "Sn": {
       "type": "structure",
       "members": {
         "Address": {},
@@ -1156,13 +1171,13 @@
         }
       }
     },
-    "Sp": {
+    "Sq": {
       "type": "list",
       "member": {
         "locationName": "CacheNodeId"
       }
     },
-    "S10": {
+    "S11": {
       "type": "structure",
       "members": {
         "CacheParameterGroupName": {},
@@ -1171,13 +1186,13 @@
       },
       "wrapper": true
     },
-    "S14": {
+    "S15": {
       "type": "list",
       "member": {
         "locationName": "SubnetIdentifier"
       }
     },
-    "S16": {
+    "S17": {
       "type": "structure",
       "members": {
         "CacheSubnetGroupName": {},
@@ -1203,7 +1218,7 @@
       },
       "wrapper": true
     },
-    "S1c": {
+    "S1d": {
       "type": "structure",
       "members": {
         "ReplicationGroupId": {},
@@ -1230,7 +1245,7 @@
               "NodeGroupId": {},
               "Status": {},
               "PrimaryEndpoint": {
-                "shape": "Sm"
+                "shape": "Sn"
               },
               "NodeGroupMembers": {
                 "type": "list",
@@ -1241,7 +1256,7 @@
                     "CacheClusterId": {},
                     "CacheNodeId": {},
                     "ReadEndpoint": {
-                      "shape": "Sm"
+                      "shape": "Sn"
                     },
                     "PreferredAvailabilityZone": {},
                     "CurrentRole": {}
@@ -1255,7 +1270,7 @@
       },
       "wrapper": true
     },
-    "S26": {
+    "S27": {
       "type": "list",
       "member": {
         "locationName": "Parameter",
@@ -1274,7 +1289,7 @@
         }
       }
     },
-    "S28": {
+    "S29": {
       "type": "list",
       "member": {
         "locationName": "CacheNodeTypeSpecificParameter",
@@ -1303,7 +1318,7 @@
         }
       }
     },
-    "S2w": {
+    "S2x": {
       "type": "structure",
       "members": {
         "ReservedCacheNodeId": {},
@@ -1328,12 +1343,12 @@
         "OfferingType": {},
         "State": {},
         "RecurringCharges": {
-          "shape": "S2y"
+          "shape": "S2z"
         }
       },
       "wrapper": true
     },
-    "S2y": {
+    "S2z": {
       "type": "list",
       "member": {
         "locationName": "RecurringCharge",
@@ -1347,7 +1362,7 @@
         "wrapper": true
       }
     },
-    "S3a": {
+    "S3b": {
       "type": "list",
       "member": {
         "locationName": "ParameterNameValue",
@@ -1358,7 +1373,7 @@
         }
       }
     },
-    "S3c": {
+    "S3d": {
       "type": "structure",
       "members": {
         "CacheParameterGroupName": {}
