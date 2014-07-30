@@ -89,6 +89,9 @@
   "route53": {
     "name": "Route53"
   },
+  "route53domains": {
+    "name": "Route53Domains"
+  },
   "s3": {
     "name": "S3"
   },
