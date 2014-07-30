@@ -22,7 +22,7 @@
           "HostedZoneId",
           "ChangeBatch"
         ],
-        "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace":{"uri":"https://route53.amazonaws.com/doc/2013-04-01/"},
         "locationName":"ChangeResourceRecordSetsRequest"
       },
       "output":{
@@ -77,7 +77,7 @@
           "AddTags",
           "RemoveTagKeys"
         ],
-        "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace":{"uri":"https://route53.amazonaws.com/doc/2013-04-01/"},
         "locationName":"ChangeTagsForResourceRequest"
       },
       "output":{
@@ -124,7 +124,7 @@
           "CallerReference",
           "HealthCheckConfig"
         ],
-        "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace":{"uri":"https://route53.amazonaws.com/doc/2013-04-01/"},
         "locationName":"CreateHealthCheckRequest"
       },
       "output":{
@@ -170,7 +170,7 @@
           "CallerReference",
           "HostedZoneConfig"
         ],
-        "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace":{"uri":"https://route53.amazonaws.com/doc/2013-04-01/"},
         "locationName":"CreateHostedZoneRequest"
       },
       "output":{
@@ -343,6 +343,41 @@
       },
       "documentation":"<p> To retrieve a list of the IP ranges used by Amazon Route 53 health checkers to check the health of your resources, send a <code>GET</code> request to the <code>2013-04-01/checkeripranges</code> resource. You can use these IP addresses to configure router and firewall rules to allow health checkers to check the health of your resources.</p>"
     },
+    "GetGeoLocation":{
+      "name":"GetGeoLocation",
+      "http":{
+        "method":"GET",
+        "requestUri":"/2013-04-01/geolocation"
+      },
+      "input":{
+        "shape":"GetGeoLocationRequest",
+        "documentation":"<p>A complex type that contains information about the request to get a geo location.</p>",
+        "xmlOrder":[
+          "ContinentCode",
+          "CountryCode",
+          "SubdivisionCode"
+        ]
+      },
+      "output":{
+        "shape":"GetGeoLocationResponse",
+        "documentation":"<p>A complex type containing information about the specified geo location.</p>",
+        "xmlOrder":["GeoLocationDetails"]
+      },
+      "errors":[
+        {
+          "shape":"NoSuchGeoLocation",
+          "error":{"httpStatusCode":404},
+          "exception":true,
+          "documentation":"<p>The geo location you are trying to get does not exist.</p>"
+        },
+        {
+          "shape":"InvalidInput",
+          "error":{"httpStatusCode":400},
+          "exception":true,
+          "documentation":"<p>Some value specified in the request is invalid or the XML document is malformed.</p>"
+        }
+      ]
+    },
     "GetHealthCheck":{
       "name":"GetHealthCheck",
       "http":{
@@ -430,6 +465,43 @@
         }
       ],
       "documentation":"<p> To retrieve the delegation set for a hosted zone, send a <code>GET</code> request to the <code>2013-04-01/hostedzone/<i>hosted zone ID</i></code> resource. The delegation set is the four Route 53 name servers that were assigned to the hosted zone when you created it.</p>"
+    },
+    "ListGeoLocations":{
+      "name":"ListGeoLocations",
+      "http":{
+        "method":"GET",
+        "requestUri":"/2013-04-01/geolocations"
+      },
+      "input":{
+        "shape":"ListGeoLocationsRequest",
+        "documentation":"<p> The input for a ListGeoLocations request.</p>",
+        "xmlOrder":[
+          "StartContinentCode",
+          "StartCountryCode",
+          "StartSubdivisionCode",
+          "MaxItems"
+        ]
+      },
+      "output":{
+        "shape":"ListGeoLocationsResponse",
+        "documentation":"<p>A complex type that contains information about the geo locations that are returned by the request and information about the response.</p>",
+        "xmlOrder":[
+          "GeoLocationDetailsList",
+          "IsTruncated",
+          "NextContinentCode",
+          "NextCountryCode",
+          "NextSubdivisionCode",
+          "MaxItems"
+        ]
+      },
+      "errors":[
+        {
+          "shape":"InvalidInput",
+          "error":{"httpStatusCode":400},
+          "exception":true,
+          "documentation":"<p>Some value specified in the request is invalid or the XML document is malformed.</p>"
+        }
+      ]
     },
     "ListHealthChecks":{
       "name":"ListHealthChecks",
@@ -609,7 +681,7 @@
           "ResourceType",
           "ResourceIds"
         ],
-        "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace":{"uri":"https://route53.amazonaws.com/doc/2013-04-01/"},
         "locationName":"ListTagsForResourcesRequest"
       },
       "output":{
@@ -662,7 +734,7 @@
           "SearchString",
           "FailureThreshold"
         ],
-        "xmlNamespace":"https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace":{"uri":"https://route53.amazonaws.com/doc/2013-04-01/"},
         "locationName":"UpdateHealthCheckRequest"
       },
       "output":{
@@ -1107,6 +1179,104 @@
       "type":"string",
       "max":255
     },
+    "GeoLocation":{
+      "type":"structure",
+      "members":{
+        "ContinentCode":{
+          "shape":"GeoLocationContinentCode",
+          "documentation":"<p>The code for a continent geo location. Note: only continent locations have a continent code.</p> <p>Valid values: <code>AF</code> | <code>AN</code> | <code>AS</code> | <code>EU</code> | <code>OC</code> | <code>NA</code> | <code>SA</code></p> <p>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code> or <code>SubdivisionCode</code> returns an <a>InvalidInput</a> error.</p>"
+        },
+        "CountryCode":{
+          "shape":"GeoLocationCountryCode",
+          "documentation":"<p>The code for a country geo location. The default location uses '*' for the country code and will match all locations that are not matched by a geo location.</p> <p>The default geo location uses a <code>*</code> for the country code. All other country codes follow the ISO 3166 two-character code.</p>"
+        },
+        "SubdivisionCode":{
+          "shape":"GeoLocationSubdivisionCode",
+          "documentation":"<p>The code for a country's subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.</p> <p>Constraint: Specifying <code>SubdivisionCode</code> without <code>CountryCode</code> returns an <a>InvalidInput</a> error.</p>"
+        }
+      },
+      "documentation":"<p>A complex type that contains information about a geo location.</p>",
+      "xmlOrder":[
+        "ContinentCode",
+        "CountryCode",
+        "SubdivisionCode"
+      ]
+    },
+    "GeoLocationContinentCode":{
+      "type":"string",
+      "min":2,
+      "max":2
+    },
+    "GeoLocationContinentName":{
+      "type":"string",
+      "min":1,
+      "max":32
+    },
+    "GeoLocationCountryCode":{
+      "type":"string",
+      "min":1,
+      "max":2
+    },
+    "GeoLocationCountryName":{
+      "type":"string",
+      "min":1,
+      "max":64
+    },
+    "GeoLocationDetails":{
+      "type":"structure",
+      "members":{
+        "ContinentCode":{
+          "shape":"GeoLocationContinentCode",
+          "documentation":"<p>The code for a continent geo location. Note: only continent locations have a continent code.</p>"
+        },
+        "ContinentName":{
+          "shape":"GeoLocationContinentName",
+          "documentation":"<p>The name of the continent. This element is only present if <code>ContinentCode</code> is also present.</p>"
+        },
+        "CountryCode":{
+          "shape":"GeoLocationCountryCode",
+          "documentation":"<p>The code for a country geo location. The default location uses '*' for the country code and will match all locations that are not matched by a geo location.</p> <p>The default geo location uses a <code>*</code> for the country code. All other country codes follow the ISO 3166 two-character code.</p>"
+        },
+        "CountryName":{
+          "shape":"GeoLocationCountryName",
+          "documentation":"<p>The name of the country. This element is only present if <code>CountryCode</code> is also present.</p>"
+        },
+        "SubdivisionCode":{
+          "shape":"GeoLocationSubdivisionCode",
+          "documentation":"<p>The code for a country's subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.</p>"
+        },
+        "SubdivisionName":{
+          "shape":"GeoLocationSubdivisionName",
+          "documentation":"<p>The name of the subdivision. This element is only present if <code>SubdivisionCode</code> is also present.</p>"
+        }
+      },
+      "documentation":"<p>A complex type that contains information about a <code>GeoLocation</code>.</p>",
+      "xmlOrder":[
+        "ContinentCode",
+        "ContinentName",
+        "CountryCode",
+        "CountryName",
+        "SubdivisionCode",
+        "SubdivisionName"
+      ]
+    },
+    "GeoLocationDetailsList":{
+      "type":"list",
+      "member":{
+        "shape":"GeoLocationDetails",
+        "locationName":"GeoLocationDetails"
+      }
+    },
+    "GeoLocationSubdivisionCode":{
+      "type":"string",
+      "min":1,
+      "max":3
+    },
+    "GeoLocationSubdivisionName":{
+      "type":"string",
+      "min":1,
+      "max":64
+    },
     "GetChangeRequest":{
       "type":"structure",
       "required":["Id"],
@@ -1149,6 +1319,47 @@
         }
       },
       "documentation":"<p>A complex type that contains the <code>CheckerIpRanges</code> element.</p>"
+    },
+    "GetGeoLocationRequest":{
+      "type":"structure",
+      "members":{
+        "ContinentCode":{
+          "shape":"GeoLocationContinentCode",
+          "location":"querystring",
+          "locationName":"continentcode",
+          "documentation":"<p>The code for a continent geo location. Note: only continent locations have a continent code.</p> <p>Valid values: <code>AF</code> | <code>AN</code> | <code>AS</code> | <code>EU</code> | <code>OC</code> | <code>NA</code> | <code>SA</code></p> <p>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code> or <code>SubdivisionCode</code> returns an <a>InvalidInput</a> error.</p>"
+        },
+        "CountryCode":{
+          "shape":"GeoLocationCountryCode",
+          "location":"querystring",
+          "locationName":"countrycode",
+          "documentation":"<p>The code for a country geo location. The default location uses '*' for the country code and will match all locations that are not matched by a geo location.</p> <p>The default geo location uses a <code>*</code> for the country code. All other country codes follow the ISO 3166 two-character code.</p>"
+        },
+        "SubdivisionCode":{
+          "shape":"GeoLocationSubdivisionCode",
+          "location":"querystring",
+          "locationName":"subdivisioncode",
+          "documentation":"<p>The code for a country's subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.</p> <p>Constraint: Specifying <code>SubdivisionCode</code> without <code>CountryCode</code> returns an <a>InvalidInput</a> error.</p>"
+        }
+      },
+      "documentation":"<p>A complex type that contains information about the request to get a geo location.</p>",
+      "xmlOrder":[
+        "ContinentCode",
+        "CountryCode",
+        "SubdivisionCode"
+      ]
+    },
+    "GetGeoLocationResponse":{
+      "type":"structure",
+      "required":["GeoLocationDetails"],
+      "members":{
+        "GeoLocationDetails":{
+          "shape":"GeoLocationDetails",
+          "documentation":"<p>A complex type that contains the information about the specified geo location.</p>"
+        }
+      },
+      "documentation":"<p>A complex type containing information about the specified geo location.</p>",
+      "xmlOrder":["GeoLocationDetails"]
     },
     "GetHealthCheckCountRequest":{
       "type":"structure",
@@ -1506,6 +1717,85 @@
       "exception":true,
       "documentation":"<p>Some value specified in the request is invalid or the XML document is malformed.</p>"
     },
+    "ListGeoLocationsRequest":{
+      "type":"structure",
+      "members":{
+        "StartContinentCode":{
+          "shape":"GeoLocationContinentCode",
+          "location":"querystring",
+          "locationName":"startcontinentcode",
+          "documentation":"<p>The first continent code in the lexicographic ordering of geo locations that you want the <code>ListGeoLocations</code> request to list. For non-continent geo locations, this should be null.</p> <p>Valid values: <code>AF</code> | <code>AN</code> | <code>AS</code> | <code>EU</code> | <code>OC</code> | <code>NA</code> | <code>SA</code></p> <p>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code> or <code>SubdivisionCode</code> returns an <a>InvalidInput</a> error.</p>"
+        },
+        "StartCountryCode":{
+          "shape":"GeoLocationCountryCode",
+          "location":"querystring",
+          "locationName":"startcountrycode",
+          "documentation":"<p>The first country code in the lexicographic ordering of geo locations that you want the <code>ListGeoLocations</code> request to list.</p> <p>The default geo location uses a <code>*</code> for the country code. All other country codes follow the ISO 3166 two-character code.</p>"
+        },
+        "StartSubdivisionCode":{
+          "shape":"GeoLocationSubdivisionCode",
+          "location":"querystring",
+          "locationName":"startsubdivisioncode",
+          "documentation":"<p>The first subdivision code in the lexicographic ordering of geo locations that you want the <code>ListGeoLocations</code> request to list.</p> <p>Constraint: Specifying <code>SubdivisionCode</code> without <code>CountryCode</code> returns an <a>InvalidInput</a> error.</p>"
+        },
+        "MaxItems":{
+          "shape":"PageMaxItems",
+          "location":"querystring",
+          "locationName":"maxitems",
+          "documentation":"<p>The maximum number of geo locations you want in the response body.</p>"
+        }
+      },
+      "documentation":"<p> The input for a ListGeoLocations request.</p>",
+      "xmlOrder":[
+        "StartContinentCode",
+        "StartCountryCode",
+        "StartSubdivisionCode",
+        "MaxItems"
+      ]
+    },
+    "ListGeoLocationsResponse":{
+      "type":"structure",
+      "required":[
+        "GeoLocationDetailsList",
+        "IsTruncated",
+        "MaxItems"
+      ],
+      "members":{
+        "GeoLocationDetailsList":{
+          "shape":"GeoLocationDetailsList",
+          "documentation":"<p>A complex type that contains information about the geo locations that are returned by the request.</p>"
+        },
+        "IsTruncated":{
+          "shape":"PageTruncated",
+          "documentation":"<p> A flag that indicates whether there are more geo locations to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the values included in the <a>ListGeoLocationsResponse$NextContinentCode</a>, <a>ListGeoLocationsResponse$NextCountryCode</a> and <a>ListGeoLocationsResponse$NextSubdivisionCode</a> elements.</p> <p>Valid Values: <code>true</code> | <code>false</code></p>"
+        },
+        "NextContinentCode":{
+          "shape":"GeoLocationContinentCode",
+          "documentation":"<p>If the results were truncated, the continent code of the next geo location in the list. This element is present only if <a>ListGeoLocationsResponse$IsTruncated</a> is true and the next geo location to list is a continent location. </p>"
+        },
+        "NextCountryCode":{
+          "shape":"GeoLocationCountryCode",
+          "documentation":"<p>If the results were truncated, the country code of the next geo location in the list. This element is present only if <a>ListGeoLocationsResponse$IsTruncated</a> is true and the next geo location to list is not a continent location. </p>"
+        },
+        "NextSubdivisionCode":{
+          "shape":"GeoLocationSubdivisionCode",
+          "documentation":"<p>If the results were truncated, the subdivision code of the next geo location in the list. This element is present only if <a>ListGeoLocationsResponse$IsTruncated</a> is true and the next geo location has a subdivision. </p>"
+        },
+        "MaxItems":{
+          "shape":"PageMaxItems",
+          "documentation":"<p>The maximum number of records you requested. The maximum value of <code>MaxItems</code> is 100.</p>"
+        }
+      },
+      "documentation":"<p>A complex type that contains information about the geo locations that are returned by the request and information about the response.</p>",
+      "xmlOrder":[
+        "GeoLocationDetailsList",
+        "IsTruncated",
+        "NextContinentCode",
+        "NextCountryCode",
+        "NextSubdivisionCode",
+        "MaxItems"
+      ]
+    },
     "ListHealthChecksRequest":{
       "type":"structure",
       "members":{
@@ -1797,6 +2087,18 @@
       "error":{"httpStatusCode":404},
       "exception":true
     },
+    "NoSuchGeoLocation":{
+      "type":"structure",
+      "members":{
+        "message":{
+          "shape":"ErrorMessage",
+          "documentation":"<p>Descriptive message for the error response.</p>"
+        }
+      },
+      "error":{"httpStatusCode":404},
+      "exception":true,
+      "documentation":"<p>The geo location you are trying to get does not exist.</p>"
+    },
     "NoSuchHealthCheck":{
       "type":"structure",
       "members":{
@@ -1907,7 +2209,7 @@
         },
         "SetIdentifier":{
           "shape":"ResourceRecordSetIdentifier",
-          "documentation":"<p><i>Weighted, Regional, and Failover resource record sets only:</i> An identifier that differentiates among multiple resource record sets that have the same combination of DNS name and type.</p>"
+          "documentation":"<p><i>Weighted, Latency, Geo, and Failover resource record sets only:</i> An identifier that differentiates among multiple resource record sets that have the same combination of DNS name and type.</p>"
         },
         "Weight":{
           "shape":"ResourceRecordSetWeight",
@@ -1915,7 +2217,11 @@
         },
         "Region":{
           "shape":"ResourceRecordSetRegion",
-          "documentation":"<p><i>Regional resource record sets only:</i> Among resource record sets that have the same combination of DNS name and type, a value that specifies the AWS region for the current resource record set.</p>"
+          "documentation":"<p><i>Latency-based resource record sets only:</i> Among resource record sets that have the same combination of DNS name and type, a value that specifies the AWS region for the current resource record set.</p>"
+        },
+        "GeoLocation":{
+          "shape":"GeoLocation",
+          "documentation":"<p><i>Geo location resource record sets only:</i> Among resource record sets that have the same combination of DNS name and type, a value that specifies the geo location for the current resource record set.</p>"
         },
         "Failover":{
           "shape":"ResourceRecordSetFailover",
@@ -1945,6 +2251,7 @@
         "SetIdentifier",
         "Weight",
         "Region",
+        "GeoLocation",
         "Failover",
         "TTL",
         "ResourceRecords",

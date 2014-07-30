@@ -18,7 +18,9 @@
           "HostedZoneId",
           "ChangeBatch"
         ],
-        "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace": {
+          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+        },
         "locationName": "ChangeResourceRecordSetsRequest",
         "type": "structure",
         "required": [
@@ -76,7 +78,7 @@
         ],
         "members": {
           "ChangeInfo": {
-            "shape": "Sn"
+            "shape": "Sr"
           }
         }
       }
@@ -92,7 +94,9 @@
           "AddTags",
           "RemoveTagKeys"
         ],
-        "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace": {
+          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+        },
         "locationName": "ChangeTagsForResourceRequest",
         "type": "structure",
         "required": [
@@ -109,7 +113,7 @@
             "locationName": "ResourceId"
           },
           "AddTags": {
-            "shape": "St"
+            "shape": "Sx"
           },
           "RemoveTagKeys": {
             "type": "list",
@@ -134,7 +138,9 @@
           "CallerReference",
           "HealthCheckConfig"
         ],
-        "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace": {
+          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+        },
         "locationName": "CreateHealthCheckRequest",
         "type": "structure",
         "required": [
@@ -144,7 +150,7 @@
         "members": {
           "CallerReference": {},
           "HealthCheckConfig": {
-            "shape": "S11"
+            "shape": "S15"
           }
         }
       },
@@ -160,7 +166,7 @@
         ],
         "members": {
           "HealthCheck": {
-            "shape": "S1b"
+            "shape": "S1f"
           },
           "Location": {
             "location": "header",
@@ -180,7 +186,9 @@
           "CallerReference",
           "HostedZoneConfig"
         ],
-        "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace": {
+          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+        },
         "locationName": "CreateHostedZoneRequest",
         "type": "structure",
         "required": [
@@ -191,7 +199,7 @@
           "Name": {},
           "CallerReference": {},
           "HostedZoneConfig": {
-            "shape": "S1g"
+            "shape": "S1k"
           }
         }
       },
@@ -211,13 +219,13 @@
         ],
         "members": {
           "HostedZone": {
-            "shape": "S1i"
+            "shape": "S1m"
           },
           "ChangeInfo": {
-            "shape": "Sn"
+            "shape": "Sr"
           },
           "DelegationSet": {
-            "shape": "S1k"
+            "shape": "S1o"
           },
           "Location": {
             "location": "header",
@@ -281,7 +289,7 @@
         ],
         "members": {
           "ChangeInfo": {
-            "shape": "Sn"
+            "shape": "Sr"
           }
         }
       }
@@ -316,7 +324,7 @@
         ],
         "members": {
           "ChangeInfo": {
-            "shape": "Sn"
+            "shape": "Sr"
           }
         }
       }
@@ -339,6 +347,48 @@
           "CheckerIpRanges": {
             "type": "list",
             "member": {}
+          }
+        }
+      }
+    },
+    "GetGeoLocation": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/2013-04-01/geolocation"
+      },
+      "input": {
+        "xmlOrder": [
+          "ContinentCode",
+          "CountryCode",
+          "SubdivisionCode"
+        ],
+        "type": "structure",
+        "members": {
+          "ContinentCode": {
+            "location": "querystring",
+            "locationName": "continentcode"
+          },
+          "CountryCode": {
+            "location": "querystring",
+            "locationName": "countrycode"
+          },
+          "SubdivisionCode": {
+            "location": "querystring",
+            "locationName": "subdivisioncode"
+          }
+        }
+      },
+      "output": {
+        "xmlOrder": [
+          "GeoLocationDetails"
+        ],
+        "type": "structure",
+        "required": [
+          "GeoLocationDetails"
+        ],
+        "members": {
+          "GeoLocationDetails": {
+            "shape": "S22"
           }
         }
       }
@@ -373,7 +423,7 @@
         ],
         "members": {
           "HealthCheck": {
-            "shape": "S1b"
+            "shape": "S1f"
           }
         }
       }
@@ -431,11 +481,76 @@
         ],
         "members": {
           "HostedZone": {
-            "shape": "S1i"
+            "shape": "S1m"
           },
           "DelegationSet": {
-            "shape": "S1k"
+            "shape": "S1o"
           }
+        }
+      }
+    },
+    "ListGeoLocations": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/2013-04-01/geolocations"
+      },
+      "input": {
+        "xmlOrder": [
+          "StartContinentCode",
+          "StartCountryCode",
+          "StartSubdivisionCode",
+          "MaxItems"
+        ],
+        "type": "structure",
+        "members": {
+          "StartContinentCode": {
+            "location": "querystring",
+            "locationName": "startcontinentcode"
+          },
+          "StartCountryCode": {
+            "location": "querystring",
+            "locationName": "startcountrycode"
+          },
+          "StartSubdivisionCode": {
+            "location": "querystring",
+            "locationName": "startsubdivisioncode"
+          },
+          "MaxItems": {
+            "location": "querystring",
+            "locationName": "maxitems"
+          }
+        }
+      },
+      "output": {
+        "xmlOrder": [
+          "GeoLocationDetailsList",
+          "IsTruncated",
+          "NextContinentCode",
+          "NextCountryCode",
+          "NextSubdivisionCode",
+          "MaxItems"
+        ],
+        "type": "structure",
+        "required": [
+          "GeoLocationDetailsList",
+          "IsTruncated",
+          "MaxItems"
+        ],
+        "members": {
+          "GeoLocationDetailsList": {
+            "type": "list",
+            "member": {
+              "shape": "S22",
+              "locationName": "GeoLocationDetails"
+            }
+          },
+          "IsTruncated": {
+            "type": "boolean"
+          },
+          "NextContinentCode": {},
+          "NextCountryCode": {},
+          "NextSubdivisionCode": {},
+          "MaxItems": {}
         }
       }
     },
@@ -480,7 +595,7 @@
           "HealthChecks": {
             "type": "list",
             "member": {
-              "shape": "S1b",
+              "shape": "S1f",
               "locationName": "HealthCheck"
             }
           },
@@ -534,7 +649,7 @@
           "HostedZones": {
             "type": "list",
             "member": {
-              "shape": "S1i",
+              "shape": "S1m",
               "locationName": "HostedZone"
             }
           },
@@ -656,7 +771,7 @@
         ],
         "members": {
           "ResourceTagSet": {
-            "shape": "S2h"
+            "shape": "S2u"
           }
         }
       }
@@ -670,7 +785,9 @@
           "ResourceType",
           "ResourceIds"
         ],
-        "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace": {
+          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+        },
         "locationName": "ListTagsForResourcesRequest",
         "type": "structure",
         "required": [
@@ -702,7 +819,7 @@
           "ResourceTagSets": {
             "type": "list",
             "member": {
-              "shape": "S2h",
+              "shape": "S2u",
               "locationName": "ResourceTagSet"
             }
           }
@@ -724,7 +841,9 @@
           "SearchString",
           "FailureThreshold"
         ],
-        "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace": {
+          "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+        },
         "locationName": "UpdateHealthCheckRequest",
         "type": "structure",
         "required": [
@@ -760,7 +879,7 @@
         ],
         "members": {
           "HealthCheck": {
-            "shape": "S1b"
+            "shape": "S1f"
           }
         }
       }
@@ -781,6 +900,19 @@
           "type": "long"
         },
         "Region": {},
+        "GeoLocation": {
+          "type": "structure",
+          "members": {
+            "ContinentCode": {},
+            "CountryCode": {},
+            "SubdivisionCode": {}
+          },
+          "xmlOrder": [
+            "ContinentCode",
+            "CountryCode",
+            "SubdivisionCode"
+          ]
+        },
         "Failover": {},
         "TTL": {
           "type": "long"
@@ -829,6 +961,7 @@
         "SetIdentifier",
         "Weight",
         "Region",
+        "GeoLocation",
         "Failover",
         "TTL",
         "ResourceRecords",
@@ -836,7 +969,7 @@
         "HealthCheckId"
       ]
     },
-    "Sn": {
+    "Sr": {
       "type": "structure",
       "required": [
         "Id",
@@ -858,7 +991,7 @@
         "Comment"
       ]
     },
-    "St": {
+    "Sx": {
       "type": "list",
       "member": {
         "locationName": "Tag",
@@ -869,7 +1002,7 @@
         }
       }
     },
-    "S11": {
+    "S15": {
       "type": "structure",
       "required": [
         "Type"
@@ -901,7 +1034,7 @@
         "FailureThreshold"
       ]
     },
-    "S1b": {
+    "S1f": {
       "type": "structure",
       "required": [
         "Id",
@@ -913,7 +1046,7 @@
         "Id": {},
         "CallerReference": {},
         "HealthCheckConfig": {
-          "shape": "S11"
+          "shape": "S15"
         },
         "HealthCheckVersion": {
           "type": "long"
@@ -926,7 +1059,7 @@
         "HealthCheckVersion"
       ]
     },
-    "S1g": {
+    "S1k": {
       "type": "structure",
       "members": {
         "Comment": {}
@@ -935,7 +1068,7 @@
         "Comment"
       ]
     },
-    "S1i": {
+    "S1m": {
       "type": "structure",
       "required": [
         "Id",
@@ -947,7 +1080,7 @@
         "Name": {},
         "CallerReference": {},
         "Config": {
-          "shape": "S1g"
+          "shape": "S1k"
         },
         "ResourceRecordSetCount": {
           "type": "long"
@@ -961,7 +1094,7 @@
         "ResourceRecordSetCount"
       ]
     },
-    "S1k": {
+    "S1o": {
       "type": "structure",
       "required": [
         "NameServers"
@@ -978,13 +1111,32 @@
         "NameServers"
       ]
     },
-    "S2h": {
+    "S22": {
+      "type": "structure",
+      "members": {
+        "ContinentCode": {},
+        "ContinentName": {},
+        "CountryCode": {},
+        "CountryName": {},
+        "SubdivisionCode": {},
+        "SubdivisionName": {}
+      },
+      "xmlOrder": [
+        "ContinentCode",
+        "ContinentName",
+        "CountryCode",
+        "CountryName",
+        "SubdivisionCode",
+        "SubdivisionName"
+      ]
+    },
+    "S2u": {
       "type": "structure",
       "members": {
         "ResourceType": {},
         "ResourceId": {},
         "Tags": {
-          "shape": "St"
+          "shape": "Sx"
         }
       }
     }
