@@ -75,17 +75,17 @@
             "shape": "S9"
           },
           "UseCustomCookbooks": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "UseOpsworksSecurityGroups": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "CustomCookbooksSource": {
             "shape": "Sb"
           },
           "DefaultSshKeyName": {},
           "ClonePermissions": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "CloneAppIds": {
             "shape": "Sd"
@@ -124,7 +124,7 @@
             "shape": "Sd"
           },
           "EnableSsl": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "SslConfiguration": {
             "shape": "Sk"
@@ -193,10 +193,10 @@
           "Architecture": {},
           "RootDeviceType": {},
           "InstallUpdatesOnBoot": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "EbsOptimized": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       },
@@ -235,22 +235,22 @@
             "shape": "S11"
           },
           "EnableAutoHealing": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "AutoAssignElasticIps": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "AutoAssignPublicIps": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "CustomRecipes": {
             "shape": "S14"
           },
           "InstallUpdatesOnBoot": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "UseEbsOptimizedInstances": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       },
@@ -291,10 +291,10 @@
             "shape": "S9"
           },
           "UseCustomCookbooks": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "UseOpsworksSecurityGroups": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "CustomCookbooksSource": {
             "shape": "Sb"
@@ -321,7 +321,7 @@
           "SshUsername": {},
           "SshPublicKey": {},
           "AllowSelfManagement": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       },
@@ -352,10 +352,10 @@
         "members": {
           "InstanceId": {},
           "DeleteElasticIp": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "DeleteVolumes": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       }
@@ -460,7 +460,7 @@
                   "shape": "Sd"
                 },
                 "EnableSsl": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "SslConfiguration": {
                   "shape": "Sk"
@@ -502,7 +502,7 @@
                 "CompletedAt": {},
                 "Status": {},
                 "ExitCode": {
-                  "shape": "S13"
+                  "type": "integer"
                 },
                 "LogUrl": {},
                 "Type": {}
@@ -537,7 +537,7 @@
                 "CreatedAt": {},
                 "CompletedAt": {},
                 "Duration": {
-                  "shape": "S13"
+                  "type": "integer"
                 },
                 "IamUserArn": {},
                 "Comment": {},
@@ -676,10 +676,10 @@
                 "RootDeviceType": {},
                 "RootDeviceVolumeId": {},
                 "InstallUpdatesOnBoot": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "EbsOptimized": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 }
               }
             }
@@ -727,13 +727,13 @@
                   "shape": "S11"
                 },
                 "EnableAutoHealing": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "AutoAssignElasticIps": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "AutoAssignPublicIps": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "DefaultRecipes": {
                   "shape": "S14"
@@ -743,10 +743,10 @@
                 },
                 "CreatedAt": {},
                 "InstallUpdatesOnBoot": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "UseEbsOptimizedInstances": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 }
               }
             }
@@ -776,7 +776,7 @@
               "members": {
                 "LayerId": {},
                 "Enable": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "UpScaling": {
                   "shape": "S2f"
@@ -825,10 +825,10 @@
                 "StackId": {},
                 "IamUserArn": {},
                 "AllowSsh": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "AllowSudo": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "Level": {}
               }
@@ -859,13 +859,13 @@
                 "InstanceId": {},
                 "Name": {},
                 "RaidLevel": {
-                  "shape": "S13"
+                  "type": "integer"
                 },
                 "NumberOfDisks": {
-                  "shape": "S13"
+                  "type": "integer"
                 },
                 "Size": {
-                  "shape": "S13"
+                  "type": "integer"
                 },
                 "Device": {},
                 "MountPoint": {},
@@ -873,7 +873,7 @@
                 "CreatedAt": {},
                 "VolumeType": {},
                 "Iops": {
-                  "shape": "S13"
+                  "type": "integer"
                 }
               }
             }
@@ -911,7 +911,7 @@
                 "Engine": {},
                 "StackId": {},
                 "MissingOnRds": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 }
               }
             }
@@ -970,55 +970,55 @@
               "Name": {},
               "Arn": {},
               "LayersCount": {
-                "shape": "S13"
+                "type": "integer"
               },
               "AppsCount": {
-                "shape": "S13"
+                "type": "integer"
               },
               "InstancesCount": {
                 "type": "structure",
                 "members": {
                   "Booting": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "ConnectionLost": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Online": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Pending": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Rebooting": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Requested": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "RunningSetup": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "SetupFailed": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "ShuttingDown": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "StartFailed": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Stopped": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Stopping": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Terminated": {
-                    "shape": "S13"
+                    "type": "integer"
                   },
                   "Terminating": {
-                    "shape": "S13"
+                    "type": "integer"
                   }
                 }
               }
@@ -1066,10 +1066,10 @@
                   "shape": "S9"
                 },
                 "UseCustomCookbooks": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "UseOpsworksSecurityGroups": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 },
                 "CustomCookbooksSource": {
                   "shape": "Sb"
@@ -1135,7 +1135,7 @@
                 "SshUsername": {},
                 "SshPublicKey": {},
                 "AllowSelfManagement": {
-                  "shape": "Sa"
+                  "type": "boolean"
                 }
               }
             }
@@ -1170,7 +1170,7 @@
                 "InstanceId": {},
                 "Status": {},
                 "Size": {
-                  "shape": "S13"
+                  "type": "integer"
                 },
                 "Device": {},
                 "MountPoint": {},
@@ -1178,7 +1178,7 @@
                 "AvailabilityZone": {},
                 "VolumeType": {},
                 "Iops": {
-                  "shape": "S13"
+                  "type": "integer"
                 }
               }
             }
@@ -1302,7 +1302,7 @@
         "members": {
           "LayerId": {},
           "Enable": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "UpScaling": {
             "shape": "S2f"
@@ -1324,10 +1324,10 @@
           "StackId": {},
           "IamUserArn": {},
           "AllowSsh": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "AllowSudo": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "Level": {}
         }
@@ -1423,7 +1423,7 @@
             "shape": "Sd"
           },
           "EnableSsl": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "SslConfiguration": {
             "shape": "Sk"
@@ -1465,10 +1465,10 @@
           "SshKeyName": {},
           "Architecture": {},
           "InstallUpdatesOnBoot": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "EbsOptimized": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       }
@@ -1497,22 +1497,22 @@
             "shape": "S11"
           },
           "EnableAutoHealing": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "AutoAssignElasticIps": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "AutoAssignPublicIps": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "CustomRecipes": {
             "shape": "S14"
           },
           "InstallUpdatesOnBoot": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "UseEbsOptimizedInstances": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       }
@@ -1564,7 +1564,7 @@
             "shape": "S9"
           },
           "UseCustomCookbooks": {
-            "shape": "Sa"
+            "type": "boolean"
           },
           "CustomCookbooksSource": {
             "shape": "Sb"
@@ -1572,7 +1572,7 @@
           "DefaultSshKeyName": {},
           "DefaultRootDeviceType": {},
           "UseOpsworksSecurityGroups": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       }
@@ -1588,7 +1588,7 @@
           "SshUsername": {},
           "SshPublicKey": {},
           "AllowSelfManagement": {
-            "shape": "Sa"
+            "type": "boolean"
           }
         }
       }
@@ -1624,14 +1624,10 @@
       "type": "structure",
       "members": {
         "ManageBerkshelf": {
-          "shape": "Sa"
+          "type": "boolean"
         },
         "BerkshelfVersion": {}
       }
-    },
-    "Sa": {
-      "type": "boolean",
-      "box": true
     },
     "Sb": {
       "type": "structure",
@@ -1709,24 +1705,20 @@
         "members": {
           "MountPoint": {},
           "RaidLevel": {
-            "shape": "S13"
+            "type": "integer"
           },
           "NumberOfDisks": {
-            "shape": "S13"
+            "type": "integer"
           },
           "Size": {
-            "shape": "S13"
+            "type": "integer"
           },
           "VolumeType": {},
           "Iops": {
-            "shape": "S13"
+            "type": "integer"
           }
         }
       }
-    },
-    "S13": {
-      "type": "integer",
-      "box": true
     },
     "S14": {
       "type": "structure",
@@ -1752,7 +1744,7 @@
       "type": "structure",
       "members": {
         "InstanceCount": {
-          "shape": "S13"
+          "type": "integer"
         },
         "ThresholdsWaitTime": {
           "type": "integer"
@@ -1761,19 +1753,15 @@
           "type": "integer"
         },
         "CpuThreshold": {
-          "shape": "S2h"
+          "type": "double"
         },
         "MemoryThreshold": {
-          "shape": "S2h"
+          "type": "double"
         },
         "LoadThreshold": {
-          "shape": "S2h"
+          "type": "double"
         }
       }
-    },
-    "S2h": {
-      "type": "double",
-      "box": true
     },
     "S3c": {
       "type": "structure",
