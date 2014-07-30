@@ -18,12 +18,8 @@
           "S3BucketName"
         ],
         "members": {
-          "Name": {
-            "required": true
-          },
-          "S3BucketName": {
-            "required": true
-          },
+          "Name": {},
+          "S3BucketName": {},
           "S3KeyPrefix": {},
           "SnsTopicName": {},
           "IncludeGlobalServiceEvents": {
@@ -160,9 +156,7 @@
           "Name"
         ],
         "members": {
-          "Name": {
-            "required": true
-          },
+          "Name": {},
           "S3BucketName": {},
           "S3KeyPrefix": {},
           "SnsTopicName": {},
