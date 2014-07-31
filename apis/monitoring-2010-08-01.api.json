@@ -208,7 +208,16 @@
                   "type": "double"
                 },
                 "Unit": {}
-              }
+              },
+              "xmlOrder": [
+                "Timestamp",
+                "SampleCount",
+                "Average",
+                "Sum",
+                "Minimum",
+                "Maximum",
+                "Unit"
+              ]
             }
           }
         }
@@ -237,6 +246,10 @@
         }
       },
       "output": {
+        "xmlOrder": [
+          "Metrics",
+          "NextToken"
+        ],
         "resultWrapper": "ListMetricsResult",
         "type": "structure",
         "members": {
@@ -250,7 +263,12 @@
                 "Dimensions": {
                   "shape": "Sv"
                 }
-              }
+              },
+              "xmlOrder": [
+                "Namespace",
+                "MetricName",
+                "Dimensions"
+              ]
             }
           },
           "NextToken": {}
@@ -430,7 +448,30 @@
             "type": "double"
           },
           "ComparisonOperator": {}
-        }
+        },
+        "xmlOrder": [
+          "AlarmName",
+          "AlarmArn",
+          "AlarmDescription",
+          "AlarmConfigurationUpdatedTimestamp",
+          "ActionsEnabled",
+          "OKActions",
+          "AlarmActions",
+          "InsufficientDataActions",
+          "StateValue",
+          "StateReason",
+          "StateReasonData",
+          "StateUpdatedTimestamp",
+          "MetricName",
+          "Namespace",
+          "Statistic",
+          "Dimensions",
+          "Period",
+          "Unit",
+          "EvaluationPeriods",
+          "Threshold",
+          "ComparisonOperator"
+        ]
       }
     },
     "So": {
@@ -448,7 +489,11 @@
         "members": {
           "Name": {},
           "Value": {}
-        }
+        },
+        "xmlOrder": [
+          "Name",
+          "Value"
+        ]
       }
     }
   }
