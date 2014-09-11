@@ -7,7 +7,7 @@
     "signatureVersion":"v4",
     "protocol":"rest-json"
   },
-  "documentation":"<fullname>Amazon Cognito Sync</fullname> <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.</p>",
+  "documentation":"<fullname>Amazon Cognito Sync</fullname> <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.</p> <p>With Amazon Cognito Sync, the data stored for each identity is accessible only to credentials assigned to that identity. In order to use the Cognito Sync service, you need to make API calls using credentials retrieved with <a href=\"http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html\">Amazon Cognito Identity service</a>.</p>",
   "operations":{
     "DeleteDataset":{
       "name":"DeleteDataset",
@@ -27,26 +27,42 @@
       "errors":[
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
+          "error":{
+            "code":"ResourceNotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if the resource doesn't exist."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
@@ -70,30 +86,46 @@
       "errors":[
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
+          "error":{
+            "code":"ResourceNotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if the resource doesn't exist."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
-      "documentation":"Gets metadata about a dataset by identity and dataset name."
+      "documentation":"Gets metadata about a dataset by identity and dataset name. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call."
     },
     "DescribeIdentityPoolUsage":{
       "name":"DescribeIdentityPoolUsage",
@@ -113,26 +145,42 @@
       "errors":[
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
+          "error":{
+            "code":"ResourceNotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if the resource doesn't exist."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
@@ -156,26 +204,42 @@
       "errors":[
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
+          "error":{
+            "code":"ResourceNotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if the resource doesn't exist."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
@@ -199,24 +263,36 @@
       "errors":[
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
-      "documentation":"Lists datasets for an identity."
+      "documentation":"Lists datasets for an identity. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call."
     },
     "ListIdentityPoolUsage":{
       "name":"ListIdentityPoolUsage",
@@ -236,20 +312,32 @@
       "errors":[
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
@@ -273,30 +361,46 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"TooManyRequestsException",
-          "error":{"httpStatusCode":429},
+          "error":{
+            "code":"TooManyRequests",
+            "httpStatusCode":429,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if the request is throttled."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
-      "documentation":"Gets paginated records, optionally changed after a particular sync count for a dataset and identity."
+      "documentation":"Gets paginated records, optionally changed after a particular sync count for a dataset and identity. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call."
     },
     "UpdateRecords":{
       "name":"UpdateRecords",
@@ -316,48 +420,76 @@
       "errors":[
         {
           "shape":"InvalidParameterException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"InvalidParameter",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a request parameter does not comply with the associated constraints."
         },
         {
           "shape":"LimitExceededException",
-          "error":{"httpStatusCode":400},
+          "error":{
+            "code":"LimitExceeded",
+            "httpStatusCode":400,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when the limit on the number of objects or operations has been exceeded."
         },
         {
           "shape":"NotAuthorizedException",
-          "error":{"httpStatusCode":403},
+          "error":{
+            "code":"NotAuthorizedError",
+            "httpStatusCode":403,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown when a user is not authorized to access the requested resource."
         },
         {
           "shape":"ResourceNotFoundException",
-          "error":{"httpStatusCode":404},
+          "error":{
+            "code":"ResourceNotFound",
+            "httpStatusCode":404,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if the resource doesn't exist."
         },
         {
           "shape":"ResourceConflictException",
-          "error":{"httpStatusCode":409},
+          "error":{
+            "code":"ResourceConflict",
+            "httpStatusCode":409,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict."
         },
         {
           "shape":"TooManyRequestsException",
-          "error":{"httpStatusCode":429},
+          "error":{
+            "code":"TooManyRequests",
+            "httpStatusCode":429,
+            "senderFault":true
+          },
           "exception":true,
           "documentation":"Thrown if the request is throttled."
         },
         {
           "shape":"InternalErrorException",
-          "error":{"httpStatusCode":500},
+          "error":{
+            "code":"InternalError",
+            "httpStatusCode":500
+          },
           "exception":true,
+          "fault":true,
           "documentation":"Indicates an internal service error."
         }
       ],
-      "documentation":"Posts updates to records and add and delete records for a dataset and user."
+      "documentation":"Posts updates to records and add and delete records for a dataset and user. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call."
     }
   },
   "shapes":{
@@ -376,7 +508,7 @@
         },
         "CreationDate":{
           "shape":"Date",
-          "documentation":"Date."
+          "documentation":"Date on which the dataset was created."
         },
         "LastModifiedDate":{
           "shape":"Date",
@@ -617,8 +749,12 @@
           "documentation":"Message returned by InternalErrorException."
         }
       },
-      "error":{"httpStatusCode":500},
+      "error":{
+        "code":"InternalError",
+        "httpStatusCode":500
+      },
       "exception":true,
+      "fault":true,
       "documentation":"Indicates an internal service error."
     },
     "InvalidParameterException":{
@@ -630,7 +766,11 @@
           "documentation":"Message returned by InvalidParameterException."
         }
       },
-      "error":{"httpStatusCode":400},
+      "error":{
+        "code":"InvalidParameter",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"Thrown when a request parameter does not comply with the associated constraints."
     },
@@ -643,7 +783,11 @@
           "documentation":"Message returned by LimitExceededException."
         }
       },
-      "error":{"httpStatusCode":400},
+      "error":{
+        "code":"LimitExceeded",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"Thrown when the limit on the number of objects or operations has been exceeded."
     },
@@ -811,7 +955,10 @@
           "shape":"Long",
           "documentation":"Server sync count for this dataset."
         },
-        "LastModifiedBy":{"shape":"String"},
+        "LastModifiedBy":{
+          "shape":"String",
+          "documentation":"The user/device that made the last change to this record."
+        },
         "MergedDatasetNames":{
           "shape":"MergedDatasetNameList",
           "documentation":"Names of merged datasets."
@@ -845,7 +992,11 @@
           "documentation":"The message returned by a NotAuthorizedException."
         }
       },
-      "error":{"httpStatusCode":403},
+      "error":{
+        "code":"NotAuthorizedError",
+        "httpStatusCode":403,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"Thrown when a user is not authorized to access the requested resource."
     },
@@ -943,7 +1094,11 @@
           "documentation":"The message returned by a ResourceConflictException."
         }
       },
-      "error":{"httpStatusCode":409},
+      "error":{
+        "code":"ResourceConflict",
+        "httpStatusCode":409,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict."
     },
@@ -956,7 +1111,11 @@
           "documentation":"Message returned by a ResourceNotFoundException."
         }
       },
-      "error":{"httpStatusCode":404},
+      "error":{
+        "code":"ResourceNotFound",
+        "httpStatusCode":404,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"Thrown if the resource doesn't exist."
     },
@@ -971,7 +1130,11 @@
           "documentation":"Message returned by a TooManyRequestsException."
         }
       },
-      "error":{"httpStatusCode":429},
+      "error":{
+        "code":"TooManyRequests",
+        "httpStatusCode":429,
+        "senderFault":true
+      },
       "exception":true,
       "documentation":"Thrown if the request is throttled."
     },
@@ -1002,7 +1165,10 @@
           "locationName":"DatasetName",
           "documentation":"A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot)."
         },
-        "RecordPatches":{"shape":"RecordPatchList"},
+        "RecordPatches":{
+          "shape":"RecordPatchList",
+          "documentation":"A list of patch operations."
+        },
         "SyncSessionToken":{
           "shape":"SyncSessionToken",
           "documentation":"The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity."
@@ -1010,7 +1176,8 @@
         "ClientContext":{
           "shape":"ClientContext",
           "location":"header",
-          "locationName":"x-amz-Client-Context"
+          "locationName":"x-amz-Client-Context",
+          "documentation":"Intended to supply a device ID that will populate the <code>lastModifiedBy</code> field referenced in other methods. The <code>ClientContext</code> field is not yet implemented."
         }
       },
       "documentation":"A request to post updates to records or add and delete records for a dataset and user."
