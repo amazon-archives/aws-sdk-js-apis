@@ -177,7 +177,7 @@
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "S5"
+            "shape": "So"
           }
         }
       }
@@ -258,7 +258,7 @@
                 "Name": {},
                 "AlternateNameEncoding": {},
                 "Attributes": {
-                  "shape": "S5"
+                  "shape": "So"
                 }
               }
             },
@@ -276,14 +276,11 @@
         "locationName": "Attribute",
         "type": "structure",
         "required": [
-          "Name",
-          "Value"
+          "Name"
         ],
         "members": {
           "Name": {},
-          "AlternateNameEncoding": {},
-          "Value": {},
-          "AlternateValueEncoding": {}
+          "Value": {}
         }
       },
       "flattened": true
@@ -316,6 +313,24 @@
           "type": "boolean"
         }
       }
+    },
+    "So": {
+      "type": "list",
+      "member": {
+        "locationName": "Attribute",
+        "type": "structure",
+        "required": [
+          "Name",
+          "Value"
+        ],
+        "members": {
+          "Name": {},
+          "AlternateNameEncoding": {},
+          "Value": {},
+          "AlternateValueEncoding": {}
+        }
+      },
+      "flattened": true
     }
   }
 }
