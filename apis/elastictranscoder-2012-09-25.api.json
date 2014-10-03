@@ -475,9 +475,6 @@
       },
       "output": {
         "type": "structure",
-        "required": [
-          "Pipeline"
-        ],
         "members": {
           "Pipeline": {
             "shape": "S21"
