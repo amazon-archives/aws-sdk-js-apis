@@ -30,14 +30,14 @@
             "type": "map",
             "key": {},
             "value": {
-              "shape": "Sk"
+              "shape": "Sr"
             }
           },
           "UnprocessedKeys": {
             "shape": "S2"
           },
           "ConsumedCapacity": {
-            "shape": "Sm"
+            "shape": "St"
           }
         }
       }
@@ -50,7 +50,7 @@
         ],
         "members": {
           "RequestItems": {
-            "shape": "St"
+            "shape": "S10"
           },
           "ReturnConsumedCapacity": {},
           "ReturnItemCollectionMetrics": {}
@@ -60,7 +60,7 @@
         "type": "structure",
         "members": {
           "UnprocessedItems": {
-            "shape": "St"
+            "shape": "S10"
           },
           "ItemCollectionMetrics": {
             "type": "map",
@@ -68,12 +68,12 @@
             "value": {
               "type": "list",
               "member": {
-                "shape": "S13"
+                "shape": "S1a"
               }
             }
           },
           "ConsumedCapacity": {
-            "shape": "Sm"
+            "shape": "St"
           }
         }
       }
@@ -89,11 +89,11 @@
         ],
         "members": {
           "AttributeDefinitions": {
-            "shape": "S18"
+            "shape": "S1f"
           },
           "TableName": {},
           "KeySchema": {
-            "shape": "S1c"
+            "shape": "S1j"
           },
           "LocalSecondaryIndexes": {
             "type": "list",
@@ -107,10 +107,10 @@
               "members": {
                 "IndexName": {},
                 "KeySchema": {
-                  "shape": "S1c"
+                  "shape": "S1j"
                 },
                 "Projection": {
-                  "shape": "S1h"
+                  "shape": "S1o"
                 }
               }
             }
@@ -128,19 +128,19 @@
               "members": {
                 "IndexName": {},
                 "KeySchema": {
-                  "shape": "S1c"
+                  "shape": "S1j"
                 },
                 "Projection": {
-                  "shape": "S1h"
+                  "shape": "S1o"
                 },
                 "ProvisionedThroughput": {
-                  "shape": "S1n"
+                  "shape": "S1u"
                 }
               }
             }
           },
           "ProvisionedThroughput": {
-            "shape": "S1n"
+            "shape": "S1u"
           }
         }
       },
@@ -148,7 +148,7 @@
         "type": "structure",
         "members": {
           "TableDescription": {
-            "shape": "S1q"
+            "shape": "S1x"
           }
         }
       }
@@ -166,25 +166,32 @@
             "shape": "S6"
           },
           "Expected": {
-            "shape": "S21"
+            "shape": "S28"
           },
           "ConditionalOperator": {},
           "ReturnValues": {},
           "ReturnConsumedCapacity": {},
-          "ReturnItemCollectionMetrics": {}
+          "ReturnItemCollectionMetrics": {},
+          "ConditionExpression": {},
+          "ExpressionAttributeNames": {
+            "shape": "Sm"
+          },
+          "ExpressionAttributeValues": {
+            "shape": "S2g"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "Sl"
+            "shape": "Ss"
           },
           "ConsumedCapacity": {
-            "shape": "Sn"
+            "shape": "Su"
           },
           "ItemCollectionMetrics": {
-            "shape": "S13"
+            "shape": "S1a"
           }
         }
       }
@@ -203,7 +210,7 @@
         "type": "structure",
         "members": {
           "TableDescription": {
-            "shape": "S1q"
+            "shape": "S1x"
           }
         }
       }
@@ -222,7 +229,7 @@
         "type": "structure",
         "members": {
           "Table": {
-            "shape": "S1q"
+            "shape": "S1x"
           }
         }
       }
@@ -240,22 +247,26 @@
             "shape": "S6"
           },
           "AttributesToGet": {
-            "shape": "Sf"
+            "shape": "Sj"
           },
           "ConsistentRead": {
             "type": "boolean"
           },
-          "ReturnConsumedCapacity": {}
+          "ReturnConsumedCapacity": {},
+          "ProjectionExpression": {},
+          "ExpressionAttributeNames": {
+            "shape": "Sm"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "Item": {
-            "shape": "Sl"
+            "shape": "Ss"
           },
           "ConsumedCapacity": {
-            "shape": "Sn"
+            "shape": "Su"
           }
         }
       }
@@ -291,28 +302,35 @@
         "members": {
           "TableName": {},
           "Item": {
-            "shape": "Sx"
+            "shape": "S14"
           },
           "Expected": {
-            "shape": "S21"
+            "shape": "S28"
           },
           "ReturnValues": {},
           "ReturnConsumedCapacity": {},
           "ReturnItemCollectionMetrics": {},
-          "ConditionalOperator": {}
+          "ConditionalOperator": {},
+          "ConditionExpression": {},
+          "ExpressionAttributeNames": {
+            "shape": "Sm"
+          },
+          "ExpressionAttributeValues": {
+            "shape": "S2g"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "Sl"
+            "shape": "Ss"
           },
           "ConsumedCapacity": {
-            "shape": "Sn"
+            "shape": "Su"
           },
           "ItemCollectionMetrics": {
-            "shape": "S13"
+            "shape": "S1a"
           }
         }
       }
@@ -329,7 +347,7 @@
           "IndexName": {},
           "Select": {},
           "AttributesToGet": {
-            "shape": "Sf"
+            "shape": "Sj"
           },
           "Limit": {
             "type": "integer"
@@ -341,11 +359,11 @@
             "type": "map",
             "key": {},
             "value": {
-              "shape": "S2p"
+              "shape": "S2z"
             }
           },
           "QueryFilter": {
-            "shape": "S2q"
+            "shape": "S30"
           },
           "ConditionalOperator": {},
           "ScanIndexForward": {
@@ -354,14 +372,22 @@
           "ExclusiveStartKey": {
             "shape": "S6"
           },
-          "ReturnConsumedCapacity": {}
+          "ReturnConsumedCapacity": {},
+          "ProjectionExpression": {},
+          "FilterExpression": {},
+          "ExpressionAttributeNames": {
+            "shape": "Sm"
+          },
+          "ExpressionAttributeValues": {
+            "shape": "S2g"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "Items": {
-            "shape": "Sk"
+            "shape": "Sr"
           },
           "Count": {
             "type": "integer"
@@ -373,7 +399,7 @@
             "shape": "S6"
           },
           "ConsumedCapacity": {
-            "shape": "Sn"
+            "shape": "Su"
           }
         }
       }
@@ -387,14 +413,14 @@
         "members": {
           "TableName": {},
           "AttributesToGet": {
-            "shape": "Sf"
+            "shape": "Sj"
           },
           "Limit": {
             "type": "integer"
           },
           "Select": {},
           "ScanFilter": {
-            "shape": "S2q"
+            "shape": "S30"
           },
           "ConditionalOperator": {},
           "ExclusiveStartKey": {
@@ -406,6 +432,14 @@
           },
           "Segment": {
             "type": "integer"
+          },
+          "ProjectionExpression": {},
+          "FilterExpression": {},
+          "ExpressionAttributeNames": {
+            "shape": "Sm"
+          },
+          "ExpressionAttributeValues": {
+            "shape": "S2g"
           }
         }
       },
@@ -413,7 +447,7 @@
         "type": "structure",
         "members": {
           "Items": {
-            "shape": "Sk"
+            "shape": "Sr"
           },
           "Count": {
             "type": "integer"
@@ -425,7 +459,7 @@
             "shape": "S6"
           },
           "ConsumedCapacity": {
-            "shape": "Sn"
+            "shape": "Su"
           }
         }
       }
@@ -456,25 +490,33 @@
             }
           },
           "Expected": {
-            "shape": "S21"
+            "shape": "S28"
           },
           "ConditionalOperator": {},
           "ReturnValues": {},
           "ReturnConsumedCapacity": {},
-          "ReturnItemCollectionMetrics": {}
+          "ReturnItemCollectionMetrics": {},
+          "UpdateExpression": {},
+          "ConditionExpression": {},
+          "ExpressionAttributeNames": {
+            "shape": "Sm"
+          },
+          "ExpressionAttributeValues": {
+            "shape": "S2g"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "Sl"
+            "shape": "Ss"
           },
           "ConsumedCapacity": {
-            "shape": "Sn"
+            "shape": "Su"
           },
           "ItemCollectionMetrics": {
-            "shape": "S13"
+            "shape": "S1a"
           }
         }
       }
@@ -488,7 +530,7 @@
         "members": {
           "TableName": {},
           "ProvisionedThroughput": {
-            "shape": "S1n"
+            "shape": "S1u"
           },
           "GlobalSecondaryIndexUpdates": {
             "type": "list",
@@ -504,7 +546,7 @@
                   "members": {
                     "IndexName": {},
                     "ProvisionedThroughput": {
-                      "shape": "S1n"
+                      "shape": "S1u"
                     }
                   }
                 }
@@ -517,7 +559,7 @@
         "type": "structure",
         "members": {
           "TableDescription": {
-            "shape": "S1q"
+            "shape": "S1x"
           }
         }
       }
@@ -540,10 +582,14 @@
             }
           },
           "AttributesToGet": {
-            "shape": "Sf"
+            "shape": "Sj"
           },
           "ConsistentRead": {
             "type": "boolean"
+          },
+          "ProjectionExpression": {},
+          "ExpressionAttributeNames": {
+            "shape": "Sm"
           }
         }
       }
@@ -576,33 +622,57 @@
           "member": {
             "type": "blob"
           }
+        },
+        "M": {
+          "type": "map",
+          "key": {},
+          "value": {
+            "shape": "S8"
+          }
+        },
+        "L": {
+          "type": "list",
+          "member": {
+            "shape": "S8"
+          }
+        },
+        "NULL": {
+          "type": "boolean"
+        },
+        "BOOL": {
+          "type": "boolean"
         }
       }
     },
-    "Sf": {
+    "Sj": {
       "type": "list",
       "member": {}
     },
-    "Sk": {
+    "Sm": {
+      "type": "map",
+      "key": {},
+      "value": {}
+    },
+    "Sr": {
       "type": "list",
       "member": {
-        "shape": "Sl"
+        "shape": "Ss"
       }
     },
-    "Sl": {
+    "Ss": {
       "type": "map",
       "key": {},
       "value": {
         "shape": "S8"
       }
     },
-    "Sm": {
+    "St": {
       "type": "list",
       "member": {
-        "shape": "Sn"
+        "shape": "Su"
       }
     },
-    "Sn": {
+    "Su": {
       "type": "structure",
       "members": {
         "TableName": {},
@@ -610,17 +680,17 @@
           "type": "double"
         },
         "Table": {
-          "shape": "Sp"
+          "shape": "Sw"
         },
         "LocalSecondaryIndexes": {
-          "shape": "Sq"
+          "shape": "Sx"
         },
         "GlobalSecondaryIndexes": {
-          "shape": "Sq"
+          "shape": "Sx"
         }
       }
     },
-    "Sp": {
+    "Sw": {
       "type": "structure",
       "members": {
         "CapacityUnits": {
@@ -628,14 +698,14 @@
         }
       }
     },
-    "Sq": {
+    "Sx": {
       "type": "map",
       "key": {},
       "value": {
-        "shape": "Sp"
+        "shape": "Sw"
       }
     },
-    "St": {
+    "S10": {
       "type": "map",
       "key": {},
       "value": {
@@ -650,7 +720,7 @@
               ],
               "members": {
                 "Item": {
-                  "shape": "Sx"
+                  "shape": "S14"
                 }
               }
             },
@@ -669,14 +739,14 @@
         }
       }
     },
-    "Sx": {
+    "S14": {
       "type": "map",
       "key": {},
       "value": {
         "shape": "S8"
       }
     },
-    "S13": {
+    "S1a": {
       "type": "structure",
       "members": {
         "ItemCollectionKey": {
@@ -694,7 +764,7 @@
         }
       }
     },
-    "S18": {
+    "S1f": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -708,7 +778,7 @@
         }
       }
     },
-    "S1c": {
+    "S1j": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -722,7 +792,7 @@
         }
       }
     },
-    "S1h": {
+    "S1o": {
       "type": "structure",
       "members": {
         "ProjectionType": {},
@@ -732,7 +802,7 @@
         }
       }
     },
-    "S1n": {
+    "S1u": {
       "type": "structure",
       "required": [
         "ReadCapacityUnits",
@@ -747,22 +817,22 @@
         }
       }
     },
-    "S1q": {
+    "S1x": {
       "type": "structure",
       "members": {
         "AttributeDefinitions": {
-          "shape": "S18"
+          "shape": "S1f"
         },
         "TableName": {},
         "KeySchema": {
-          "shape": "S1c"
+          "shape": "S1j"
         },
         "TableStatus": {},
         "CreationDateTime": {
           "type": "timestamp"
         },
         "ProvisionedThroughput": {
-          "shape": "S1t"
+          "shape": "S20"
         },
         "TableSizeBytes": {
           "type": "long"
@@ -777,10 +847,10 @@
             "members": {
               "IndexName": {},
               "KeySchema": {
-                "shape": "S1c"
+                "shape": "S1j"
               },
               "Projection": {
-                "shape": "S1h"
+                "shape": "S1o"
               },
               "IndexSizeBytes": {
                 "type": "long"
@@ -798,14 +868,14 @@
             "members": {
               "IndexName": {},
               "KeySchema": {
-                "shape": "S1c"
+                "shape": "S1j"
               },
               "Projection": {
-                "shape": "S1h"
+                "shape": "S1o"
               },
               "IndexStatus": {},
               "ProvisionedThroughput": {
-                "shape": "S1t"
+                "shape": "S20"
               },
               "IndexSizeBytes": {
                 "type": "long"
@@ -818,7 +888,7 @@
         }
       }
     },
-    "S1t": {
+    "S20": {
       "type": "structure",
       "members": {
         "LastIncreaseDateTime": {
@@ -838,7 +908,7 @@
         }
       }
     },
-    "S21": {
+    "S28": {
       "type": "map",
       "key": {},
       "value": {
@@ -852,34 +922,41 @@
           },
           "ComparisonOperator": {},
           "AttributeValueList": {
-            "shape": "S25"
+            "shape": "S2c"
           }
         }
       }
     },
-    "S25": {
+    "S2c": {
       "type": "list",
       "member": {
         "shape": "S8"
       }
     },
-    "S2p": {
+    "S2g": {
+      "type": "map",
+      "key": {},
+      "value": {
+        "shape": "S8"
+      }
+    },
+    "S2z": {
       "type": "structure",
       "required": [
         "ComparisonOperator"
       ],
       "members": {
         "AttributeValueList": {
-          "shape": "S25"
+          "shape": "S2c"
         },
         "ComparisonOperator": {}
       }
     },
-    "S2q": {
+    "S30": {
       "type": "map",
       "key": {},
       "value": {
-        "shape": "S2p"
+        "shape": "S2z"
       }
     }
   }
